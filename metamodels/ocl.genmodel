@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.vgu.se.ocl/src-gen" creationIcons="false"
+    editDirectory="/org.vgu.se.ocl.edit/src-gen" editorDirectory="/org.vgu.se.ocl.editor/src-gen"
+    modelPluginID="org.vgu.se.ocl" modelName="Ocl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>ocl.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Ocl" basePackage="org.vgu.se" disposableProviderFactory="true"
+      ecorePackage="ocl.ecore#/">
+    <nestedGenPackages prefix="DM" basePackage="org.vgu.se.ocl" disposableProviderFactory="true"
+        ecorePackage="ocl.ecore#//dm">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="ocl.ecore#//dm/EMultiplicity">
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//dm/EMultiplicity/one"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//dm/EMultiplicity/many"/>
+      </genEnums>
+      <genClasses ecoreClass="ocl.ecore#//dm/EEntity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EEntity/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//dm/EEntity/ends"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//dm/EEntity/attributes"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//dm/EAssociation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociation/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociation/opp"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociation/mult"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ocl.ecore#//dm/EAssociation/target"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//dm/EDataModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//dm/EDataModel/classes"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//dm/EAttribute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAttribute/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAttribute/type"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="EXP" basePackage="org.vgu.se.ocl" disposableProviderFactory="true"
+        ecorePackage="ocl.ecore#//exp">
+      <genEnums ecoreEnum="ocl.ecore#//exp/EIteratorKind">
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EIteratorKind/forAll"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EIteratorKind/exists"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EIteratorKind/collect"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EIteratorKind/select"/>
+      </genEnums>
+      <genEnums ecoreEnum="ocl.ecore#//exp/EOperator">
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/equal"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/allInstances"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/greater"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/less"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/notEqual"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/greaterOrEqual"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/lessOrEqual"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/AND"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/OR"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/XOR"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/IMPLIES"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/size"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/isEmpty"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/oclIsUndefined"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/flatten"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/notEmpty"/>
+        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/isUnique"/>
+      </genEnums>
+      <genClasses ecoreClass="ocl.ecore#//exp/EVariableExp">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ocl.ecore#//exp/EVariableExp/referredVariable"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/ETypeExp">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ocl.ecore#//exp/ETypeExp/referredType"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/ELoopExp">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/ELoopExp/body"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/ELoopExp/iterator"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EStateExp"/>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/EFeatureCallExp"/>
+      <genClasses ecoreClass="ocl.ecore#//exp/EAssociationClassCallExp">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ocl.ecore#//exp/EAssociationClassCallExp/referredAssociationEnds"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/ENumericLiteralExp"/>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/ELiteralExp"/>
+      <genClasses ecoreClass="ocl.ecore#//exp/EMessageExp"/>
+      <genClasses ecoreClass="ocl.ecore#//exp/EVariable">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EVariable/loopExp"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EVariable/baseExp"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EVariable/initExpression"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EVariable/name"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EPropertyCallExp">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ocl.ecore#//exp/EPropertyCallExp/referredProperty"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EIteratorExp">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EIteratorExp/kind"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/EOclExpression">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/loopBodyOwner"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/appliedElement"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/initializedElement"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/thenOwner"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/ifOwner"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/elseOwner"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/parentCall"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/parentNav"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EIterateExp">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIterateExp/result"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/ECallExp">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/ECallExp/source"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EIntegerLiteralExp">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EIntegerLiteralExp/integerValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/EPrimitiveType"/>
+      <genClasses image="false" ecoreClass="ocl.ecore#//exp/ENavigationCallExp">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/ENavigationCallExp/qualifier"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EOperationCallExp">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOperationCallExp/argument"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EOperationCallExp/referredOperation"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EStringLiteralExp">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EStringLiteralExp/stringValue"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EIfExp">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIfExp/thenExpression"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIfExp/condition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIfExp/elseExpression"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//exp/EBooleanLiteralExp">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EBooleanLiteralExp/booleanValue"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="TYPE" basePackage="org.vgu.se.ocl" disposableProviderFactory="true"
+        ecorePackage="ocl.ecore#//type">
+      <genClasses image="false" ecoreClass="ocl.ecore#//type/EClassifier"/>
+      <genClasses ecoreClass="ocl.ecore#//type/EDataType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/EInvalidType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/EVoidType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/EAnyType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/EMessageType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ocl.ecore#//type/EMessageType/referredSignal"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//type/EMessageType/referredOperation"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//type/ECollectionType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ocl.ecore#//type/ECollectionType/elementType"/>
+      </genClasses>
+      <genClasses ecoreClass="ocl.ecore#//type/EPrimitiveType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/ETupleType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/EOrderedSetType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/ESequenceType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/EBagType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/ESetType"/>
+      <genClasses ecoreClass="ocl.ecore#//type/ESignal"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

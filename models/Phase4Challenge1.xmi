@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:EIteratorExp
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dm="http://www.example.org/ocl/dm"
+    xmlns:exp="http://www.example.org/ocl/exp"
+    xsi:schemaLocation="http://www.example.org/ocl/dm ocl.ecore#//dm http://www.example.org/ocl/exp ocl.ecore#//exp"
+    kind="collect">
+  <source xsi:type="exp:EOperationCallExp"
+      referredOperation="allInstances">
+    <source
+        xsi:type="exp:ETypeExp">
+      <referredType
+          xsi:type="dm:EEntity"
+          href="CarPerson.xmi#//@classes.0"/>
+    </source>
+  </source>
+  <body xsi:type="exp:EIntegerLiteralExp"
+      integerValue="5"/>
+  <iterator
+      name="c"/>
+</exp:EIteratorExp>

@@ -1,0 +1,37 @@
+---------
+Scenarios (Work in progress...)
+---------
++++ scenario#1 = empty tables
+
++++ scenario#2 = Car table contains one row (Car_id = xx, color = "black"), 
+Person table is empty
+
++++ scenario#3 = Car table contains two rows (Car_id = xx, color = "black"), 
+(Car_id = yy, color = "red")
+Person tables contains one row (Person_id = zz, name = "Peter").
+Ownership table is empty.
+
++++ scenario#4 = Car table contains two rows (Car_id = xx, color = "black"), 
+(Car_id = yy, color = "red")
+Person tables contains one row (Person_id = zz, name = "Peter").
+Ownership table contains one row (ownedCars = xx, owners = zz).
+
++++ scenario#5 = Car table contains two rows (Car_id = xx, color = "black"), 
+(Car_id = yy, color = "red")
+Person tables contains two rows (Person_id = zz, name = "Peter"),
+(Person_id = ww, name = "Mary").
+Ownership table contains one row (ownedCars = xx, owners = zz).
+
++++ scenario#6 = Car table contains two rows (Car_id = xx, color = "black"), 
+(Car_id = yy, color = "red")
+Person tables contains two rows (Person_id = zz, name = "Peter"),
+(Person_id = ww, name = "Mary").
+Ownership table contains two rows (ownedCars = xx, owners = zz),
+(ownedCars = xx, owners = ww).
+
++++ scenario#7 = Car table contains two rows (Car_id = xx, color = "black"), 
+(Car_id = yy, color = "red")
+Person tables contains two rows (Person_id = zz, name = "Peter"),
+(Person_id = ww, name = "Mary").
+Ownership table contains three rows (ownedCars = xx, owners = zz),
+(ownedCars = xx, owners = ww), (ownedCars = yy, owners = ww).
