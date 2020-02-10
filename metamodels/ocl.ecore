@@ -5,16 +5,16 @@
     <eClassifiers xsi:type="ecore:EClass" name="EEntity" eSuperTypes="#//type/EClassifier">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ends" upperBound="-1"
-          eType="#//dm/EAssociation" containment="true"/>
+          eType="#//dm/EAssociationEnd" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
           eType="#//dm/EAttribute" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EAssociation">
+    <eClassifiers xsi:type="ecore:EClass" name="EAssociationEnd">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="opp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mult" eType="#//dm/EMultiplicity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
           eType="#//dm/EEntity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="opp" lowerBound="1" eType="#//dm/EAssociationEnd"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EDataModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
@@ -44,10 +44,9 @@
       <eLiterals name="notEqual" value="4" literal="&lt;>"/>
       <eLiterals name="greaterOrEqual" value="6" literal=">="/>
       <eLiterals name="lessOrEqual" value="7" literal="&lt;="/>
-      <eLiterals name="AND" value="8"/>
-      <eLiterals name="OR" value="9"/>
-      <eLiterals name="XOR" value="10"/>
-      <eLiterals name="IMPLIES" value="11"/>
+      <eLiterals name="AND" value="8" literal="and"/>
+      <eLiterals name="OR" value="9" literal="or"/>
+      <eLiterals name="IMPLIES" value="11" literal="implies"/>
       <eLiterals name="size" value="12"/>
       <eLiterals name="isEmpty" value="13"/>
       <eLiterals name="oclIsUndefined" value="14"/>
@@ -72,7 +71,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="EFeatureCallExp" abstract="true" eSuperTypes="#//exp/ECallExp"/>
     <eClassifiers xsi:type="ecore:EClass" name="EAssociationClassCallExp" eSuperTypes="#//exp/ENavigationCallExp">
       <eStructuralFeatures xsi:type="ecore:EReference" name="referredAssociationEnds"
-          lowerBound="1" eType="#//dm/EAssociation"/>
+          lowerBound="1" eType="#//dm/EAssociationEnd"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ENumericLiteralExp" abstract="true"
         eSuperTypes="#//exp/EPrimitiveType"/>

@@ -21,12 +21,12 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//dm/EEntity/ends"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//dm/EEntity/attributes"/>
       </genClasses>
-      <genClasses ecoreClass="ocl.ecore#//dm/EAssociation">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociation/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociation/opp"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociation/mult"/>
+      <genClasses ecoreClass="ocl.ecore#//dm/EAssociationEnd">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociationEnd/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//dm/EAssociationEnd/mult"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference ocl.ecore#//dm/EAssociation/target"/>
+            ecoreFeature="ecore:EReference ocl.ecore#//dm/EAssociationEnd/target"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//dm/EAssociationEnd/opp"/>
       </genClasses>
       <genClasses ecoreClass="ocl.ecore#//dm/EDataModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//dm/EDataModel/classes"/>
@@ -54,7 +54,6 @@
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/lessOrEqual"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/AND"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/OR"/>
-        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/XOR"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/IMPLIES"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/size"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/isEmpty"/>

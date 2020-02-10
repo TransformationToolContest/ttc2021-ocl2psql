@@ -6,7 +6,7 @@
     xmlns:DM="http://www.example.org/ocl/dm"
     xmlns:EXP="http://www.example.org/ocl/exp"
     xsi:schemaLocation="http://www.example.org/ocl/dm ocl.ecore#//dm http://www.example.org/ocl/exp ocl.ecore#//exp"
-    kind="collect">
+    kind="exists">
   <source xsi:type="EXP:EOperationCallExp"
       referredOperation="allInstances">
     <source
@@ -16,17 +16,8 @@
           href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <body xsi:type="EXP:EOperationCallExp"
-      referredOperation="size">
-    <source
-        xsi:type="EXP:EAssociationClassCallExp">
-      <source
-          xsi:type="EXP:EVariableExp"
-          referredVariable="//@iterator.0"/>
-      <referredAssociationEnds
-          href="CarPerson.xmi#//@classes.0/@ends.0"/>
-    </source>
-  </body>
+  <body xsi:type="EXP:EBooleanLiteralExp"
+      booleanValue="false"/>
   <iterator
       name="c"/>
 </EXP:EIteratorExp>

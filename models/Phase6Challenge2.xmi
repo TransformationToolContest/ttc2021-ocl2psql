@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exp:EIteratorExp
+<EXP:EIteratorExp
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:dm="http://www.example.org/ocl/dm"
-    xmlns:exp="http://www.example.org/ocl/exp"
+    xmlns:DM="http://www.example.org/ocl/dm"
+    xmlns:EXP="http://www.example.org/ocl/exp"
     xsi:schemaLocation="http://www.example.org/ocl/dm ocl.ecore#//dm http://www.example.org/ocl/exp ocl.ecore#//exp"
     kind="collect">
-  <source xsi:type="exp:EOperationCallExp"
+  <source xsi:type="EXP:EOperationCallExp"
       referredOperation="allInstances">
     <source
-        xsi:type="exp:ETypeExp">
+        xsi:type="EXP:ETypeExp">
       <referredType
-          xsi:type="dm:EEntity"
+          xsi:type="DM:EEntity"
           href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <body xsi:type="exp:EOperationCallExp">
+  <body xsi:type="EXP:EOperationCallExp">
     <source
-        xsi:type="exp:EOperationCallExp"
+        xsi:type="EXP:EOperationCallExp"
         referredOperation="size">
       <source
-          xsi:type="exp:EAssociationClassCallExp">
+          xsi:type="EXP:EAssociationClassCallExp">
         <source
-            xsi:type="exp:EVariableExp"
+            xsi:type="EXP:EVariableExp"
             referredVariable="//@iterator.0"/>
         <referredAssociationEnds
             href="CarPerson.xmi#//@classes.0/@ends.0"/>
       </source>
     </source>
     <argument
-        xsi:type="exp:EIntegerLiteralExp"
-        integerValue="2"/>
+        xsi:type="EXP:EIntegerLiteralExp"
+        integerValue="0"/>
   </body>
   <iterator
       name="c"/>
-</exp:EIteratorExp>
+</EXP:EIteratorExp>
