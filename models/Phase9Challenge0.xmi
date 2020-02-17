@@ -15,22 +15,31 @@
           href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <body xsi:type="EXP:EOperationCallExp">
+  <body xsi:type="EXP:EIteratorExp"
+      kind="exists">
     <source
-        xsi:type="EXP:EOperationCallExp"
-        referredOperation="size">
+        xsi:type="EXP:EAssociationClassCallExp">
       <source
-          xsi:type="EXP:EAssociationClassCallExp">
+          xsi:type="EXP:EVariableExp"
+          referredVariable="//@iterator.0"/>
+      <referredAssociationEnds
+          href="CarPerson.xmi#//@classes.0/@ends.0"/>
+    </source>
+    <body xsi:type="EXP:EOperationCallExp">
+      <source
+          xsi:type="EXP:EPropertyCallExp">
         <source
             xsi:type="EXP:EVariableExp"
-            referredVariable="//@iterator.0"/>
-        <referredAssociationEnds
-            href="CarPerson.xmi#//@classes.0/@ends.0"/>
+            referredVariable="//@body/@iterator.0"/>
+        <referredProperty
+            href="CarPerson.xmi#//@classes.1/@attributes.0"/>
       </source>
-    </source>
-    <argument
-        xsi:type="EXP:EIntegerLiteralExp"
-        integerValue="1"/>
+      <argument
+          xsi:type="EXP:EStringLiteralExp"
+          stringValue="Peter"/>
+    </body>
+    <iterator
+        name="p"/>
   </body>
   <iterator
       name="c"/>

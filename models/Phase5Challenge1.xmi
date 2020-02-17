@@ -16,12 +16,18 @@
           href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <body xsi:type="exp:EPropertyCallExp">
+  <body xsi:type="exp:EOperationCallExp">
     <source
-        xsi:type="exp:EVariableExp"
-        referredVariable="//@iterator.0"/>
-    <referredProperty
-        href="CarPerson.xmi#//@classes.0/@attributes.0"/>
+        xsi:type="exp:EPropertyCallExp">
+      <source
+          xsi:type="exp:EVariableExp"
+          referredVariable="//@iterator.0"/>
+      <referredProperty
+          href="CarPerson.xmi#//@classes.0/@attributes.0"/>
+    </source>
+    <argument
+        xsi:type="exp:EStringLiteralExp"
+        stringValue="black"/>
   </body>
   <iterator
       name="c"/>

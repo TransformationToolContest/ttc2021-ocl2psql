@@ -16,7 +16,8 @@
           href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <body xsi:type="EXP:EIteratorExp">
+  <body xsi:type="EXP:EIteratorExp"
+      kind="exists">
     <source
         xsi:type="EXP:EAssociationClassCallExp">
       <source

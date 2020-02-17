@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EXP:EOperationCallExp
+<EXP:EIteratorExp
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,19 +7,16 @@
     xmlns:EXP="http://www.example.org/ocl/exp"
     xsi:schemaLocation="http://www.example.org/ocl/dm ocl.ecore#//dm http://www.example.org/ocl/exp ocl.ecore#//exp">
   <source xsi:type="EXP:EOperationCallExp"
-      referredOperation="size">
+      referredOperation="allInstances">
     <source
-        xsi:type="EXP:EOperationCallExp"
-        referredOperation="allInstances">
-      <source
-          xsi:type="EXP:ETypeExp">
-        <referredType
-            xsi:type="DM:EEntity"
-            href="CarPerson.xmi#//@classes.0"/>
-      </source>
+        xsi:type="EXP:ETypeExp">
+      <referredType
+          xsi:type="DM:EEntity"
+          href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <argument
-      xsi:type="EXP:EIntegerLiteralExp"
-      integerValue="1"/>
-</EXP:EOperationCallExp>
+  <body xsi:type="EXP:EBooleanLiteralExp"
+      booleanValue="false"/>
+  <iterator
+      name="c"/>
+</EXP:EIteratorExp>

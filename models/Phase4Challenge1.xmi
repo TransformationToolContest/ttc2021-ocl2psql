@@ -16,8 +16,8 @@
           href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <body xsi:type="exp:EIntegerLiteralExp"
-      integerValue="5"/>
+  <body xsi:type="exp:EVariableExp"
+      referredVariable="//@iterator.0"/>
   <iterator
       name="c"/>
 </exp:EIteratorExp>

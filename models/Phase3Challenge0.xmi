@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EXP:EIteratorExp
+<exp:EOperationCallExp
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:DM="http://www.example.org/ocl/dm"
-    xmlns:EXP="http://www.example.org/ocl/exp"
+    xmlns:dm="http://www.example.org/ocl/dm"
+    xmlns:exp="http://www.example.org/ocl/exp"
     xsi:schemaLocation="http://www.example.org/ocl/dm ocl.ecore#//dm http://www.example.org/ocl/exp ocl.ecore#//exp"
-    kind="exists">
-  <source xsi:type="EXP:EOperationCallExp"
+    referredOperation="size">
+  <source xsi:type="exp:EOperationCallExp"
       referredOperation="allInstances">
     <source
-        xsi:type="EXP:ETypeExp">
+        xsi:type="exp:ETypeExp">
       <referredType
-          xsi:type="DM:EEntity"
+          xsi:type="dm:EEntity"
           href="CarPerson.xmi#//@classes.0"/>
     </source>
   </source>
-  <body xsi:type="EXP:EBooleanLiteralExp"
-      booleanValue="false"/>
-  <iterator
-      name="c"/>
-</EXP:EIteratorExp>
+</exp:EOperationCallExp>

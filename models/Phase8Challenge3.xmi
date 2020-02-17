@@ -17,16 +17,20 @@
   </source>
   <body xsi:type="EXP:EOperationCallExp">
     <source
-        xsi:type="EXP:EPropertyCallExp">
+        xsi:type="EXP:EOperationCallExp"
+        referredOperation="size">
       <source
-          xsi:type="EXP:EVariableExp"
-          referredVariable="//@iterator.0"/>
-      <referredProperty
-          href="CarPerson.xmi#//@classes.0/@attributes.0"/>
+          xsi:type="EXP:EAssociationClassCallExp">
+        <source
+            xsi:type="EXP:EVariableExp"
+            referredVariable="//@iterator.0"/>
+        <referredAssociationEnds
+            href="CarPerson.xmi#//@classes.0/@ends.0"/>
+      </source>
     </source>
     <argument
-        xsi:type="EXP:EStringLiteralExp"
-        stringValue="black"/>
+        xsi:type="EXP:EIntegerLiteralExp"
+        integerValue="1"/>
   </body>
   <iterator
       name="c"/>
