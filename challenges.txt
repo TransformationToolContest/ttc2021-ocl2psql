@@ -1,49 +1,47 @@
-Work in progress...
-
 ***** Phase#0 *** [literals]
-+++ challenge#1: OCL: 2
-+++ challenge#2: OCL: "Peter"
-+++ challenge#3: OCL: true
++++ challenge#0: OCL: 2
++++ challenge#1: OCL: 'Peter'
++++ challenge#2: OCL: true
 
-***** Phase#1 ***** [basic equality]
-+++ challenge#1: OCL: 2 = 3
-+++ challenge#2: OCL: "no-name" <> "Peter"
-+++ challenge#3: OCL: true XOR true
+***** Phase#1 ***** [basic operation]
++++ challenge#0: OCL: 2 = 3
++++ challenge#1: OCL: 'no-name' <> 'Peter'
++++ challenge#2: OCL: true OR true
 
 ***** Phase#2 ***** [allInstances]
-+++ challenge#1: OCL: Car.allInstances()
++++ challenge#0: OCL: Car.allInstances()
 
 ***** Phase#3 ***** [size]
-+++ challenge#1: OCL: Car.allInstances()->size()
-+++ challenge#2: OCL: Car.allInstances()->size() = 1
++++ challenge#0: OCL: Car.allInstances()->size()
++++ challenge#1: OCL: Car.allInstances()->size() = 1
 
 ***** Phase#4 ***** [basic collect-iterator]
-+++ challenge#1: OCL: Car.allInstances()->collect(c|5)
-+++ challenge#2: OCL: Car.allInstances()->collect(c|c)
-+++ challenge#3: OCL: Car.allInstances()->collect(c|5 = 1)
++++ challenge#0: OCL: Car.allInstances()->collect(c|5)
++++ challenge#1: OCL: Car.allInstances()->collect(c|c)
++++ challenge#2: OCL: Car.allInstances()->collect(c|5 = 1)
 
 ***** Phase#5 ***** [attributes]
-+++ challenge#1: OCL: Car.allInstances()->collect(c|c.color)
-+++ challenge#2: OCL: Car.allInstances()->collect(c|c.color = "black")
++++ challenge#0: OCL: Car.allInstances()->collect(c|c.color)
++++ challenge#1: OCL: Car.allInstances()->collect(c|c.color = 'black')
 
 ***** Phase#6 ***** [association-ends]
-+++ challenge#1: OCL: Car.allInstances()->collect(c|c.owners->size())
-+++ challenge#2: OCL: Car.allInstances()->collect(c|c.owners->size() = 0)
++++ challenge#0: OCL: Car.allInstances()->collect(c|c.owners->size())
++++ challenge#1: OCL: Car.allInstances()->collect(c|c.owners->size() = 0)
 
 ***** Phase#7 ***** [exists-basic]
-+++ challenge#1: OCL: Car.allInstances()->exists(c|true)
-+++ challenge#2: OCL: Car.allInstances()->exists(c|false)
-+++ challenge#3: OCL: Car.allInstances()->exists(c|c.color="Black")
-+++ challenge#4: OCL: Car.allInstances()->exists(c|c.owners->size() = 1)
++++ challenge#0: OCL: Car.allInstances()->exists(c|true)
++++ challenge#1: OCL: Car.allInstances()->exists(c|false)
++++ challenge#2: OCL: Car.allInstances()->exists(c|c.color='black')
++++ challenge#3: OCL: Car.allInstances()->exists(c|c.owners->size() = 1)
 
 ***** Phase#8 ***** [forAll-basic]
-+++ challenge#1: OCL: Car.allInstances()->forAll(c|false)
-+++ challenge#2: OCL: Car.allInstances()->forAll(c|true)
-+++ challenge#3: OCL: Car.allInstances()->forAll(c|c.color="Black")
-+++ challenge#4: OCL: Car.allInstances()->forAll(c|c.owners->size() = 1)
++++ challenge#0: OCL: Car.allInstances()->forAll(c|false)
++++ challenge#1: OCL: Car.allInstances()->forAll(c|true)
++++ challenge#2: OCL: Car.allInstances()->forAll(c|c.color='black')
++++ challenge#3: OCL: Car.allInstances()->forAll(c|c.owners->size() = 1)
 
 ***** Phase#9 ***** [exists-forall nested]
-+++ challenge#1: OCL: Car.allInstances()->forAll(c|c.owners->exists(p|p.name = "Peter"))
-+++ challenge#2: OCL: Car.allInstances()->exists(c|c.owners->forAll(p|p.name = "Peter"))
-+++ challenge#3: OCL: Car.allInstances()->exists(c|c.owners->exists(p|p.name = "Peter"))
-+++ challenge#4: OCL: Car.allInstances()->forAll(c|c.owners->forAll(p|p.name = "Peter"))
++++ challenge#0: OCL: Car.allInstances()->forAll(c|c.owners->exists(p|p.name = 'Peter'))
++++ challenge#1: OCL: Car.allInstances()->exists(c|c.owners->forAll(p|p.name = 'Peter'))
++++ challenge#2: OCL: Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))
++++ challenge#3: OCL: Car.allInstances()->forAll(c|c.owners->forAll(p|p.name = 'Peter'))

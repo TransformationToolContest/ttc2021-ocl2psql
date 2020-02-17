@@ -1,37 +1,206 @@
----------
-Scenarios (Work in progress...)
----------
-+++ scenario#1 = empty tables
++++ scenario#1: 
+all tables (Car, Person, Car_ownedCars_owners_Person) are empty.
 
-+++ scenario#2 = Car table contains one row (Car_id = xx, color = "black"), 
-Person table is empty
+mysql> select * from Car;
+Empty set (0.02 sec)
 
-+++ scenario#3 = Car table contains two rows (Car_id = xx, color = "black"), 
-(Car_id = yy, color = "red")
-Person tables contains one row (Person_id = zz, name = "Peter").
+mysql> select * from Person;
+Empty set (0.00 sec)
+
+mysql> select * from Car_ownedCars_owners_Person;
+Empty set (0.00 sec)
+===============================
++++ scenario#2: 
+Table Car contains 1 row
+(Car_id = 1, color = "black").
+Table Person and Table Car_ownedCars_owners_Person are empty.
+
+mysql> select * from Car;
++--------+-------+
+| Car_id | color |
++--------+-------+
+|      1 | black |
++--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from Person;
+Empty set (0.00 sec)
+
+mysql> select * from Car_ownedCars_owners_Person;
+Empty set (0.00 sec)
+===============================
++++ scenario#3:
+Car table contains two rows 
+(Car_id = 1, color = "black"), 
+(Car_id = 2, color = "red").
+Person tables contains one row 
+(Person_id = 1, name = "Peter").
 Ownership table is empty.
 
-+++ scenario#4 = Car table contains two rows (Car_id = xx, color = "black"), 
-(Car_id = yy, color = "red")
-Person tables contains one row (Person_id = zz, name = "Peter").
-Ownership table contains one row (ownedCars = xx, owners = zz).
+mysql> select * from Car;
++--------+-------+
+| Car_id | color |
++--------+-------+
+|      1 | black |
+|      2 | red   |
++--------+-------+
+2 rows in set (0.00 sec)
 
-+++ scenario#5 = Car table contains two rows (Car_id = xx, color = "black"), 
-(Car_id = yy, color = "red")
-Person tables contains two rows (Person_id = zz, name = "Peter"),
-(Person_id = ww, name = "Mary").
-Ownership table contains one row (ownedCars = xx, owners = zz).
+mysql> select * from Person;
++-----------+-------+
+| Person_id | name  |
++-----------+-------+
+|         1 | Peter |
++-----------+-------+
+1 row in set (0.00 sec)
 
-+++ scenario#6 = Car table contains two rows (Car_id = xx, color = "black"), 
-(Car_id = yy, color = "red")
-Person tables contains two rows (Person_id = zz, name = "Peter"),
-(Person_id = ww, name = "Mary").
-Ownership table contains two rows (ownedCars = xx, owners = zz),
-(ownedCars = xx, owners = ww).
+mysql> select * from Car_ownedCars_owners_Person;
+Empty set (0.00 sec)
+===============================
++++ scenario#4:
+Car table contains two rows 
+(Car_id = 1, color = "black"), 
+(Car_id = 2, color = "red").
+Person tables contains one row 
+(Person_id = 1, name = "Peter").
+Ownership table contains one row 
+(ownedCars = 1, owners = 1).
 
-+++ scenario#7 = Car table contains two rows (Car_id = xx, color = "black"), 
-(Car_id = yy, color = "red")
-Person tables contains two rows (Person_id = zz, name = "Peter"),
-(Person_id = ww, name = "Mary").
-Ownership table contains three rows (ownedCars = xx, owners = zz),
-(ownedCars = xx, owners = ww), (ownedCars = yy, owners = ww).
+mysql> select * from Car;
++--------+-------+
+| Car_id | color |
++--------+-------+
+|      1 | black |
+|      2 | red   |
++--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Person;
++-----------+-------+
+| Person_id | name  |
++-----------+-------+
+|         1 | Peter |
++-----------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from Car_ownedCars_owners_Person;
++-----------+--------+
+| ownedCars | owners |
++-----------+--------+
+|         1 |      1 |
++-----------+--------+
+1 row in set (0.00 sec)
+===============================
++++ scenario#5:
+Car table contains two rows 
+(Car_id = 1, color = "black"), 
+(Car_id = 2, color = "red")
+Person tables contains two rows 
+(Person_id = 1, name = "Peter"),
+(Person_id = 2, name = "Mary").
+Ownership table contains one row 
+(ownedCars = 1, owners = 1).
+
+mysql> select * from Car;
++--------+-------+
+| Car_id | color |
++--------+-------+
+|      1 | black |
+|      2 | red   |
++--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Person;
++-----------+-------+
+| Person_id | name  |
++-----------+-------+
+|         1 | Peter |
+|         2 | Jane  |
++-----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Car_ownedCars_owners_Person;
++-----------+--------+
+| ownedCars | owners |
++-----------+--------+
+|         1 |      1 |
++-----------+--------+
+1 row in set (0.00 sec)
+===============================
++++ scenario#6:
+Car table contains two rows 
+(Car_id = 1, color = "black"), 
+(Car_id = 2, color = "red").
+Person tables contains two rows 
+(Person_id = 1, name = "Peter"),
+(Person_id = 2, name = "Mary").
+Ownership table contains two rows 
+(ownedCars = 1, owners = 1),
+(ownedCars = 1, owners = 2).
+
+mysql> select * from Car;
++--------+-------+
+| Car_id | color |
++--------+-------+
+|      1 | black |
+|      2 | red   |
++--------+-------+
+2 rows in set (0.03 sec)
+
+mysql> select * from Person;
++-----------+-------+
+| Person_id | name  |
++-----------+-------+
+|         1 | Peter |
+|         2 | Jane  |
++-----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Car_ownedCars_owners_Person;
++-----------+--------+
+| ownedCars | owners |
++-----------+--------+
+|         1 |      1 |
+|         1 |      2 |
++-----------+--------+
+2 rows in set (0.06 sec)
+===============================
++++ scenario#7:
+Car table contains two rows 
+(Car_id = 1, color = "black"), 
+(Car_id = 2, color = "red")
+Person tables contains two rows 
+(Person_id = 1, name = "Peter"),
+(Person_id = 2, name = "Mary").
+Ownership table contains three rows 
+(ownedCars = 1, owners = 1),
+(ownedCars = 1, owners = 2), 
+(ownedCars = 2, owners = 2).
+
+mysql> select * from Car;
++--------+-------+
+| Car_id | color |
++--------+-------+
+|      1 | black |
+|      2 | red   |
++--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Person;
++-----------+-------+
+| Person_id | name  |
++-----------+-------+
+|         1 | Peter |
+|         2 | Jane  |
++-----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Car_ownedCars_owners_Person;
++-----------+--------+
+| ownedCars | owners |
++-----------+--------+
+|         1 |      1 |
+|         1 |      2 |
+|         2 |      2 |
++-----------+--------+
+3 rows in set (0.00 sec)
