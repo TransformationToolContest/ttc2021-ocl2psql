@@ -1,5 +1,3 @@
-USE <your_db>;
-
 DROP TABLE IF EXISTS TestTable;
 CREATE TABLE TestTable (
 	status VARCHAR (100)
