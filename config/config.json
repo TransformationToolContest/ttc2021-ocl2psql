@@ -19,7 +19,7 @@
         {
             "Name": "allInstances",
             "Queries": [
-                "Car.allInstances()",
+                "Car.allInstances()"
             ]
         },
         {
@@ -77,10 +77,9 @@
                 "Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))",
                 "Car.allInstances()->forAll(c|c.owners->forAll(p|p.name = 'Peter'))"
             ]
-        },
+        }
     ],
     "Tools": ["ReferenceXMI"],
-    "Sequences": 20,
     "Runs": 5,
     "Timeout": 5000
 }

@@ -46,31 +46,33 @@ def benchmark(conf):
     if os.path.exists(result_file):
         os.remove(result_file)
     shutil.copy(header, result_file)
-    os.environ['Sequences'] = str(conf.Sequences)
     os.environ['Runs'] = str(conf.Runs)
     for tool in conf.Tools:
         config = ConfigParser.ConfigParser()
         config.read(os.path.join(BASE_DIRECTORY, "solutions", tool, "solution.ini"))
         set_working_directory("solutions", tool)
         os.environ['Tool'] = tool
-        for query in conf.Queries:
-            os.environ['Query'] = query
+        for iPhase, phase in enumerate(conf.Phases):
+            os.environ['PhaseName'] = phase.Name
+            os.environ['PhaseIndex'] = str(iPhase)
             try:
-                for change_set in conf.ChangeSets:
-                    full_change_path = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", change_set))
-                    os.environ['ChangeSet'] = change_set
-                    os.environ['ChangePath'] = full_change_path
+                for iQuery, query in enumerate(phase.Queries):
+                    path_to_schema_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", "CarPerson.xmi"))
+                    path_to_ocl_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", "Phase{0}Challenge{1}.xmi".format(iPhase, iQuery)))
+                    os.environ['ChallengeIndex'] = str(iQuery)
+                    os.environ['OCLQuery'] = query
+                    os.environ['PathToOCLXMI'] = path_to_ocl_xmi
+                    os.environ['PathToSchemaXMI'] = path_to_schema_xmi
+
                     for r in range(0, conf.Runs):
                         os.environ['RunIndex'] = str(r)
-
-                        print("Running benchmark: tool = " + tool + ", change set = " + change_set +
-                              ", query = " + query)
+                        print("Running benchmark: tool = {0}, phase = {1:d}, challenge = {2:d}".format(tool, iPhase, iQuery))
 
                         # instead of subprocess.check_output()
                         # to enforce timeout before Python 3.7.5
                         # and kill sub-processes to avoid interference
                         # https://stackoverflow.com/a/36955420
-                        with subprocess.Popen(config.get('run', query), shell=True, stdout=subprocess.PIPE,
+                        with subprocess.Popen(config.get('run', 'cmd'), shell=True, stdout=subprocess.PIPE,
                                               start_new_session=True) as process:
                             try:
                                 stdout, stderr = process.communicate(timeout=conf.Timeout)
@@ -126,7 +128,7 @@ if __name__ == "__main__":
                         help="run the benchmark",
                         action="store_true")
     parser.add_argument("-s", "--skip-tests",
-                        help="skip JUNIT tests",
+                        help="skip tests",
                         action="store_true")
     parser.add_argument("-v", "--visualize",
                         help="create visualizations",
