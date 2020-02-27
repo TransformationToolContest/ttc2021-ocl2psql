@@ -9,7 +9,6 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import eu.ttc2020.ocl.reference.api.CaseService;
 import eu.ttc2020.ocl.reference.api.ContentRequest;
 import eu.ttc2020.ocl.reference.api.OCLTransformResponse;
-import eu.ttc2020.ocl.reference.api.TTCJsonProvider;
 import eu.ttc2020.ocl.reference.api.TestResponse;
 import eu.ttc2020.ocl.reference.api.TestResult;
 
@@ -22,7 +21,7 @@ public class Solution {
 	private static final String API_URL = "http://researcher-paper.ap-southeast-1.elasticbeanstalk.com/rest";
 
 	public void run(Configuration c) {
-		final JacksonJsonProvider jsonProvider = new TTCJsonProvider();
+		final JacksonJsonProvider jsonProvider = new JacksonJsonProvider();
 		final CaseService service = JAXRSClientFactory.create(API_URL,
 			CaseService.class, Collections.singletonList(jsonProvider));
 

@@ -24,7 +24,7 @@ ALTER TABLE Car_ownedCars_owners_Person
 	ADD FOREIGN KEY (owners) REFERENCES Person (Person_id);
 
 DELIMITER //
-CREATE PROCEDURE InjectScene1()
+CREATE PROCEDURE BuildScenario1()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
 	DELETE FROM Car;
@@ -35,7 +35,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE InjectScene2()
+CREATE PROCEDURE BuildScenario2()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
 	DELETE FROM Car;
@@ -47,7 +47,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE InjectScene3()
+CREATE PROCEDURE BuildScenario3()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
 	DELETE FROM Car;
@@ -60,7 +60,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE InjectScene4()
+CREATE PROCEDURE BuildScenario4()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
 	DELETE FROM Car;
@@ -74,7 +74,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE InjectScene5()
+CREATE PROCEDURE BuildScenario5()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
 	DELETE FROM Car;
@@ -88,7 +88,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE InjectScene6()
+CREATE PROCEDURE BuildScenario6()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
 	DELETE FROM Car;
@@ -102,7 +102,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE InjectScene7()
+CREATE PROCEDURE BuildScenario7()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
 	DELETE FROM Car;
