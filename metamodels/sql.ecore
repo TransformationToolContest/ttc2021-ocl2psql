@@ -10,8 +10,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="EPlainSelect" eSuperTypes="#//ESelectBody">
     <eStructuralFeatures xsi:type="ecore:EReference" name="distinct" eType="#//EDistinct"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectItems" upperBound="-1"
-        eType="#//ESelectItem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectItems" lowerBound="1"
+        upperBound="-1" eType="#//ESelectItem" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromItem" eType="#//EFromItem"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joins" upperBound="-1"

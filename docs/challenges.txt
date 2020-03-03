@@ -6,7 +6,7 @@
 ***** Phase#1 ***** [basic operation]
 +++ challenge#0: OCL: 2 = 3
 +++ challenge#1: OCL: 'no-name' <> 'Peter'
-+++ challenge#2: OCL: true OR true
++++ challenge#2: OCL: true or true
 
 ***** Phase#2 ***** [allInstances]
 +++ challenge#0: OCL: Car.allInstances()

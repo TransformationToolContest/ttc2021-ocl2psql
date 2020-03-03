@@ -1,20 +1,17 @@
-DROP TABLE IF EXISTS TestTable;
-CREATE TABLE TestTable (
-	status VARCHAR (100)
-);
-INSERT INTO TestTable (status) VALUES ('Connection successful');
-
+DROP TABLE IF EXISTS Car_ownedCars_owners_Person;
 DROP TABLE IF EXISTS Car;
+DROP TABLE IF EXISTS Person;
+
 CREATE TABLE Car (
 	Car_id INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 	color VARCHAR (100) 
 );
-DROP TABLE IF EXISTS Person;
+
 CREATE TABLE Person (
 	Person_id INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 	name VARCHAR (100) 
 );
-DROP TABLE IF EXISTS Car_ownedCars_owners_Person;
+
 CREATE TABLE Car_ownedCars_owners_Person (
 	ownedCars INT (11), 
 	owners INT (11)

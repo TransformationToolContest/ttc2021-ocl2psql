@@ -46,7 +46,6 @@
       <eLiterals name="lessOrEqual" value="7" literal="&lt;="/>
       <eLiterals name="AND" value="8" literal="and"/>
       <eLiterals name="OR" value="9" literal="or"/>
-      <eLiterals name="IMPLIES" value="11" literal="implies"/>
       <eLiterals name="size" value="12"/>
       <eLiterals name="isEmpty" value="13"/>
       <eLiterals name="oclIsUndefined" value="14"/>
@@ -67,7 +66,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterator" upperBound="-1"
           eType="#//exp/EVariable" containment="true" eOpposite="#//exp/EVariable/loopExp"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EStateExp" eSuperTypes="#//exp/EOclExpression"/>
     <eClassifiers xsi:type="ecore:EClass" name="EFeatureCallExp" abstract="true" eSuperTypes="#//exp/ECallExp"/>
     <eClassifiers xsi:type="ecore:EClass" name="EAssociationClassCallExp" eSuperTypes="#//exp/ENavigationCallExp">
       <eStructuralFeatures xsi:type="ecore:EReference" name="referredAssociationEnds"
@@ -76,12 +74,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="ENumericLiteralExp" abstract="true"
         eSuperTypes="#//exp/EPrimitiveType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ELiteralExp" abstract="true" eSuperTypes="#//exp/EOclExpression"/>
-    <eClassifiers xsi:type="ecore:EClass" name="EMessageExp" eSuperTypes="#//exp/EOclExpression"/>
     <eClassifiers xsi:type="ecore:EClass" name="EVariable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopExp" eType="#//exp/ELoopExp"
           eOpposite="#//exp/ELoopExp/iterator"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="baseExp" eType="#//exp/EIterateExp"
-          eOpposite="#//exp/EIterateExp/result"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="initExpression" eType="#//exp/EOclExpression"
           containment="true" eOpposite="#//exp/EOclExpression/initializedElement"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -100,20 +95,10 @@
           eOpposite="#//exp/ECallExp/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="initializedElement" eType="#//exp/EVariable"
           eOpposite="#//exp/EVariable/initExpression"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="thenOwner" eType="#//exp/EIfExp"
-          eOpposite="#//exp/EIfExp/thenExpression"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ifOwner" eType="#//exp/EIfExp"
-          eOpposite="#//exp/EIfExp/condition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="elseOwner" eType="#//exp/EIfExp"
-          eOpposite="#//exp/EIfExp/elseExpression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentCall" eType="#//exp/EOperationCallExp"
           eOpposite="#//exp/EOperationCallExp/argument"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentNav" eType="#//exp/ENavigationCallExp"
           eOpposite="#//exp/ENavigationCallExp/qualifier"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EIterateExp" eSuperTypes="#//exp/ELoopExp">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//exp/EVariable"
-          containment="true" eOpposite="#//exp/EVariable/baseExp"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ECallExp" abstract="true" eSuperTypes="#//exp/EOclExpression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//exp/EOclExpression"
@@ -135,14 +120,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EStringLiteralExp" eSuperTypes="#//exp/EPrimitiveType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EIfExp" eSuperTypes="#//exp/EOclExpression">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="thenExpression" lowerBound="1"
-          eType="#//exp/EOclExpression" containment="true" eOpposite="#//exp/EOclExpression/thenOwner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
-          eType="#//exp/EOclExpression" containment="true" eOpposite="#//exp/EOclExpression/ifOwner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="elseExpression" lowerBound="1"
-          eType="#//exp/EOclExpression" containment="true" eOpposite="#//exp/EOclExpression/elseOwner"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EBooleanLiteralExp" eSuperTypes="#//exp/EPrimitiveType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="booleanValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>

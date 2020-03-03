@@ -54,7 +54,6 @@
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/lessOrEqual"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/AND"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/OR"/>
-        <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/IMPLIES"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/size"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/isEmpty"/>
         <genEnumLiterals ecoreEnumLiteral="ocl.ecore#//exp/EOperator/oclIsUndefined"/>
@@ -74,7 +73,6 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/ELoopExp/body"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/ELoopExp/iterator"/>
       </genClasses>
-      <genClasses ecoreClass="ocl.ecore#//exp/EStateExp"/>
       <genClasses image="false" ecoreClass="ocl.ecore#//exp/EFeatureCallExp"/>
       <genClasses ecoreClass="ocl.ecore#//exp/EAssociationClassCallExp">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -82,10 +80,8 @@
       </genClasses>
       <genClasses image="false" ecoreClass="ocl.ecore#//exp/ENumericLiteralExp"/>
       <genClasses image="false" ecoreClass="ocl.ecore#//exp/ELiteralExp"/>
-      <genClasses ecoreClass="ocl.ecore#//exp/EMessageExp"/>
       <genClasses ecoreClass="ocl.ecore#//exp/EVariable">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EVariable/loopExp"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EVariable/baseExp"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EVariable/initExpression"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EVariable/name"/>
       </genClasses>
@@ -100,14 +96,8 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/loopBodyOwner"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/appliedElement"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/initializedElement"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/thenOwner"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/ifOwner"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/elseOwner"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/parentCall"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ocl.ecore#//exp/EOclExpression/parentNav"/>
-      </genClasses>
-      <genClasses ecoreClass="ocl.ecore#//exp/EIterateExp">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIterateExp/result"/>
       </genClasses>
       <genClasses image="false" ecoreClass="ocl.ecore#//exp/ECallExp">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/ECallExp/source"/>
@@ -125,11 +115,6 @@
       </genClasses>
       <genClasses ecoreClass="ocl.ecore#//exp/EStringLiteralExp">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EStringLiteralExp/stringValue"/>
-      </genClasses>
-      <genClasses ecoreClass="ocl.ecore#//exp/EIfExp">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIfExp/thenExpression"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIfExp/condition"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ocl.ecore#//exp/EIfExp/elseExpression"/>
       </genClasses>
       <genClasses ecoreClass="ocl.ecore#//exp/EBooleanLiteralExp">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ocl.ecore#//exp/EBooleanLiteralExp/booleanValue"/>
