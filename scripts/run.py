@@ -57,8 +57,8 @@ def benchmark(conf):
             os.environ['PhaseIndex'] = str(iPhase)
             try:
                 for iQuery, query in enumerate(phase.Queries):
-                    path_to_schema_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", "CarPerson.xmi"))
-                    path_to_ocl_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", "Phase{0}Challenge{1}.xmi".format(iPhase, iQuery)))
+                    path_to_schema_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "input", "CarPerson.xmi"))
+                    path_to_ocl_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "input", "Stage{0}Challenge{1}.xmi".format(iPhase, iQuery)))
                     os.environ['ChallengeIndex'] = str(iQuery)
                     os.environ['OCLQuery'] = query
                     os.environ['PathToOCLXMI'] = path_to_ocl_xmi
