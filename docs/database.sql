@@ -21,6 +21,7 @@ ALTER TABLE Car_ownedCars_owners_Person
 	ADD FOREIGN KEY (owners) REFERENCES Person (Person_id);
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS BuildScenario1;
 CREATE PROCEDURE BuildScenario1()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
@@ -32,6 +33,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS BuildScenario2;
 CREATE PROCEDURE BuildScenario2()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
@@ -44,6 +46,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS BuildScenario3;
 CREATE PROCEDURE BuildScenario3()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
@@ -57,6 +60,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS BuildScenario4;
 CREATE PROCEDURE BuildScenario4()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
@@ -71,6 +75,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS BuildScenario5;
 CREATE PROCEDURE BuildScenario5()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
@@ -85,6 +90,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS BuildScenario6;
 CREATE PROCEDURE BuildScenario6()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;
@@ -99,6 +105,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS BuildScenario7;
 CREATE PROCEDURE BuildScenario7()
 BEGIN
     DELETE FROM Car_ownedCars_owners_Person;

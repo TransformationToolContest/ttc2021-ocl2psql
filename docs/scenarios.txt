@@ -9,6 +9,246 @@ Empty set (0.00 sec)
 
 mysql> select * from Car_ownedCars_owners_Person;
 Empty set (0.00 sec)
+
+mysql> call Stage0Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage0Challenge1();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | Peter |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage0Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage1Challenge0();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge2();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage2Challenge0();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage3Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage3Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge0();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage4Challenge1();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage4Challenge2();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage5Challenge0();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage5Challenge1();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage6Challenge0();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage6Challenge1();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage7Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage8Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
 ===============================
 +++ scenario#2: 
 Table Car contains 1 row
@@ -28,6 +268,286 @@ Empty set (0.00 sec)
 
 mysql> select * from Car_ownedCars_owners_Person;
 Empty set (0.00 sec)
+
+mysql> call Stage0Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage0Challenge1();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | Peter |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage0Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage1Challenge0();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge2();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage2Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage3Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage3Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   5 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage5Challenge0();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | black |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage5Challenge1();
++-----+------+
+| val | res  |
++-----+------+
+|   1 |    1 |
++-----+------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage6Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage6Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
 ===============================
 +++ scenario#3:
 Car table contains two rows 
@@ -56,6 +576,294 @@ mysql> select * from Person;
 
 mysql> select * from Car_ownedCars_owners_Person;
 Empty set (0.00 sec)
+
+mysql> call Stage0Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage0Challenge1();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | Peter |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage0Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge0();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge2();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage2Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> call Stage3Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage3Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   5 |
+|   1 |   5 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage5Challenge0();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | black |
+|   1 | red   |
++-----+-------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call Stage5Challenge1();
++-----+------+
+| val | res  |
++-----+------+
+|   1 |    1 |
+|   1 |    0 |
++-----+------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage6Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.07 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> call Stage6Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   1 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call Stage7Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage8Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
 ===============================
 +++ scenario#4:
 Car table contains two rows 
@@ -90,6 +898,294 @@ mysql> select * from Car_ownedCars_owners_Person;
 |         1 |      1 |
 +-----------+--------+
 1 row in set (0.00 sec)
+
+mysql> call Stage0Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage0Challenge1();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | Peter |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage0Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge0();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge2();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage2Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage3Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage3Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   5 |
+|   1 |   5 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage5Challenge0();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | black |
+|   1 | red   |
++-----+-------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage5Challenge1();
++-----+------+
+| val | res  |
++-----+------+
+|   1 |    1 |
+|   1 |    0 |
++-----+------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage6Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage6Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   1 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage8Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
 ===============================
 +++ scenario#5:
 Car table contains two rows 
@@ -126,6 +1222,294 @@ mysql> select * from Car_ownedCars_owners_Person;
 |         1 |      1 |
 +-----------+--------+
 1 row in set (0.00 sec)
+
+mysql> call Stage0Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage0Challenge1();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | Peter |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage0Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage1Challenge0();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge2();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage2Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage3Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage3Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage4Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   5 |
+|   1 |   5 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage5Challenge0();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | black |
+|   1 | red   |
++-----+-------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage5Challenge1();
++-----+------+
+| val | res  |
++-----+------+
+|   1 |    1 |
+|   1 |    0 |
++-----+------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage6Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage6Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   1 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage8Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage8Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
 ===============================
 +++ scenario#6:
 Car table contains two rows 
@@ -164,6 +1548,294 @@ mysql> select * from Car_ownedCars_owners_Person;
 |         1 |      2 |
 +-----------+--------+
 2 rows in set (0.06 sec)
+
+mysql> call Stage0Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage0Challenge1();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | Peter |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage0Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage1Challenge0();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Stage1Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge2();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage2Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage3Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage3Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   5 |
+|   1 |   5 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage5Challenge0();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | black |
+|   1 | red   |
++-----+-------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage5Challenge1();
++-----+------+
+| val | res  |
++-----+------+
+|   1 |    1 |
+|   1 |    0 |
++-----+------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage6Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage6Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   1 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage8Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
 ===============================
 +++ scenario#7:
 Car table contains two rows 
@@ -204,3 +1876,291 @@ mysql> select * from Car_ownedCars_owners_Person;
 |         2 |      2 |
 +-----------+--------+
 3 rows in set (0.00 sec)
+
+mysql> call Stage0Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage0Challenge1();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | Peter |
++-----+-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage0Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage1Challenge0();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage1Challenge2();
++-----+-----+
+| res | val |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage2Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.06 sec)
+
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> call Stage3Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Stage3Challenge1();
++-----+-----+
+| res | val |
++-----+-----+
+|   0 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage4Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   5 |
+|   1 |   5 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
+|   1 |   2 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage4Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage5Challenge0();
++-----+-------+
+| val | res   |
++-----+-------+
+|   1 | black |
+|   1 | red   |
++-----+-------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage5Challenge1();
++-----+------+
+| val | res  |
++-----+------+
+|   1 |    1 |
+|   1 |    0 |
++-----+------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage6Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   2 |
+|   1 |   1 |
++-----+-----+
+2 rows in set (0.04 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> call Stage6Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
+|   1 |   0 |
++-----+-----+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage7Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage7Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage8Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call Stage9Challenge0();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge1();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge2();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   1 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call Stage9Challenge3();
++-----+-----+
+| val | res |
++-----+-----+
+|   1 |   0 |
++-----+-----+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
