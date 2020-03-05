@@ -8,10 +8,10 @@ import java.io.File;
  */
 public class Configuration {
 
-	private int phaseIndex, challengeIndex, runIndex;
+	private int stageIndex, challengeIndex, runIndex;
 	private File fOCLQueryXMI, fSchemaXMI;
 	private String sOCLQuery;
-	private String sTool, phaseName;
+	private String sTool, stageName;
 
 	/**
 	 * Returns the name of the tool (solution).
@@ -28,42 +28,42 @@ public class Configuration {
 	}
 
 	/**
-	 * Returns the 0-based identifier for this phase.
+	 * Returns the 0-based identifier for this stage.
 	 */
-	public int getPhaseIndex() {
-		return phaseIndex;
+	public int getStageIndex() {
+		return stageIndex;
 	}
 
 	/**
-	 * Sets the 0-based identifier for this phase.
+	 * Sets the 0-based identifier for this stage.
 	 */
-	public void setPhaseIndex(int phase) {
-		this.phaseIndex = phase;
+	public void setStageIndex(int stage) {
+		this.stageIndex = stage;
 	}
 
 	/**
-	 * Returns the name for this phase.
+	 * Returns the name for this stage.
 	 */
-	public String getPhaseName() {
-		return phaseName;
+	public String getStageName() {
+		return stageName;
 	}
 
 	/**
-	 * Sets the name for this phase.
+	 * Sets the name for this stage.
 	 */
-	public void setPhaseName(String phaseName) {
-		this.phaseName = phaseName;
+	public void setStageName(String stageName) {
+		this.stageName = stageName;
 	}
 
 	/**
-	 * Returns the 0-based identifier for this challenge within the phase.
+	 * Returns the 0-based identifier for this challenge within the stage.
 	 */
 	public int getChallengeIndex() {
 		return challengeIndex;
 	}
 
 	/**
-	 * Sets the 0-based identifier for this challenge within the phase.
+	 * Sets the 0-based identifier for this challenge within the stage.
 	 */
 	public void setChallengeIndex(int challenge) {
 		this.challengeIndex = challenge;

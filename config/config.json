@@ -1,5 +1,5 @@
 {
-    "Phases": [
+    "Stages": [
         {
             "Name": "literals",
             "Queries": [

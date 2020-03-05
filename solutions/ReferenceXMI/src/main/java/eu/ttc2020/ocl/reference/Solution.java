@@ -37,7 +37,7 @@ public class Solution {
 		// Run the SQL query
 		final long nanosTestSQLStart = System.nanoTime();
 		final ContentRequest testRequest = new ContentRequest(CaseService.SQL_XML_MEDIATYPE, transformResult.getContent());
-		final TestResponse testResult = service.runTests(c.getPhaseIndex(), c.getChallengeIndex(), testRequest);
+		final TestResponse testResult = service.runTests(c.getStageIndex(), c.getChallengeIndex(), testRequest);
 		final long nanosTestSQLEnd = System.nanoTime();
 		printMetric(c, METRIC_TEST_TIME, nanosTestSQLEnd - nanosTestSQLStart);
 		for (TestResult tr : testResult.getResults()) {
@@ -46,10 +46,10 @@ public class Solution {
 	}
 
 	private void printMetric(Configuration c, String metricName, Object metricValue) {
-		// Tool;Phase;Challenge;RunIndex;MetricName;MetricValue
+		// Tool;Stage;Challenge;RunIndex;MetricName;MetricValue
 		
 		System.out.println(String.format("%s;%d;%d;%d;%s;%s",
-			c.getTool(), c.getPhaseIndex(), c.getChallengeIndex(), c.getRunIndex(),
+			c.getTool(), c.getStageIndex(), c.getChallengeIndex(), c.getRunIndex(),
 			metricName, metricValue.toString()));
 	}
 

@@ -52,13 +52,13 @@ def benchmark(conf):
         config.read(os.path.join(BASE_DIRECTORY, "solutions", tool, "solution.ini"))
         set_working_directory("solutions", tool)
         os.environ['Tool'] = tool
-        for iPhase, phase in enumerate(conf.Phases):
-            os.environ['PhaseName'] = phase.Name
-            os.environ['PhaseIndex'] = str(iPhase)
+        for iStage, stage in enumerate(conf.Stages):
+            os.environ['StageName'] = stage.Name
+            os.environ['StageIndex'] = str(iStage)
             try:
-                for iQuery, query in enumerate(phase.Queries):
+                for iQuery, query in enumerate(stage.Queries):
                     path_to_schema_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "input", "CarPerson.xmi"))
-                    path_to_ocl_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "input", "Stage{0}Challenge{1}.xmi".format(iPhase, iQuery)))
+                    path_to_ocl_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "input", "Stage{0}Challenge{1}.xmi".format(iStage, iQuery)))
                     os.environ['ChallengeIndex'] = str(iQuery)
                     os.environ['OCLQuery'] = query
                     os.environ['PathToOCLXMI'] = path_to_ocl_xmi
@@ -66,7 +66,7 @@ def benchmark(conf):
 
                     for r in range(0, conf.Runs):
                         os.environ['RunIndex'] = str(r)
-                        print("Running benchmark: tool = {0}, phase = {1:d}, challenge = {2:d}".format(tool, iPhase, iQuery))
+                        print("Running benchmark: tool = {0}, stage = {1:d}, challenge = {2:d}".format(tool, iStage, iQuery))
 
                         # instead of subprocess.check_output()
                         # to enforce timeout before Python 3.7.5

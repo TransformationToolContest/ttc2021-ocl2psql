@@ -11,7 +11,7 @@ The repository is structured as follows:
 
 * `docs`:
   * `database.sql` includes the MySQL/MariaDB SQL script to populate the database, as well as MySQL procedures that can be invoked to set up the different scenes (scenarios). Scene/scenario 7 has a PDF showing the related object diagram.
-  * `challenges.txt` lists the various challenges (OCL queries) to be met by your transformation, organized by phase and challenge.
+  * `challenges.txt` lists the various challenges (OCL queries) to be met by your transformation, organized by stage and challenge.
   * `scenarii.txt` runs some SQL queries over the various scenarios, showing what the expected results would be for them.
 * `metamodels` includes several metamodels:
   * `ocl.ecore` has three EMF packages: one for data models (the database schemas), a simplified version of OCL expressions, and a simplified version of predefined OCL types.
@@ -19,7 +19,7 @@ The repository is structured as follows:
   * A number of image files are included outlining the metamodels. `EXPinSpecs*.jpg` and `TYPEinSpecs.jpg` are taken from the OCL Specification v.2.4 of OMG.
 * `models` includes three classes of models:
   * `CarPerson.xmi` describes the database schema for the sample Car-Person database.
-  * `PhaseXChallengeY.xmi` has the XMI representation of the OCL query in the challenge Y of phase X.
+  * `StageXChallengeY.xmi` has the XMI representation of the OCL query in the challenge Y of stage X.
 
 ## Solution prerequisites
 
@@ -41,7 +41,7 @@ One might fine tune the script for the following purposes:
 The `config` directory contains the configuration for the scripts:
 * `config.json` -- configuration for the model generation and the benchmark
   * *Note:* the timeout as set in the benchmark configuration (default: 6000 seconds) applies to the gross cumulative runtime of the tool for a given changeset and update sequences. This also includes e.g. Initialization time which is not required by the benchmark framework to be measured.
-    Timeout is only applied to the solutions' run phase (see `-m` for `run.py`), so it is not applied to e.g. the build phase (see `-b` for `run.py`).
+    Timeout is only applied to the solutions' run stage (see `-m` for `run.py`), so it is not applied to e.g. the build stage (see `-b` for `run.py`).
 * `reporting.json` -- configuration for the visualization
 
 ### Running the benchmark

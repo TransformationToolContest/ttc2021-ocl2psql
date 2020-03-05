@@ -11,8 +11,8 @@ import java.util.Map;
 public class CaseLauncher {
 
 	private static final String ENV_TOOL = "Tool";
-	private static final String ENV_PHASE_INDEX = "PhaseIndex";
-	private static final String ENV_PHASE_NAME = "PhaseName";
+	private static final String ENV_PHASE_INDEX = "StageIndex";
+	private static final String ENV_PHASE_NAME = "StageName";
 	private static final String ENV_CHALLENGE_INDEX = "ChallengeIndex";
 	private static final String ENV_RUN_INDEX = "RunIndex";
 	private static final String ENV_OCL_XMI = "PathToOCLXMI";
@@ -28,14 +28,14 @@ public class CaseLauncher {
 			c.setTool(sTool);
 		}
 
-		final String sPhaseIndex = env.get(ENV_PHASE_INDEX);
-		if (sPhaseIndex != null) {
-			c.setPhaseIndex(Integer.parseInt(sPhaseIndex));
+		final String sStageIndex = env.get(ENV_PHASE_INDEX);
+		if (sStageIndex != null) {
+			c.setStageIndex(Integer.parseInt(sStageIndex));
 		}
 
-		final String sPhaseName = env.get(ENV_PHASE_NAME);
-		if (sPhaseName != null) {
-			c.setPhaseName(sPhaseName);
+		final String sStageName = env.get(ENV_PHASE_NAME);
+		if (sStageName != null) {
+			c.setStageName(sStageName);
 		}
 		
 		final String sChallengeIndex = env.get(ENV_CHALLENGE_INDEX);

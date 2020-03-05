@@ -8,21 +8,21 @@
     <semanticResources>OCLCase1.xmi</semanticResources>
     <semanticResources>OCLCase2.xmi</semanticResources>
     <semanticResources>OCLCase3.xmi</semanticResources>
-    <semanticResources>Phase0Challenge1.xmi</semanticResources>
-    <semanticResources>Phase0Challenge2.xmi</semanticResources>
-    <semanticResources>Phase0Challenge3.xmi</semanticResources>
-    <semanticResources>Phase1Challenge1.xmi</semanticResources>
-    <semanticResources>Phase1Challenge2.xmi</semanticResources>
-    <semanticResources>Phase1Challenge3.xmi</semanticResources>
-    <semanticResources>Phase2Challenge1.xmi</semanticResources>
-    <semanticResources>Phase3Challenge1.xmi</semanticResources>
-    <semanticResources>Phase4Challenge1.xmi</semanticResources>
-    <semanticResources>Phase4Challenge2.xmi</semanticResources>
-    <semanticResources>Phase4Challenge3.xmi</semanticResources>
-    <semanticResources>Phase5Challenge1.xmi</semanticResources>
-    <semanticResources>Phase5Challenge2.xmi</semanticResources>
-    <semanticResources>Phase6Challenge1.xmi</semanticResources>
-    <semanticResources>Phase6Challenge2.xmi</semanticResources>
+    <semanticResources>Stage0Challenge1.xmi</semanticResources>
+    <semanticResources>Stage0Challenge2.xmi</semanticResources>
+    <semanticResources>Stage0Challenge3.xmi</semanticResources>
+    <semanticResources>Stage1Challenge1.xmi</semanticResources>
+    <semanticResources>Stage1Challenge2.xmi</semanticResources>
+    <semanticResources>Stage1Challenge3.xmi</semanticResources>
+    <semanticResources>Stage2Challenge1.xmi</semanticResources>
+    <semanticResources>Stage3Challenge1.xmi</semanticResources>
+    <semanticResources>Stage4Challenge1.xmi</semanticResources>
+    <semanticResources>Stage4Challenge2.xmi</semanticResources>
+    <semanticResources>Stage4Challenge3.xmi</semanticResources>
+    <semanticResources>Stage5Challenge1.xmi</semanticResources>
+    <semanticResources>Stage5Challenge2.xmi</semanticResources>
+    <semanticResources>Stage6Challenge1.xmi</semanticResources>
+    <semanticResources>Stage6Challenge2.xmi</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Standard.profile.uml</semanticResources>
     <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
