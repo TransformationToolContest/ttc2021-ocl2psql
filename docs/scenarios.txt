@@ -1,553 +1,181 @@
-+++ scenario#1: 
++++ scenario#1:
+Description:
 all tables (Car, Person, Car_ownedCars_owners_Person) are empty.
 
-mysql> select * from Car;
-Empty set (0.02 sec)
+Results:
+* Stage 0 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-mysql> select * from Person;
-Empty set (0.00 sec)
+* Stage 0 Challenge 1.
+==> A table with one row: the column "res" contains Peter
 
-mysql> select * from Car_ownedCars_owners_Person;
-Empty set (0.00 sec)
+* Stage 0 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge1();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | Peter |
-+-----+-------+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 2 Challenge 0.
+==> An empty table
 
-mysql> call Stage0Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 3 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 3 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage1Challenge0();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 0.
+==> An empty table
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 4 Challenge 1.
+==> An empty table
 
-mysql> call Stage1Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 2.
+==> An empty table
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 5 Challenge 0.
+==> An empty table
 
-mysql> call Stage1Challenge2();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 5 Challenge 1.
+==> An empty table
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 6 Challenge 0.
+==> An empty table
 
-mysql> call Stage2Challenge0();
-Empty set (0.00 sec)
+* Stage 6 Challenge 1.
+==> An empty table
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 7 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage3Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 7 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage3Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 8 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage4Challenge0();
-Empty set (0.00 sec)
+* Stage 8 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 8 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage4Challenge1();
-Empty set (0.00 sec)
+* Stage 8 Challenge 3.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 9 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage4Challenge2();
-Empty set (0.00 sec)
+* Stage 9 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 9 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage5Challenge0();
-Empty set (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> call Stage5Challenge1();
-Empty set (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> call Stage6Challenge0();
-Empty set (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> call Stage6Challenge1();
-Empty set (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> call Stage7Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage8Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 3.
+==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#2: 
 Table Car contains 1 row
 (Car_id = 1, color = "black").
 Table Person and Table Car_ownedCars_owners_Person are empty.
 
-mysql> select * from Car;
-+--------+-------+
-| Car_id | color |
-+--------+-------+
-|      1 | black |
-+--------+-------+
-1 row in set (0.00 sec)
+Results:
+* Stage 0 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-mysql> select * from Person;
-Empty set (0.00 sec)
+* Stage 0 Challenge 1.
+==> A table with one row: the column "res" contains Peter
 
-mysql> select * from Car_ownedCars_owners_Person;
-Empty set (0.00 sec)
+* Stage 0 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge1();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | Peter |
-+-----+-------+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 2 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 3 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 3 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage1Challenge0();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 0.
+==> A table with one row: the column "res" contains 5
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 4 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage1Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 5 Challenge 0.
+==> A table with one row: the column "res" contains black
 
-mysql> call Stage1Challenge2();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 5 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 6 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage2Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 6 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 7 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 7 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 8 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   5 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 8 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 8 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage4Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 8 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 9 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage5Challenge0();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | black |
-+-----+-------+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage5Challenge1();
-+-----+------+
-| val | res  |
-+-----+------+
-|   1 |    1 |
-+-----+------+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage6Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage6Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.01 sec)
+* Stage 9 Challenge 3.
+==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#3:
 Car table contains two rows 
@@ -557,313 +185,106 @@ Person tables contains one row
 (Person_id = 1, name = "Peter").
 Ownership table is empty.
 
-mysql> select * from Car;
-+--------+-------+
-| Car_id | color |
-+--------+-------+
-|      1 | black |
-|      2 | red   |
-+--------+-------+
-2 rows in set (0.00 sec)
+Results:
+* Stage 0 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-mysql> select * from Person;
-+-----------+-------+
-| Person_id | name  |
-+-----------+-------+
-|         1 | Peter |
-+-----------+-------+
-1 row in set (0.00 sec)
+* Stage 0 Challenge 1.
+==> A table with one row: the column "res" contains Peter
 
-mysql> select * from Car_ownedCars_owners_Person;
-Empty set (0.00 sec)
+* Stage 0 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge1();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | Peter |
-+-----+-------+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 2 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage0Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 3 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 3 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage1Challenge0();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 5
+another row: the column "res" contains 5
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 4 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage1Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 2.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 5 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains black
+another row: the column "res" contains red
 
-mysql> call Stage1Challenge2();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 5 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 6 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 0 
+another row: the column "res" contains 0
 
-mysql> call Stage2Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.01 sec)
+* Stage 6 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.05 sec)
+* Stage 7 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 7 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 8 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   5 |
-|   1 |   5 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 8 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 9 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage5Challenge0();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | black |
-|   1 | red   |
-+-----+-------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.04 sec)
-
-mysql> call Stage5Challenge1();
-+-----+------+
-| val | res  |
-+-----+------+
-|   1 |    1 |
-|   1 |    0 |
-+-----+------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage6Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.07 sec)
-
-Query OK, 0 rows affected (0.09 sec)
-
-mysql> call Stage6Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   1 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.04 sec)
-
-mysql> call Stage7Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage8Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 3.
+==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#4:
 Car table contains two rows 
@@ -874,318 +295,106 @@ Person tables contains one row
 Ownership table contains one row 
 (ownedCars = 1, owners = 1).
 
-mysql> select * from Car;
-+--------+-------+
-| Car_id | color |
-+--------+-------+
-|      1 | black |
-|      2 | red   |
-+--------+-------+
-2 rows in set (0.00 sec)
+Results:
+* Stage 0 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-mysql> select * from Person;
-+-----------+-------+
-| Person_id | name  |
-+-----------+-------+
-|         1 | Peter |
-+-----------+-------+
-1 row in set (0.00 sec)
+* Stage 0 Challenge 1.
+==> A table with one row: the column "res" contains Peter
 
-mysql> select * from Car_ownedCars_owners_Person;
-+-----------+--------+
-| ownedCars | owners |
-+-----------+--------+
-|         1 |      1 |
-+-----------+--------+
-1 row in set (0.00 sec)
+* Stage 0 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge1();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | Peter |
-+-----+-------+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 2 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage0Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 3 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 3 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage1Challenge0();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 5
+another row: the column "res" contains 5
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 4 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage1Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 2.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 5 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains black
+another row: the column "res" contains red
 
-mysql> call Stage1Challenge2();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 5 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 6 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 1
+another row: the column "res" contains 0
 
-mysql> call Stage2Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 6 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 7 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 7 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 3.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 8 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   5 |
-|   1 |   5 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 8 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 9 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage5Challenge0();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | black |
-|   1 | red   |
-+-----+-------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage5Challenge1();
-+-----+------+
-| val | res  |
-+-----+------+
-|   1 |    1 |
-|   1 |    0 |
-+-----+------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage6Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage6Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   1 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage8Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 3.
+==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#5:
 Car table contains two rows 
@@ -1197,319 +406,106 @@ Person tables contains two rows
 Ownership table contains one row 
 (ownedCars = 1, owners = 1).
 
-mysql> select * from Car;
-+--------+-------+
-| Car_id | color |
-+--------+-------+
-|      1 | black |
-|      2 | red   |
-+--------+-------+
-2 rows in set (0.00 sec)
+Results:
+* Stage 0 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-mysql> select * from Person;
-+-----------+-------+
-| Person_id | name  |
-+-----------+-------+
-|         1 | Peter |
-|         2 | Jane  |
-+-----------+-------+
-2 rows in set (0.00 sec)
+* Stage 0 Challenge 1.
+==> A table with one row: the column "res" contains Peter
 
-mysql> select * from Car_ownedCars_owners_Person;
-+-----------+--------+
-| ownedCars | owners |
-+-----------+--------+
-|         1 |      1 |
-+-----------+--------+
-1 row in set (0.00 sec)
+* Stage 0 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge1();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | Peter |
-+-----+-------+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 2 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage0Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 3 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 3 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage1Challenge0();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 5
+another row: the column "res" contains 5
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 4 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage1Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 2.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 5 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains black
+another row: the column "res" contains red
 
-mysql> call Stage1Challenge2();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 5 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 6 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 1
+another row: the column "res" contains 0
 
-mysql> call Stage2Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 6 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 7 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 7 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 3.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 8 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   5 |
-|   1 |   5 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 8 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 9 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage5Challenge0();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | black |
-|   1 | red   |
-+-----+-------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage5Challenge1();
-+-----+------+
-| val | res  |
-+-----+------+
-|   1 |    1 |
-|   1 |    0 |
-+-----+------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage6Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage6Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   1 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage8Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage8Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 3.
+==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#6:
 Car table contains two rows 
@@ -1522,320 +518,106 @@ Ownership table contains two rows
 (ownedCars = 1, owners = 1),
 (ownedCars = 1, owners = 2).
 
-mysql> select * from Car;
-+--------+-------+
-| Car_id | color |
-+--------+-------+
-|      1 | black |
-|      2 | red   |
-+--------+-------+
-2 rows in set (0.03 sec)
+Results:
+* Stage 0 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-mysql> select * from Person;
-+-----------+-------+
-| Person_id | name  |
-+-----------+-------+
-|         1 | Peter |
-|         2 | Jane  |
-+-----------+-------+
-2 rows in set (0.00 sec)
+* Stage 0 Challenge 1.
+==> A table with one row: the column "res" contains Peter
 
-mysql> select * from Car_ownedCars_owners_Person;
-+-----------+--------+
-| ownedCars | owners |
-+-----------+--------+
-|         1 |      1 |
-|         1 |      2 |
-+-----------+--------+
-2 rows in set (0.06 sec)
+* Stage 0 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge1();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | Peter |
-+-----+-------+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 2 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage0Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 3 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 3 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage1Challenge0();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 5
+another row: the column "res" contains 5
 
-Query OK, 0 rows affected (0.00 sec)
+* Stage 4 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage1Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 2.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 5 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains black
+another row: the column "res" contains red
 
-mysql> call Stage1Challenge2();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 5 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 6 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 2
+another row: the column "res" contains 0
 
-mysql> call Stage2Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 6 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 7 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 7 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 8 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   5 |
-|   1 |   5 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 8 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 9 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage5Challenge0();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | black |
-|   1 | red   |
-+-----+-------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage5Challenge1();
-+-----+------+
-| val | res  |
-+-----+------+
-|   1 |    1 |
-|   1 |    0 |
-+-----+------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage6Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage6Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   1 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage8Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 3.
+==> A table with one row: the column "res" contains 0
 ===============================
 +++ scenario#7:
 Car table contains two rows 
@@ -1849,318 +631,103 @@ Ownership table contains three rows
 (ownedCars = 1, owners = 2), 
 (ownedCars = 2, owners = 2).
 
-mysql> select * from Car;
-+--------+-------+
-| Car_id | color |
-+--------+-------+
-|      1 | black |
-|      2 | red   |
-+--------+-------+
-2 rows in set (0.00 sec)
+Results:
+* Stage 0 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-mysql> select * from Person;
-+-----------+-------+
-| Person_id | name  |
-+-----------+-------+
-|         1 | Peter |
-|         2 | Jane  |
-+-----------+-------+
-2 rows in set (0.00 sec)
+* Stage 0 Challenge 1.
+==> A table with one row: the column "res" contains Peter
 
-mysql> select * from Car_ownedCars_owners_Person;
-+-----------+--------+
-| ownedCars | owners |
-+-----------+--------+
-|         1 |      1 |
-|         1 |      2 |
-|         2 |      2 |
-+-----------+--------+
-3 rows in set (0.00 sec)
+* Stage 0 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage0Challenge1();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | Peter |
-+-----+-------+
-1 row in set (0.00 sec)
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 2 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage0Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 3 Challenge 0.
+==> A table with one row: the column "res" contains 2
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 3 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage1Challenge0();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 5
+another row: the column "res" contains 5
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 4 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1 
+another row: the column "res" contains 2
 
-mysql> call Stage1Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 4 Challenge 2.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 5 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains black
+another row: the column "res" contains red
 
-mysql> call Stage1Challenge2();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 5 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 1
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 6 Challenge 0.
+==> A table with two rows, 
+one row: the column "res" contains 2
+another row: the column "res" contains 1
 
-mysql> call Stage2Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.06 sec)
+* Stage 6 Challenge 1.
+==> A table with two rows, 
+one row: the column "res" contains 0
+another row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.07 sec)
+* Stage 7 Challenge 0.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.01 sec)
+* Stage 7 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage3Challenge1();
-+-----+-----+
-| res | val |
-+-----+-----+
-|   0 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
+* Stage 7 Challenge 3.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 8 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   5 |
-|   1 |   5 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 1.
+==> A table with one row: the column "res" contains 1
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 8 Challenge 2.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-|   1 |   2 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 8 Challenge 3.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.03 sec)
+* Stage 9 Challenge 0.
+==> A table with one row: the column "res" contains 0
 
-mysql> call Stage4Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
+* Stage 9 Challenge 1.
+==> A table with one row: the column "res" contains 0
 
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 2.
+==> A table with one row: the column "res" contains 1
 
-mysql> call Stage5Challenge0();
-+-----+-------+
-| val | res   |
-+-----+-------+
-|   1 | black |
-|   1 | red   |
-+-----+-------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage5Challenge1();
-+-----+------+
-| val | res  |
-+-----+------+
-|   1 |    1 |
-|   1 |    0 |
-+-----+------+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage6Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   2 |
-|   1 |   1 |
-+-----+-----+
-2 rows in set (0.04 sec)
-
-Query OK, 0 rows affected (0.06 sec)
-
-mysql> call Stage6Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-|   1 |   0 |
-+-----+-----+
-2 rows in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage7Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage7Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage8Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> call Stage9Challenge0();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge1();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge2();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   1 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> call Stage9Challenge3();
-+-----+-----+
-| val | res |
-+-----+-----+
-|   1 |   0 |
-+-----+-----+
-1 row in set (0.00 sec)
-
-Query OK, 0 rows affected (0.02 sec)
+* Stage 9 Challenge 3.
+==> A table with one row: the column "res" contains 0
