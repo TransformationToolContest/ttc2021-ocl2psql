@@ -57,8 +57,3 @@ Make sure you read the `README.md` file in the `reporting` directory and install
 ## Implementing the benchmark for a new tool
 
 To implement a tool, you need to create a new directory in the solutions directory and give it a suitable name.
-
-## To do
-
-* Change nsURI of SQL metamodel to something TTC-based?
-* Clear up terminology (scenario vs scene)
