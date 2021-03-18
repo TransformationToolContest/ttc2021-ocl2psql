@@ -1,7 +1,6 @@
 {
     "Stages": [
         {
-            "Name": "literals",
             "Queries": [
                 "2",
                 "'Peter'",
@@ -9,77 +8,61 @@
             ]
         },
         {
-            "Name": "basic operation",
             "Queries": [
                 "2 = 3",
-                "'no-name' <> 'Peter'",
-                "true OR true"
+                "'no-name'<> 'Peter'",
+                "true or true"
             ]
         },
         {
-            "Name": "allInstances",
             "Queries": [
-                "Car.allInstances()"
+               "Car.allInstances()"
             ]
         },
         {
-            "Name": "size",
             "Queries": [
-                "Car.allInstances()->size()",
-                "Car.allInstances()->size() = 1"
+               "Car.allInstances()->size()",
+               "Car.allInstances()->size = 1"
             ]
         },
         {
-            "Name": "basic collect-iterator",
             "Queries": [
-                "Car.allInstances()->collect(c|5)",
-                "Car.allInstances()->collect(c|c)",
-                "Car.allInstances()->collect(c|5 = 1)"
+               "Car.allInstances()->collect(c|c.color)",
+               "Car.allInstances()->collect(c|c.color = 'black')"
             ]
         },
         {
-            "Name": "attributes",
             "Queries": [
-                "Car.allInstances()->collect(c|c.color)",
-                "Car.allInstances()->collect(c|c.color = 'black')"
+               "Car.allInstances()->collect(c|c.owners->size())",
+               "Car.allInstances()->collect(c|c.owners->size() = 0)"
             ]
         },
         {
-            "Name": "association-ends",
             "Queries": [
-                "Car.allInstances()->collect(c|c.owners->size())",
-                "Car.allInstances()->collect(c|c.owners->size() = 0)"
+               "Car.allInstances()->exists(c|true)",
+               "Car.allInstances()->exists(c|false)",
+               "Car.allInstances()->exists(c|c.color = 'black')",
+               "Car.allInstances()->exists(c|c.owners->size() = 1"
             ]
         },
         {
-            "Name": "exists-basic",
             "Queries": [
-                "Car.allInstances()->exists(c|true)",
-                "Car.allInstances()->exists(c|false)",
-                "Car.allInstances()->exists(c|c.color='black')",
-                "Car.allInstances()->exists(c|c.owners->size() = 1)"
+               "Car.allInstances()->forall(c|false)",
+               "Car.allInstances()->forall(c|true)",
+               "Car.allInstances()->forall(c|c.color = 'black')",
+               "Car.allInstances()->forall(c|c.owners->size() = 1"
             ]
         },
         {
-            "Name": "forAll-basic",
             "Queries": [
-                "Car.allInstances()->forAll(c|false)",
-                "Car.allInstances()->forAll(c|true)",
-                "Car.allInstances()->forAll(c|c.color='black')",
-                "Car.allInstances()->forAll(c|c.owners->size() = 1)"
-            ]
-        },
-        {
-            "Name": "exists-forall nested",
-            "Queries": [
-                "Car.allInstances()->forAll(c|c.owners->exists(p|p.name = 'Peter'))",
-                "Car.allInstances()->exists(c|c.owners->forAll(p|p.name = 'Peter'))",
-                "Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))",
-                "Car.allInstances()->forAll(c|c.owners->forAll(p|p.name = 'Peter'))"
+               "Car.allInstances()->forAll(c|c.owners->exists(p|p.name = 'Peter'))",
+               "Car.allInstances()->exists(c|c.owners->forAll(p|p.name = 'Peter'))",
+               "Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))",
+               "Car.allInstances()->forAll(c|c.owners->forAll(p|p.name = 'Peter'))"
             ]
         }
     ],
     "Tools": ["ReferenceXMI"],
-    "Runs": 5,
+    "Runs": 1,
     "Timeout": 5000
 }

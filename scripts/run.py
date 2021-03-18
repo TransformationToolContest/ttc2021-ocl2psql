@@ -53,7 +53,6 @@ def benchmark(conf):
         set_working_directory("solutions", tool)
         os.environ['Tool'] = tool
         for iStage, stage in enumerate(conf.Stages):
-            os.environ['StageName'] = stage.Name
             os.environ['StageIndex'] = str(iStage)
             try:
                 for iQuery, query in enumerate(stage.Queries):
@@ -66,8 +65,8 @@ def benchmark(conf):
 
                     for r in range(0, conf.Runs):
                         os.environ['RunIndex'] = str(r)
-                        print("Running benchmark: tool = {0}, stage = {1:d}, challenge = {2:d}".format(tool, iStage, iQuery))
-
+                        print("Running benchmark: tool = {0}, stage = {1:d}, challenge = {2:d}, OCLexpression = {3}, runIndex = {4:d}".format(tool, iStage, iQuery, query, r))
+                        
                         # instead of subprocess.check_output()
                         # to enforce timeout before Python 3.7.5
                         # and kill sub-processes to avoid interference
