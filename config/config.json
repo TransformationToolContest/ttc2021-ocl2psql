@@ -27,6 +27,13 @@
         },
         {
             "Queries": [
+               "Car.allInstances()->collect(c|5)",
+               "Car.allInstances()->collect(c|c)",
+               "Car.allInstances()->collect(c|5 = 1)"
+            ]
+        },
+        {
+            "Queries": [
                "Car.allInstances()->collect(c|c.color)",
                "Car.allInstances()->collect(c|c.color = 'black')"
             ]

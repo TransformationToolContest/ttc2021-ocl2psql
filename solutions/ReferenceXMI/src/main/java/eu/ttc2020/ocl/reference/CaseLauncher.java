@@ -10,13 +10,13 @@ import java.util.Map;
  */
 public class CaseLauncher {
 
-	private static final String ENV_TOOL = "Tool";
-	private static final String ENV_PHASE_INDEX = "StageIndex";
-	private static final String ENV_CHALLENGE_INDEX = "ChallengeIndex";
-	private static final String ENV_RUN_INDEX = "RunIndex";
-	private static final String ENV_OCL_XMI = "PathToOCLXMI";
-	private static final String ENV_OCL_TEXT = "OCLQuery";
-	private static final String ENV_SCHEMA_XMI = "PathToSchemaXMI";
+	private static final String ENV_TOOL = "TOOL";
+	private static final String ENV_PHASE_INDEX = "STAGEINDEX";
+	private static final String ENV_CHALLENGE_INDEX = "CHALLENGEINDEX";
+	private static final String ENV_RUN_INDEX = "RUNINDEX";
+	private static final String ENV_OCL_XMI = "PATHTOOCLXMI";
+	private static final String ENV_OCL_TEXT = "OCLQUERY";
+	private static final String ENV_SCHEMA_XMI = "PATHTOSCHEMAXMI";
 
 	private static Configuration createConfiguration() {
 		Configuration c = new Configuration();

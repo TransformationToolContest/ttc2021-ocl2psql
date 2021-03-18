@@ -27,7 +27,7 @@ public class SampleLauncher {
 //		 This code snippet shows how OCL2PSQL transforms a OCL expression in XMI format
 //		 to a SQL statement in XMI format.
 		TTCReturnModel returnModel = ocl2psql.fromOCLXMIFileToSQLXMIStatement(oclExpFile);
-		Statement sqlStm = returnModel.getEStatement();
+		Statement sqlStm = returnModel.getStatement();
 
 //		 This code snippet shows how we store the SQL statement model into a XMI file.
 		final String sqlAsXMIFilePath = String.format("%s%s", FILEPATH, SQL_XMI_FILENAME);

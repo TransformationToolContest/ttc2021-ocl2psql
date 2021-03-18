@@ -21,7 +21,7 @@ public class Solution {
 			OCL2PSQL_2 ocl2psql_2 = new OCL2PSQL_2();
 			final File oclXMIFile = c.getOCLQueryXMIFile();
 			final long nanosOCL2PSQLTransformationStart = System.nanoTime();
-			Statement sqlStmXMI = ocl2psql_2.fromOCLXMIFileToSQLXMIStatement(oclXMIFile).getEStatement();
+			Statement sqlStmXMI = ocl2psql_2.fromOCLXMIFileToSQLXMIStatement(oclXMIFile).getStatement();
 			final long nanosOCL2PSQLTransformationEnd = System.nanoTime();
 			printMetric(c, METRIC_OCL2PSQL_TIME, nanosOCL2PSQLTransformationEnd - nanosOCL2PSQLTransformationStart);
 		} catch (IOException e) {
