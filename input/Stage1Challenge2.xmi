@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EXP:EOperationCallExp
+<EXP:OperationCallExp
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:EXP="http://www.example.org/ocl/exp"
-    xsi:schemaLocation="http://www.example.org/ocl/exp ocl.ecore#//exp"
+    xsi:schemaLocation="http://www.example.org/ocl/exp ../metamodels/ocl.ecore#//exp"
     referredOperation="or">
-  <source xsi:type="EXP:EBooleanLiteralExp"
+  <source xsi:type="EXP:BooleanLiteralExp"
       booleanValue="true"/>
   <argument
-      xsi:type="EXP:EBooleanLiteralExp"
+      xsi:type="EXP:BooleanLiteralExp"
       booleanValue="true"/>
-</EXP:EOperationCallExp>
+</EXP:OperationCallExp>

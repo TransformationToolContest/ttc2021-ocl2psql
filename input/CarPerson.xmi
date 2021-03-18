@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DM:EDataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DM="http://www.example.org/ocl/dm" xsi:schemaLocation="http://www.example.org/ocl/dm ocl.ecore#//dm">
-  <classes name="Car">
-    <ends name="owners" mult="*" target="//@classes.1" opp="//@classes.1/@ends.0"/>
-    <attributes name="color" type="String"/>
-  </classes>
+<DM:DataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DM="http://www.example.org/ocl/dm" xsi:schemaLocation="http://www.example.org/ocl/dm ../metamodels/ocl.ecore#//dm">
   <classes name="Person">
-    <ends name="ownedCars" mult="*" target="//@classes.0" opp="//@classes.0/@ends.0"/>
+    <ends name="ownedCars" mult="*" target="//@classes.1" opp="//@classes.1/@ends.0" association="Ownership"/>
     <attributes name="name" type="String"/>
   </classes>
-</DM:EDataModel>
+  <classes name="Car">
+    <ends name="owners" mult="*" target="//@classes.0" opp="//@classes.0/@ends.0" association="Ownership"/>
+    <attributes name="color" type="String"/>
+  </classes>
+</DM:DataModel>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EXP:EOperationCallExp
+<EXP:OperationCallExp
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:EXP="http://www.example.org/ocl/exp"
-    xsi:schemaLocation="http://www.example.org/ocl/exp ocl.ecore#//exp"
+    xsi:schemaLocation="http://www.example.org/ocl/exp ../metamodels/ocl.ecore#//exp"
     referredOperation="&lt;>">
-  <source xsi:type="EXP:EStringLiteralExp"
-      stringValue="no-name"/>
+  <source xsi:type="EXP:StringLiteralExp"
+      stringValue="'no-name'"/>
   <argument
-      xsi:type="EXP:EStringLiteralExp"
-      stringValue="Peter"/>
-</EXP:EOperationCallExp>
+      xsi:type="EXP:StringLiteralExp"
+      stringValue="'Peter'"/>
+</EXP:OperationCallExp>
