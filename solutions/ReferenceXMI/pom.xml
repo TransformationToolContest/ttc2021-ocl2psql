@@ -11,9 +11,23 @@
 	<packaging>jar</packaging>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>ocl2psql</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>sql-metamodel</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 
 	<profiles>
 		<profile>
@@ -28,7 +42,7 @@
 							<arguments>
 								<argument>-Xmx1G</argument>
 								<argument>-classpath</argument>
-								<!-- automatically creates the classpath using all project dependencies, 
+								<!-- automatically creates the classpath using all project dependencies,
 									also adding the project build directory -->
 								<classpath/>
 								<argument>eu.ttc2020.ocl.reference.CaseLauncher</argument>

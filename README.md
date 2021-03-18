@@ -23,7 +23,16 @@ The repository is structured as follows:
 
 ## Solution prerequisites
 
-Add your prerequisites here!
+### Reference solution
+
+The reference solution in `solutions/ReferenceXMI` uses two JAR files that provide the OCL2PSQL transformation and SQL metamodel.
+You must install these dependencies into your local Maven repository before you build the reference solution.
+Assuming that Maven is in your `PATH`, you can run this Bash script:
+
+```
+cd solutions/ReferenceXMI
+./install-jars.sh
+```
 
 ## Using the framework
 
