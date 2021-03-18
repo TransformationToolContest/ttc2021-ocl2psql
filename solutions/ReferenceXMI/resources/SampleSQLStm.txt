@@ -1,0 +1,1 @@
+SELECT TEMP_body.val AS val, TEMP_body.res AS res FROM (SELECT Car.color AS res, 1 AS val, Car.Car_id AS ref_c FROM Car) AS TEMP_body

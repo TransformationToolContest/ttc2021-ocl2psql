@@ -11,7 +11,7 @@ public class Configuration {
 	private int stageIndex, challengeIndex, runIndex;
 	private File fOCLQueryXMI, fSchemaXMI;
 	private String sOCLQuery;
-	private String sTool, stageName;
+	private String sTool;
 
 	/**
 	 * Returns the name of the tool (solution).
@@ -39,20 +39,6 @@ public class Configuration {
 	 */
 	public void setStageIndex(int stage) {
 		this.stageIndex = stage;
-	}
-
-	/**
-	 * Returns the name for this stage.
-	 */
-	public String getStageName() {
-		return stageName;
-	}
-
-	/**
-	 * Sets the name for this stage.
-	 */
-	public void setStageName(String stageName) {
-		this.stageName = stageName;
 	}
 
 	/**
@@ -127,5 +113,13 @@ public class Configuration {
 	public void setDatabaseSchemaXMIFile(File schemaXMI) {
 		this.fSchemaXMI = schemaXMI;
 	}
+
+    @Override
+    public String toString() {
+        return "Configuration [stageIndex=" + stageIndex + ", challengeIndex="
+            + challengeIndex + ", runIndex=" + runIndex + ", fOCLQueryXMI="
+            + fOCLQueryXMI + ", fSchemaXMI=" + fSchemaXMI + ", sOCLQuery="
+            + sOCLQuery + ", sTool=" + sTool + "]";
+    }
 
 }

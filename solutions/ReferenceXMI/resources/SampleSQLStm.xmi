@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sql:Select xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sql="http://www.example.org/sql">
+  <selectBody xsi:type="sql:PlainSelect">
+    <selectItems xsi:type="sql:SelectExpressionItem">
+      <alias name="val"/>
+      <expression xsi:type="sql:Column" columnName="val">
+        <table name="TEMP_body"/>
+      </expression>
+    </selectItems>
+    <selectItems xsi:type="sql:SelectExpressionItem">
+      <alias name="res"/>
+      <expression xsi:type="sql:Column" columnName="res">
+        <table name="TEMP_body"/>
+      </expression>
+    </selectItems>
+    <fromItem xsi:type="sql:SubSelect">
+      <alias name="TEMP_body"/>
+      <selectBody xsi:type="sql:PlainSelect">
+        <selectItems xsi:type="sql:SelectExpressionItem">
+          <alias name="res"/>
+          <expression xsi:type="sql:Column" columnName="color">
+            <table name="Car"/>
+          </expression>
+        </selectItems>
+        <selectItems xsi:type="sql:SelectExpressionItem">
+          <alias name="val"/>
+          <expression xsi:type="sql:LongValue" value="1"/>
+        </selectItems>
+        <selectItems xsi:type="sql:SelectExpressionItem">
+          <alias name="ref_c"/>
+          <expression xsi:type="sql:Column" columnName="Car_id">
+            <table name="Car"/>
+          </expression>
+        </selectItems>
+        <fromItem xsi:type="sql:Table" name="Car"/>
+      </selectBody>
+    </fromItem>
+  </selectBody>
+</sql:Select>

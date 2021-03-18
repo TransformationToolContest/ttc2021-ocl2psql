@@ -12,7 +12,6 @@ public class CaseLauncher {
 
 	private static final String ENV_TOOL = "Tool";
 	private static final String ENV_PHASE_INDEX = "StageIndex";
-	private static final String ENV_PHASE_NAME = "StageName";
 	private static final String ENV_CHALLENGE_INDEX = "ChallengeIndex";
 	private static final String ENV_RUN_INDEX = "RunIndex";
 	private static final String ENV_OCL_XMI = "PathToOCLXMI";
@@ -22,7 +21,11 @@ public class CaseLauncher {
 	private static Configuration createConfiguration() {
 		Configuration c = new Configuration();
 		final Map<String, String> env = System.getenv();
-
+		
+//		for(String key : env.keySet()) {
+//		    System.out.println(key + " " + env.get(key));
+//		}
+		
 		final String sTool = env.get(ENV_TOOL);
 		if (sTool != null) {
 			c.setTool(sTool);
@@ -31,11 +34,6 @@ public class CaseLauncher {
 		final String sStageIndex = env.get(ENV_PHASE_INDEX);
 		if (sStageIndex != null) {
 			c.setStageIndex(Integer.parseInt(sStageIndex));
-		}
-
-		final String sStageName = env.get(ENV_PHASE_NAME);
-		if (sStageName != null) {
-			c.setStageName(sStageName);
 		}
 		
 		final String sChallengeIndex = env.get(ENV_CHALLENGE_INDEX);

@@ -1,48 +1,44 @@
 package eu.ttc2020.ocl.reference;
 
-import java.util.Collections;
+import java.io.File;
+import java.io.IOException;
 
-import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
+import org.vgu.ocl2psql.main.OCL2PSQL_2;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-
-import eu.ttc2020.ocl.reference.api.CaseService;
-import eu.ttc2020.ocl.reference.api.ContentRequest;
-import eu.ttc2020.ocl.reference.api.OCLTransformResponse;
-import eu.ttc2020.ocl.reference.api.TestResponse;
-import eu.ttc2020.ocl.reference.api.TestResult;
+import sql.Statement;
 
 public class Solution {
 
-	private static final String METRIC_OCL2SQL_TIME = "TransformTimeNanos";
+	// Transformation time from OCL expression model to SQL statement model
+	private static final String METRIC_OCL2PSQL_TIME = "TransformTimeNanos";
+	// Execution time of SQL statements
 	private static final String METRIC_TEST_TIME = "TestTimeNanos";
+	// Database scenarios, from 1 to 7. More detail in docs/scenarios.
 	private static final String METRIC_SCENARIO_PREFIX = "Scenario";
 
-	private static final String API_URL = "http://researcher-paper.ap-southeast-1.elasticbeanstalk.com/rest";
-
 	public void run(Configuration c) {
-		final JacksonJsonProvider jsonProvider = new JacksonJsonProvider();
-		final CaseService service = JAXRSClientFactory.create(API_URL,
-			CaseService.class, Collections.singletonList(jsonProvider));
-
-		// Transform the OCL expression to SQL (as XMI)
-		final long nanosTransformOCLStart = System.nanoTime();
-		final String oclQuery = c.getOCLQuery();
-		final ContentRequest transformRequest = new ContentRequest(CaseService.OCL_TEXT_MEDIATYPE, oclQuery);
-		final OCLTransformResponse transformResult = service.transform(CaseService.SQL_AS_XMI, transformRequest);
-		final long nanosTransformOCLEnd = System.nanoTime();
-		printMetric(c, METRIC_OCL2SQL_TIME, nanosTransformOCLEnd - nanosTransformOCLStart);
-		// TODO memory usage?
-
-		// Run the SQL query
-		final long nanosTestSQLStart = System.nanoTime();
-		final ContentRequest testRequest = new ContentRequest(CaseService.SQL_XML_MEDIATYPE, transformResult.getContent());
-		final TestResponse testResult = service.runTests(c.getStageIndex(), c.getChallengeIndex(), testRequest);
-		final long nanosTestSQLEnd = System.nanoTime();
-		printMetric(c, METRIC_TEST_TIME, nanosTestSQLEnd - nanosTestSQLStart);
-		for (TestResult tr : testResult.getResults()) {
-			printMetric(c, METRIC_SCENARIO_PREFIX + tr.getScenario(), tr.getStatus());
+		try {
+			OCL2PSQL_2 ocl2psql_2 = new OCL2PSQL_2();
+			final File oclXMIFile = c.getOCLQueryXMIFile();
+			final long nanosOCL2PSQLTransformationStart = System.nanoTime();
+			Statement sqlStmXMI = ocl2psql_2.fromOCLXMIFileToSQLXMIStatement(oclXMIFile).getEStatement();
+			final long nanosOCL2PSQLTransformationEnd = System.nanoTime();
+			printMetric(c, METRIC_OCL2PSQL_TIME, nanosOCL2PSQLTransformationEnd - nanosOCL2PSQLTransformationStart);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+
+//		String sqlStmString = SQLParser.outputEStatementAsString(sqlStmXMI);
+//		
+//		// Run the SQL query
+//		final long nanosTestSQLStart = System.nanoTime();
+//		final ContentRequest testRequest = new ContentRequest(CaseService.SQL_XML_MEDIATYPE, transformResult.getContent());
+//		final TestResponse testResult = service.runTests(c.getStageIndex(), c.getChallengeIndex(), testRequest);
+//		final long nanosTestSQLEnd = System.nanoTime();
+//		printMetric(c, METRIC_TEST_TIME, nanosTestSQLEnd - nanosTestSQLStart);
+//		for (TestResult tr : testResult.getResults()) {
+//			printMetric(c, METRIC_SCENARIO_PREFIX + tr.getScenario(), tr.getStatus());
+//		}
 	}
 
 	private void printMetric(Configuration c, String metricName, Object metricValue) {
