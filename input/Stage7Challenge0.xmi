@@ -17,7 +17,7 @@
     </source>
   </source>
   <body xsi:type="EXP:BooleanLiteralExp"
-      booleanValue="false"/>
+      booleanValue="true"/>
   <iterator
       name="c">
     <initExpression
