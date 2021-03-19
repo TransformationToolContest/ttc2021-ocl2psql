@@ -51,15 +51,14 @@ public class Solution {
 				sqlStmString = SQLParser.outputEStatementAsString(sqlStmXMI);
 //				Correctness and execution time of the generated query
 				for (int iScenario = 1; iScenario <= scenarios; iScenario++) {
-					final int iStage = c.getStageIndex();
-					final int iChallenge = c.getChallengeIndex();
 					final long nanosTestSQLStart = System.nanoTime();
-					final boolean isCorrect = CorrectnessTest.check(iScenario, iStage, iChallenge, sqlStmString);
+					final boolean isCorrect = CorrectnessTest.check(c, iScenario, sqlStmString);
 					final long nanosTestSQLEnd = System.nanoTime();
 					if (isCorrect) {
 						printMetric(c, METRIC_TEST_TIME, nanosTestSQLEnd - nanosTestSQLStart);
 					}
-					printMetric(c, String.format(METRIC_SCENARIO_PREFIX, iScenario), isCorrect);
+					final String result = isCorrect?"passed":"failed";
+					printMetric(c, String.format(METRIC_SCENARIO_PREFIX, iScenario), result);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -19,6 +19,9 @@ public class CaseLauncher {
 	private static final String ENV_OCL_XMI = "PATHTOOCLXMI";
 	private static final String ENV_OCL_TEXT = "OCLQUERY";
 	private static final String ENV_SCHEMA_XMI = "PATHTOSCHEMAXMI";
+	private static final String ENV_MYSQL_USERNAME = "MYSQLUSERNAME";
+	private static final String ENV_MYSQL_PASSWORD = "MYSQLPASSWORD";
+	private static final String ENV_MYSQL_PORT = "MYSQLPORT";
 
 	private static Configuration createConfiguration() {
 		Configuration c = new Configuration();
@@ -71,6 +74,21 @@ public class CaseLauncher {
 			} else {
 				throw new IllegalArgumentException("Cannot read XMI file " + fXMI);
 			}
+		}
+		
+		final String sMySQLUsername = env.get(ENV_MYSQL_USERNAME);
+		if (sMySQLUsername != null) {
+			c.setMySQLUsername(sMySQLUsername);
+		}
+		
+		final String sMySQLPassword = env.get(ENV_MYSQL_PASSWORD);
+		if (sMySQLPassword != null) {
+			c.setMySQLPassword(sMySQLPassword);
+		}
+		
+		final String sMySQLPort = env.get(ENV_MYSQL_PORT);
+		if (sMySQLPort != null) {
+			c.setMySQLport(Integer.parseInt(sMySQLPort));
 		}
 		
 		return c;

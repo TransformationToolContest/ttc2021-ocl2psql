@@ -19,7 +19,7 @@ import net.sf.jsqlparser.statement.Statement;
 public class SampleLauncher {
 
 	private static final String FILEPATH = "resources/";
-	private static final String OCL_FILENAME = "SampleOCLExp.xmi";
+	private static final String OCL_FILENAME = "Stage7Challenge0.xmi";
 	private static final String SQL_XMI_FILENAME = "SampleSQLStm.xmi";
 
 	public static void main(String[] args) throws IOException, OclParseException, ParseException {

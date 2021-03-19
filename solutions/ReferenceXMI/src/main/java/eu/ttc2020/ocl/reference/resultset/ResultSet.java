@@ -17,7 +17,7 @@ limitations under the License.
 ***************************************************************************/
 
 
-package db;
+package eu.ttc2020.ocl.reference.resultset;
 
 import java.util.List;
 

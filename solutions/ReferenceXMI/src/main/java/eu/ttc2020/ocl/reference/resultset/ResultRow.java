@@ -16,7 +16,7 @@ limitations under the License.
 @author: ngpbh
 ***************************************************************************/
 
-package db;
+package eu.ttc2020.ocl.reference.resultset;
 
 import java.util.HashMap;
 

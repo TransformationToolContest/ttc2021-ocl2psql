@@ -31,8 +31,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import db.ResultRow;
-import db.ResultSet;
+import eu.ttc2020.ocl.reference.resultset.ResultRow;
+import eu.ttc2020.ocl.reference.resultset.ResultSet;
 
 public class CorrectnessTest {
 
@@ -41,11 +41,6 @@ public class CorrectnessTest {
 	private static final String connectionDB = "jdbc:mysql://%s:%d/cardb%s?autoReconnect=true&useSSL=false";
 //  
 	private static final String host = "localhost";
-//  The port specified in your docker run command.
-	private static final int port = 8083;
-	private static final String username = "root";
-//  The password specified in your dockerfile.
-	private static final String password = "password";
 
 	private static Connection con;
 
@@ -119,7 +114,12 @@ public class CorrectnessTest {
 		return actualResult;
 	}
 
-	public static boolean check(int iScenario, int iStage, int iChallenge, String sqlStmString) throws Exception {
+	public static boolean check(Configuration c, int iScenario, String sqlStmString) throws Exception {
+		final int port = c.getMySQLport();
+		final String username = c.getMySQLUsername();
+		final String password = c.getMySQLPassword();
+		final int iStage = c.getStageIndex();
+		final int iChallenge = c.getChallengeIndex();
 		boolean isCorrect = false;
 		Class.forName(driver);
 		String connection = String.format(connectionDB, host, port, String.valueOf(iScenario));

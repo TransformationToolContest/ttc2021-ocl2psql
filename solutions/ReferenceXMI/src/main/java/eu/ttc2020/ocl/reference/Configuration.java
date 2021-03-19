@@ -12,6 +12,8 @@ public class Configuration {
 	private File fOCLQueryXMI, fSchemaXMI;
 	private String sOCLQuery;
 	private String sTool;
+	private String mySQLUsername, mySQLPassword;
+	private int mySQLport;
 
 	/**
 	 * Returns the name of the tool (solution).
@@ -121,5 +123,29 @@ public class Configuration {
             + fOCLQueryXMI + ", fSchemaXMI=" + fSchemaXMI + ", sOCLQuery="
             + sOCLQuery + ", sTool=" + sTool + "]";
     }
+
+	public String getMySQLUsername() {
+		return mySQLUsername;
+	}
+
+	public void setMySQLUsername(String mySQLUsername) {
+		this.mySQLUsername = mySQLUsername;
+	}
+
+	public String getMySQLPassword() {
+		return mySQLPassword;
+	}
+
+	public void setMySQLPassword(String mySQLPassword) {
+		this.mySQLPassword = mySQLPassword;
+	}
+
+	public int getMySQLport() {
+		return mySQLport;
+	}
+
+	public void setMySQLport(int mySQLport) {
+		this.mySQLport = mySQLport;
+	}
 
 }
