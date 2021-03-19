@@ -3,6 +3,8 @@ package eu.ttc2020.ocl.reference;
 import java.io.File;
 import java.util.Map;
 
+import eu.ttc2020.ocl.reference.ocl2psql.Solution;
+
 /**
  * Reads the various environment variables provided by the Python script, sets
  * up the case solver and prints out the results according to the CSV header
