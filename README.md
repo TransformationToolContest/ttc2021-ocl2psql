@@ -25,7 +25,8 @@ The repository is structured as follows:
 
 ### Reference solution
 
-The reference solution in `solutions/ReferenceXMI` uses two JAR files that provide the OCL2PSQL transformation and SQL metamodel.
+The reference solution in `solutions/ReferenceXMI` uses four JAR files that provide the OCL metamodel, 
+SQL metamodel, OCL java representation, and the OCL2PSQL mapping. These JAR files are located in `lib` directory.
 You must install these dependencies into your local Maven repository before you build the reference solution.
 Assuming that Maven is in your `PATH`, you can run this Bash script:
 
@@ -33,6 +34,17 @@ Assuming that Maven is in your `PATH`, you can run this Bash script:
 cd solutions/ReferenceXMI
 ./install-jars.sh
 ```
+
+Furthermore, the reference solution uses the MySQL database system built from the MySQL docker image in `docker` directory.
+In order to test the correctness of the reference solution, you must first build the MySQL container by using the following commands:
+
+```
+cd docker/
+docker build --tag my-ttc2021 .
+docker run -p 8083:3306 my-ttc2021
+```
+
+in which `8083` is the localhost port number that will be used to connect with the MySQL container. Note that, in case the port is busy, feel free to change it to another one, but remember to change it in the `config.json` as well.
 
 ## Using the framework
 
