@@ -9,14 +9,15 @@ The case study is based on this reference implementation:
 
 The repository is structured as follows:
 
+* `docker`:
+  * `Dockerfile` build the MySQL image for running the benchmark.
+  * `init.sql` initialize the database for running the benchmark.
 * `docs`:
-  * `database.sql` includes the MySQL/MariaDB SQL script to populate the database, as well as MySQL procedures that can be invoked to set up the different scenes (scenarios). Scene/scenario 7 has a PDF showing the related object diagram.
   * `challenges.txt` lists the various challenges (OCL queries) to be met by your transformation, organized by stage and challenge.
-  * `scenarii.txt` runs some SQL queries over the various scenarios, showing what the expected results would be for them.
+  * `scenarios.txt` runs some SQL queries over the various scenarios, showing what the expected results would be for them.
 * `metamodels` includes several metamodels:
   * `ocl.ecore` has three EMF packages: one for data models (the database schemas), a simplified version of OCL expressions, and a simplified version of predefined OCL types.
   * `sql.ecore` has a metamodel for describing SQL SELECT queries.
-  * A number of image files are included outlining the metamodels. `EXPinSpecs*.jpg` and `TYPEinSpecs.jpg` are taken from the OCL Specification v.2.4 of OMG.
 * `models` includes three classes of models:
   * `CarPerson.xmi` describes the database schema for the sample Car-Person database.
   * `StageXChallengeY.xmi` has the XMI representation of the OCL query in the challenge Y of stage X.
