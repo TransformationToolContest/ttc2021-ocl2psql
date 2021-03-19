@@ -71,5 +71,8 @@
     ],
     "Tools": ["ReferenceXMI"],
     "Runs": 1,
-    "Timeout": 5000
+    "Timeout": 6000,
+    "MySQLPort": 8083,
+    "MySQLUsername": "root",
+    "MySQLPassword": "password"
 }

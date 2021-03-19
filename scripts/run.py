@@ -47,6 +47,9 @@ def benchmark(conf):
         os.remove(result_file)
     shutil.copy(header, result_file)
     os.environ['Runs'] = str(conf.Runs)
+    os.environ['MySQLUsername'] = conf.MySQLUsername
+    os.environ['MySQLPassword'] = conf.MySQLPassword
+    os.environ['MySQLPort'] = str(conf.MySQLPort)
     for tool in conf.Tools:
         config = ConfigParser.ConfigParser()
         config.read(os.path.join(BASE_DIRECTORY, "solutions", tool, "solution.ini"))
