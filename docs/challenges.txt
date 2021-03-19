@@ -20,11 +20,11 @@
 +++ challenge#1: OCL: Car.allInstances()->collect(c|c)
 +++ challenge#2: OCL: Car.allInstances()->collect(c|5 = 1)
 
-***** Stage#5 ***** [attributes]
+***** Stage#5 ***** [property-calls]
 +++ challenge#0: OCL: Car.allInstances()->collect(c|c.color)
 +++ challenge#1: OCL: Car.allInstances()->collect(c|c.color = 'black')
 
-***** Stage#6 ***** [association-ends]
+***** Stage#6 ***** [association-ends-calls]
 +++ challenge#0: OCL: Car.allInstances()->collect(c|c.owners->size())
 +++ challenge#1: OCL: Car.allInstances()->collect(c|c.owners->size() = 0)
 
