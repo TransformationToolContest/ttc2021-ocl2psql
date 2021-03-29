@@ -1,6 +1,6 @@
 +++ scenario#1:
 Description:
-all tables (Car, Person, Car_ownedCars_owners_Person) are empty.
+all tables (Car, Person, Ownership) are empty.
 
 Results:
 * Stage 0 Challenge 0.
@@ -16,9 +16,6 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
@@ -64,33 +61,12 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 8 Challenge 0.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 3.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 0.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 1.
 ==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 3.
-==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#2: 
 Table Car contains 1 row
 (Car_id = 1, color = "black").
-Table Person and Table Car_ownedCars_owners_Person are empty.
+Table Person and Table Ownership are empty.
 
 Results:
 * Stage 0 Challenge 0.
@@ -106,9 +82,6 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
@@ -155,27 +128,6 @@ Results:
 
 * Stage 8 Challenge 0.
 ==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 3.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 3.
-==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#3:
 Car table contains two rows 
@@ -199,9 +151,6 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
@@ -264,27 +213,6 @@ another row: the column "res" contains 1
 
 * Stage 8 Challenge 0.
 ==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 3.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 3.
-==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#4:
 Car table contains two rows 
@@ -309,9 +237,6 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
@@ -373,27 +298,6 @@ another row: the column "res" contains 1
 ==> A table with one row: the column "res" contains 1
 
 * Stage 8 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 3.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 3.
 ==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#5:
@@ -422,9 +326,6 @@ Results:
 * Stage 1 Challenge 1.
 ==> A table with one row: the column "res" contains 1
 
-* Stage 1 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
 * Stage 2 Challenge 0.
 ==> A table with two rows, 
 one row: the column "res" contains 1 
@@ -484,27 +385,6 @@ another row: the column "res" contains 1
 ==> A table with one row: the column "res" contains 1
 
 * Stage 8 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 3.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 3.
 ==> A table with one row: the column "res" contains 1
 ===============================
 +++ scenario#6:
@@ -534,9 +414,6 @@ Results:
 * Stage 1 Challenge 1.
 ==> A table with one row: the column "res" contains 1
 
-* Stage 1 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
 * Stage 2 Challenge 0.
 ==> A table with two rows, 
 one row: the column "res" contains 1 
@@ -596,28 +473,7 @@ another row: the column "res" contains 1
 ==> A table with one row: the column "res" contains 0
 
 * Stage 8 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 1.
 ==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 3.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 1.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 3.
-==> A table with one row: the column "res" contains 0
 ===============================
 +++ scenario#7:
 Car table contains two rows 
@@ -647,9 +503,6 @@ Results:
 * Stage 1 Challenge 1.
 ==> A table with one row: the column "res" contains 1
 
-* Stage 1 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
 * Stage 2 Challenge 0.
 ==> A table with two rows, 
 one row: the column "res" contains 1 
@@ -709,25 +562,4 @@ another row: the column "res" contains 0
 ==> A table with one row: the column "res" contains 1
 
 * Stage 8 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 1.
 ==> A table with one row: the column "res" contains 1
-
-* Stage 8 Challenge 2.
-==> A table with one row: the column "res" contains 0
-
-* Stage 8 Challenge 3.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 0.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 1.
-==> A table with one row: the column "res" contains 0
-
-* Stage 9 Challenge 2.
-==> A table with one row: the column "res" contains 1
-
-* Stage 9 Challenge 3.
-==> A table with one row: the column "res" contains 0

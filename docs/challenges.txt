@@ -5,8 +5,7 @@
 
 ***** Stage#1 ***** [basic operation]
 +++ challenge#0: OCL: 2 = 3
-+++ challenge#1: OCL: 'no-name' <> 'Peter'
-+++ challenge#2: OCL: true or true
++++ challenge#1: OCL: 'Peter' = 'Peter'
 
 ***** Stage#2 ***** [allInstances]
 +++ challenge#0: OCL: Car.allInstances()
@@ -34,14 +33,5 @@
 +++ challenge#2: OCL: Car.allInstances()->exists(c|c.color='black')
 +++ challenge#3: OCL: Car.allInstances()->exists(c|c.owners->size() = 1)
 
-***** Stage#8 ***** [forAll-basic]
-+++ challenge#0: OCL: Car.allInstances()->forAll(c|false)
-+++ challenge#1: OCL: Car.allInstances()->forAll(c|true)
-+++ challenge#2: OCL: Car.allInstances()->forAll(c|c.color='black')
-+++ challenge#3: OCL: Car.allInstances()->forAll(c|c.owners->size() = 1)
-
-***** Stage#9 ***** [exists-forall nested]
-+++ challenge#0: OCL: Car.allInstances()->forAll(c|c.owners->exists(p|p.name = 'Peter'))
-+++ challenge#1: OCL: Car.allInstances()->exists(c|c.owners->forAll(p|p.name = 'Peter'))
-+++ challenge#2: OCL: Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))
-+++ challenge#3: OCL: Car.allInstances()->forAll(c|c.owners->forAll(p|p.name = 'Peter'))
+***** Stage#8 ***** [exists-nested]
++++ challenge#0: OCL: Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))
