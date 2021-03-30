@@ -14,12 +14,13 @@
           href="CarPerson.xmi#//@classes.1"/>
     </source>
   </source>
+  <body xsi:type="EXP:PropertyCallExp">
+    <source
+        xsi:type="EXP:VariableExp"
+        referredVariable="//@iterator.0"/>
+    <referredProperty
+        href="CarPerson.xmi#//@classes.1/@attributes.0"/>
+  </body>
   <iterator
-      name="c">
-    <initExpression
-        xsi:type="EXP:PropertyCallExp">
-      <referredProperty
-          href="CarPerson.xmi#//@classes.1/@attributes.0"/>
-    </initExpression>
-  </iterator>
+      name="c"/>
 </EXP:IteratorExp>
