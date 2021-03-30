@@ -6,6 +6,7 @@
 ***** Stage#1 ***** [basic operation]
 +++ challenge#0: OCL: 2 = 3
 +++ challenge#1: OCL: 'Peter' = 'Peter'
++++ challenge#2: OCL: true and true
 
 ***** Stage#2 ***** [allInstances]
 +++ challenge#0: OCL: Car.allInstances()

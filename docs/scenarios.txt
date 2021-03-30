@@ -18,6 +18,9 @@ Results:
 * Stage 1 Challenge 1.
 ==> A table with one row: the column "res" contains 1
 
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
+
 * Stage 2 Challenge 0.
 ==> An empty table
 
@@ -82,6 +85,9 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
+
+* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
@@ -151,6 +157,9 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
+
+* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
@@ -239,6 +248,9 @@ Results:
 * Stage 1 Challenge 1.
 ==> A table with one row: the column "res" contains 1
 
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
+
 * Stage 2 Challenge 0.
 ==> A table with two rows, 
 one row: the column "res" contains 1 
@@ -324,6 +336,9 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
+
+* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
@@ -414,6 +429,9 @@ Results:
 * Stage 1 Challenge 1.
 ==> A table with one row: the column "res" contains 1
 
+* Stage 1 Challenge 2.
+==> A table with one row: the column "res" contains 1
+
 * Stage 2 Challenge 0.
 ==> A table with two rows, 
 one row: the column "res" contains 1 
@@ -501,6 +519,9 @@ Results:
 ==> A table with one row: the column "res" contains 0
 
 * Stage 1 Challenge 1.
+==> A table with one row: the column "res" contains 1
+
+* Stage 1 Challenge 2.
 ==> A table with one row: the column "res" contains 1
 
 * Stage 2 Challenge 0.
