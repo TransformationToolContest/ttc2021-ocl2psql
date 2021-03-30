@@ -10,8 +10,8 @@
         {
             "Queries": [
                 "2 = 3",
-                "'no-name'<> 'Peter'",
-                "true or true"
+                "'Peter' = 'Peter'",
+                "true and true"
             ]
         },
         {
@@ -29,7 +29,7 @@
             "Queries": [
                "Car.allInstances()->collect(c|5)",
                "Car.allInstances()->collect(c|c)",
-               "Car.allInstances()->collect(c|5 = 1)"
+               "Car.allInstances()->collect(c|false)"
             ]
         },
         {
@@ -54,18 +54,7 @@
         },
         {
             "Queries": [
-               "Car.allInstances()->forall(c|false)",
-               "Car.allInstances()->forall(c|true)",
-               "Car.allInstances()->forall(c|c.color = 'black')",
-               "Car.allInstances()->forall(c|c.owners->size() = 1"
-            ]
-        },
-        {
-            "Queries": [
-               "Car.allInstances()->forAll(c|c.owners->exists(p|p.name = 'Peter'))",
-               "Car.allInstances()->exists(c|c.owners->forAll(p|p.name = 'Peter'))",
-               "Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))",
-               "Car.allInstances()->forAll(c|c.owners->forAll(p|p.name = 'Peter'))"
+               "Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))"
             ]
         }
     ],
