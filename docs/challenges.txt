@@ -17,7 +17,7 @@
 ***** Stage#4 ***** [basic collect-iterator]
 +++ challenge#0: OCL: Car.allInstances()->collect(c|5)
 +++ challenge#1: OCL: Car.allInstances()->collect(c|c)
-+++ challenge#2: OCL: Car.allInstances()->collect(c|5 = 1)
++++ challenge#2: OCL: Car.allInstances()->collect(c|false)
 
 ***** Stage#5 ***** [property-calls]
 +++ challenge#0: OCL: Car.allInstances()->collect(c|c.color)

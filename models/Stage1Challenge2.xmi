@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:EXP="http://www.example.org/ocl/exp"
     xsi:schemaLocation="http://www.example.org/ocl/exp ../metamodels/ocl.ecore#//exp"
-    referredOperation="or">
+    referredOperation="AND">
   <source xsi:type="EXP:BooleanLiteralExp"
       booleanValue="true"/>
   <argument
