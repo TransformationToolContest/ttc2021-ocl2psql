@@ -38,7 +38,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Operator" instanceClassName="java.lang.Object">
       <eLiterals name="equal" literal="="/>
-      <eLiterals name="AND" value="1"/>
+      <eLiterals name="AND" value="1" literal="and"/>
       <eLiterals name="allInstances" value="2"/>
       <eLiterals name="size" value="3"/>
     </eClassifiers>
@@ -54,8 +54,6 @@
           lowerBound="1" eType="#//dm/AssociationEnd"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Variable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="initExpression" eType="#//exp/OclExpression"
-          containment="true" eOpposite="#//exp/OclExpression/initializedElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopExp" eType="#//exp/IteratorExp"
           eOpposite="#//exp/IteratorExp/iterator"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -72,8 +70,6 @@
           eType="#//exp/Variable" containment="true" eOpposite="#//exp/Variable/loopExp"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OclExpression" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="initializedElement" eType="#//exp/Variable"
-          eOpposite="#//exp/Variable/initExpression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopBodyOwner" eType="#//exp/IteratorExp"
           eOpposite="#//exp/IteratorExp/body"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedElement" eType="#//exp/CallExp"
