@@ -46,7 +46,7 @@ def benchmark(conf):
     if os.path.exists(result_file):
         os.remove(result_file)
     shutil.copy(header, result_file)
-    os.environ['Runs'] = str(conf.Runs)
+    # os.environ['Runs'] = str(conf.Runs)
     os.environ['MySQLUsername'] = conf.MySQLUsername
     os.environ['MySQLPassword'] = conf.MySQLPassword
     os.environ['MySQLPort'] = str(conf.MySQLPort)
