@@ -59,8 +59,8 @@ def benchmark(conf):
             os.environ['StageIndex'] = str(iStage)
             try:
                 for iQuery, query in enumerate(stage.Queries):
-                    path_to_schema_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "input", "CarPerson.xmi"))
-                    path_to_ocl_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "input", "Stage{0}Challenge{1}.xmi".format(iStage, iQuery)))
+                    path_to_schema_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", "CarPerson.xmi"))
+                    path_to_ocl_xmi = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", "Stage{0}Challenge{1}.xmi".format(iStage, iQuery)))
                     os.environ['ChallengeIndex'] = str(iQuery)
                     os.environ['OCLQuery'] = query
                     os.environ['PathToOCLXMI'] = path_to_ocl_xmi
