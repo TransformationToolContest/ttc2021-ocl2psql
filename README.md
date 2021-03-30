@@ -1,6 +1,6 @@
-# The TTC 2020 OCL2PSQL Case
+# The TTC 2021 OCL2PSQL Case
 
-This is a case for the  TTC 2020 on the translation of OCL queries to SQL, for a certain database schema (OCL2SQL).
+This is a case for the  TTC 2021 on the translation of OCL queries to SQL, for a certain database schema (OCL2SQL).
 The case study is based on this reference implementation:
 
 * Hoang Nguyen Phuoc Bao and Manuel Clavel, OCL2PSQL: An OCL-to-SQL Code-Generator for Model-Driven Engineering, FDSE 2019. ([doi:10.1007/978-3-030-35653-8_13](http://doi.org/10.1007/978-3-030-35653-8_13))
