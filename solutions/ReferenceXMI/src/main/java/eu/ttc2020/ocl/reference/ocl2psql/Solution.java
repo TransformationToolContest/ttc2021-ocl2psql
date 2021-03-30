@@ -28,7 +28,7 @@ public class Solution {
 	public void run(Configuration c) {
 //		Transformation time
 		long transformationTimeNano = 0;
-		sql.Statement sqlStmXMI = null;
+		sql.SelectStatement sqlStmXMI = null;
 		try {
 			OCL2PSQL_2 ocl2psql = new OCL2PSQL_2();
 			final File oclXMIFile = c.getOCLQueryXMIFile();
@@ -48,17 +48,21 @@ public class Solution {
 		if (sqlStmXMI != null) {
 			String sqlStmString;
 			try {
+				boolean totalCorrect = true;
+				long totalTestTime = 0L;
 				sqlStmString = SQLParser.outputEStatementAsString(sqlStmXMI);
 //				Correctness and execution time of the generated query
 				for (int iScenario = 1; iScenario <= scenarios; iScenario++) {
 					final long nanosTestSQLStart = System.nanoTime();
-					final boolean isCorrect = CorrectnessTest.check(c, iScenario, sqlStmString);
+					final boolean localCorrect = CorrectnessTest.check(c, iScenario, sqlStmString);
 					final long nanosTestSQLEnd = System.nanoTime();
-					if (isCorrect) {
-						printMetric(c, METRIC_TEST_TIME, nanosTestSQLEnd - nanosTestSQLStart);
-					}
-					final String result = isCorrect?"passed":"failed";
+					totalTestTime += nanosTestSQLEnd - nanosTestSQLStart;
+					totalCorrect = totalCorrect && localCorrect;
+					final String result = localCorrect?"passed":"failed";
 					printMetric(c, String.format(METRIC_SCENARIO_PREFIX, iScenario), result);
+				}
+				if (totalCorrect) {
+					printMetric(c, METRIC_TEST_TIME, totalTestTime);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

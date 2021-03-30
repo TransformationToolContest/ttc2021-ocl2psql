@@ -35,7 +35,7 @@ public class SampleLauncher {
 		OCL2PSQL_2 ocl2psql = new OCL2PSQL_2();
 		Expression oclExp = OCLParser.convertToExp(oclExpFile.getAbsolutePath());
 		Statement sqlStm = ocl2psql.mapOCLExpressionToSQLStatement(oclExp);
-		sql.Statement sqlStmXMI = SQLParser.transform(sqlStm);
+		sql.SelectStatement sqlStmXMI = SQLParser.transform(sqlStm);
 
 //		 This code snippet shows how we store the SQL statement model into a XMI file.
 		SQLParser.saveEStatement(sqlStmFile, sqlStmXMI);
