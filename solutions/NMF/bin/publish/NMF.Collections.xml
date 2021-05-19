@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NMF.Collections</name>
+    </assembly>
+    <members>
+        <member name="T:NMF.Collections.Generic.IOrderedSet`1">
+            <summary>
+            Defines an ordered Set
+            </summary>
+            <typeparam name="T">The element type</typeparam>
+        </member>
+        <member name="T:NMF.Collections.Generic.IOrderedSetExpression`1">
+            <summary>
+            Represents an ordered set that can be accessed incrementally, i.e. with change notifications
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+    </members>
+</doc>

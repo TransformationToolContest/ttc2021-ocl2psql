@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "NMF": {
+      "commandName": "Project",
+      "commandLineArgs": "Stage6Challenge0.xmi",
+      "workingDirectory": "D:\\Projekte\\ttc2021-ocl2psql\\models"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://www.example.org/ocl" Prefix="ocl" Name="ocl" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <ChildNamespaces Uri="http://www.example.org/ocl/dm" Prefix="DM" Name="dm">
+    <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//dm/Entity/name" Name="Entity">
+      <References IsContainment="True" ReferenceType="nmeta:Class #//dm/AssociationEnd" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="ends" />
+      <References IsContainment="True" ReferenceType="nmeta:Class #//dm/Attribute" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="attributes" />
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+    </Types>
+    <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//dm/AssociationEnd/name" Name="AssociationEnd">
+      <References ReferenceType="nmeta:Class #//dm/Entity" IsOrdered="True" IsUnique="True" LowerBound="1" Name="target" />
+      <References ReferenceType="nmeta:Class #//dm/AssociationEnd" IsOrdered="True" IsUnique="True" LowerBound="1" Name="opp" />
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Object" Name="mult" />
+      <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="association" />
+    </Types>
+    <Types xsi:type="nmeta:Class" Name="DataModel">
+      <References IsContainment="True" ReferenceType="nmeta:Class #//dm/Entity" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="classes" />
+    </Types>
+    <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//dm/Attribute/name" Name="Attribute">
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="type" />
+    </Types>
+    <Types xsi:type="nmeta:Enumeration" Name="Multiplicity">
+      <Literals Value="1" Name="one" />
+      <Literals Value="-1" Name="many" />
+    </Types>
+  </ChildNamespaces>
+  <ChildNamespaces Uri="http://www.example.org/ocl/exp" Prefix="EXP" Name="exp">
+    <Types xsi:type="nmeta:Enumeration" Name="IteratorKind">
+      <Literals Name="exists" />
+      <Literals Value="1" Name="collect" />
+    </Types>
+    <Types xsi:type="nmeta:Enumeration" Name="Operator">
+      <Literals Name="equal" />
+      <Literals Value="1" Name="AND" />
+      <Literals Value="2" Name="allInstances" />
+      <Literals Value="3" Name="size" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/OclExpression" Name="VariableExp">
+      <References ReferenceType="nmeta:Class #//exp/Variable" IsOrdered="True" IsUnique="True" Name="referredVariable" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/OclExpression" Name="TypeExp">
+      <References ReferenceType="nmeta:Class #//dm/Entity" IsOrdered="True" IsUnique="True" LowerBound="1" Name="referredType" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/CallExp" Name="AssociationClassCallExp">
+      <References ReferenceType="nmeta:Class #//dm/AssociationEnd" IsOrdered="True" IsUnique="True" LowerBound="1" Name="referredAssociationEnds" />
+    </Types>
+    <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//exp/Variable/name" Name="Variable">
+      <References Opposite="#//exp/IteratorExp/iterator" ReferenceType="nmeta:Class #//exp/IteratorExp" IsOrdered="True" IsUnique="True" Name="loopExp" />
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType #//exp/IteratorKind" Name="name" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/CallExp" Name="PropertyCallExp">
+      <References ReferenceType="nmeta:Class #//dm/Attribute" IsOrdered="True" IsUnique="True" LowerBound="1" Name="referredProperty" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/CallExp" Name="IteratorExp">
+      <References IsContainment="True" Opposite="#//exp/OclExpression/loopBodyOwner" ReferenceType="nmeta:Class #//exp/OclExpression" IsOrdered="True" IsUnique="True" LowerBound="1" Name="body" />
+      <References IsContainment="True" Opposite="#//exp/Variable/loopExp" ReferenceType="nmeta:Class #//exp/Variable" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="iterator" />
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Object" Name="kind" />
+    </Types>
+    <Types xsi:type="nmeta:Class" IsAbstract="True" Name="OclExpression">
+      <References Opposite="#//exp/IteratorExp/body" ReferenceType="nmeta:Class #//exp/IteratorExp" IsOrdered="True" IsUnique="True" Name="loopBodyOwner" />
+      <References Opposite="#//exp/CallExp/source" ReferenceType="nmeta:Class #//exp/CallExp" IsOrdered="True" IsUnique="True" Name="appliedElement" />
+      <References Opposite="#//exp/OperationCallExp/argument" ReferenceType="nmeta:Class #//exp/OperationCallExp" IsOrdered="True" IsUnique="True" Name="parentCall" />
+    </Types>
+    <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//exp/OclExpression" Name="CallExp">
+      <References IsContainment="True" Opposite="#//exp/OclExpression/appliedElement" ReferenceType="nmeta:Class #//exp/OclExpression" IsOrdered="True" IsUnique="True" Name="source" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/OclExpression" Name="IntegerLiteralExp">
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Integer" Name="integerValue" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/CallExp" Name="OperationCallExp">
+      <References IsContainment="True" Opposite="#//exp/OclExpression/parentCall" ReferenceType="nmeta:Class #//exp/OclExpression" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="argument" />
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Object" Name="referredOperation" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/OclExpression" Name="StringLiteralExp">
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="stringValue" />
+    </Types>
+    <Types xsi:type="nmeta:Class" BaseTypes="#//exp/OclExpression" Name="BooleanLiteralExp">
+      <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="booleanValue" />
+    </Types>
+  </ChildNamespaces>
+</nmeta:Namespace>

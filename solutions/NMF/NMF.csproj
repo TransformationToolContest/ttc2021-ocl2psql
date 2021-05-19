@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>TTC2021.OclToSql</RootNamespace>
+    <AssemblyName>NMFSolution</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ocl.nmeta" />
+    <None Remove="Solution.cs~RFa5782b.TMP" />
+    <None Remove="sql.nmeta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ocl.nmeta" />
+    <EmbeddedResource Include="sql.nmeta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.25" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NMF.Collections">
+      <HintPath>..\..\..\NMF\Build\netstandard2.0\NMF.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Expressions">
+      <HintPath>..\..\..\NMF\Build\netstandard2.0\NMF.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Expressions.Linq">
+      <HintPath>..\..\..\NMF\Build\netstandard2.0\NMF.Expressions.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Models">
+      <HintPath>..\..\..\NMF\Build\netstandard2.0\NMF.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Serialization">
+      <HintPath>..\..\..\NMF\Build\netstandard2.0\NMF.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Utilities">
+      <HintPath>..\..\..\NMF\Build\netstandard2.0\NMF.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
