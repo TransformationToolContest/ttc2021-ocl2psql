@@ -3,6 +3,9 @@ import 'utilities.eol';
 rule Attribute
 transform op:OCL!PropertyCallExp
 to ps:SQL!PlainSelect {
+
+  op.attributeName().println('Attribute: ');
+
   ps.selItems.add(selectItem('res', column(op.entityName(), op.attributeName())));
   ps.selItems.add(selectItem('val', column('TEMP_obj', 'val')));
 

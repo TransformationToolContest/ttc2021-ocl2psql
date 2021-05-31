@@ -1,6 +1,6 @@
 import 'utilities.eol';
 
-rule Attribute
+rule AssociationEnds
 transform op:OCL!AssociationClassCallExp
 to ps:SQL!PlainSelect {
 

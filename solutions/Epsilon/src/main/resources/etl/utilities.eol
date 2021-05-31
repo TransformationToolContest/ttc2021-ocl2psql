@@ -49,6 +49,13 @@ operation equalsExpression(left: SQL!Expression, right: SQL!Expression): SQL!Equ
    return e; 
 }
 
+operation greaterThanExpression(left: SQL!Expression, right: SQL!Expression): SQL!GreaterThanExpression {
+   var e = new SQL!GreaterThanExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e; 
+}
+
 operation sqlAlias(name: String) {
   var al = new SQL!Alias;
   al.name = name;
