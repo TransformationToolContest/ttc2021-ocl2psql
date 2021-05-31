@@ -88,6 +88,27 @@ operation leftJoinOn(rightItem: SQL!FromItem, onExp: SQL!Expression): SQL!Join {
   return j;
 }
 
+operation isNull(exp: SQL!Expression): SQL!IsNullExpression {
+  var e = new SQL!IsNullExpression;
+  e.exp = exp;
+  return e;
+}
+
+operation whenClause(when: SQL!Expression, then: SQL!Expression) {
+  var e = new SQL!WhenClause;
+  e.whenExp = when;
+  e.thenExp = then;
+  return e;
+}
+
+operation caseExpression(caseExp: SQL!Expression, whenClause: SQL!WhenClause, elseExp: SQL!Expression): SQL!CaseExpression {
+  var e = new SQL!CaseExpression;
+  e.caseExp = caseExp;
+  e.whenClauses.add(whenClause);
+  e.elseExp = elseExp;
+  return e;
+}
+
 @cached
 operation OCL!VariableExp source() {
   return self.referredVariable.loopExp.source;

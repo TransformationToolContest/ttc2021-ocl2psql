@@ -4,3 +4,4 @@ import 's2_allInstances.etl';
 import 's3_size.etl';
 import 's4_collect_variable.etl';
 import 's5_attributes.etl';
+import 's6_associationEnds.etl';

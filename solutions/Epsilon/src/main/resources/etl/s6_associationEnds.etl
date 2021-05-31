@@ -1,0 +1,34 @@
+import 'utilities.eol';
+
+rule Attribute
+transform op:OCL!AssociationClassCallExp
+to ps:SQL!PlainSelect {
+
+  var end = op.referredAssociationEnds;
+  var endName = end.name;
+  var association = end.association;
+  var oppositeEndName = end.opp.name;
+
+  ps.selItems.add(selectItem('res', column(association, endName)));
+
+  ps.selItems.add(selectItem('val', caseExpression(
+    isNull(column(association, oppositeEndName)),
+    whenClause(longValue(1l), longValue(0l)),
+    longValue(1l)
+  )));
+
+  for (sourceVar in op.source.sourceVars()) {
+    var refName = 'ref_' + sourceVar.name;
+    ps.selItems.add(selectItem(refName, column('TEMP_src', refName)));
+  }
+
+  ps.fromItem = subselect('TEMP_src', op.source.equivalent());
+  ps.joins.add(leftJoinOn(
+    table(association),
+    equalsExpression(
+      column('TEMP_src', 'ref_' + op.source.referredVariable.name),
+      column(association, oppositeEndName)
+    )
+  ));
+
+}
