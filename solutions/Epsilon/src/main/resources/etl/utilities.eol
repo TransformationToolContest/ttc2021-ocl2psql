@@ -1,0 +1,87 @@
+operation longSelectItem(name: String, val: Integer) : SQL!SelectItem {
+  var v = new SQL!LongValue;
+  v.value = val;
+  return selectItem(name, v);
+}
+
+operation stringSelectItem(name: String, val: String) : SQL!SelectItem {
+  var v = new SQL!StringValue;
+  v.value = val;
+  return selectItem(name, v);
+} 
+
+operation booleanSelectItem(name: String, val: Boolean) : SQL!SelectItem {
+  var v = new SQL!LongValue;
+  v.value = val ? 1l : 0l;
+  return selectItem(name, v);
+}
+
+operation selectItem(name: String, exp: SQL!Expression): SQL!SelectItem {
+   var item = new SQL!SelectItem;
+   item.`alias` = sqlAlias(name);
+   item.exp = exp;
+   return item;
+}
+
+operation sqlAlias(name: String) {
+  var al = new SQL!Alias;
+  al.name = name;
+  return al;
+}
+
+operation column(tableName: String, columnName: String) : SQL!Column {
+  var col = new SQL!Column;
+  col.name = columnName;
+  col.table = table(tableName);
+  return col;
+}
+
+operation subselect(aliasName: String, sel: SQL!PlainSelect) : SQL!SubSelect {
+  var sub = new SQL!SubSelect;
+  sub.`alias` = sqlAlias(aliasName);
+  sub.selectBody = sel;
+  return sub;
+}
+
+operation table(name: String): SQL!Table {
+  var t = new SQL!Table;
+  t.name = name;
+  return t;
+}
+
+operation join(rightItem: SQL!FromItem): SQL!Join {
+  var j = new SQL!Join;
+  j.rightItem = rightItem;
+  return j;
+}
+
+@cached
+operation OCL!VariableExp source() {
+  return self.referredVariable.loopExp.source;
+}
+
+@cached
+operation OCL!OclExpression freeVars(): Set {
+  var allBoundVars =
+    self.eAllContents.select(v:OCL!Variable | true).asSet();
+
+  return self.eAllContents.select(ve:OCL!VariableExp |
+    not allBoundVars.contains(self.referredVariable)
+  ).collect(ve|ve.referredVariable).asSet();
+}
+
+operation OCL!VariableExp freeVars() : Set {
+  return Set { self.referredVariable };
+}
+
+@cached
+operation OCL!OclExpression sourceVars(): Set {
+  var res : Set;
+
+  for (v in self.freeVars()) {
+    res.add(v);
+    res.addAll(v.loopExp.source.sourceVars());
+  }
+
+  return res;
+}

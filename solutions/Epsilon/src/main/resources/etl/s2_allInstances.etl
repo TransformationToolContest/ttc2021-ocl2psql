@@ -1,0 +1,14 @@
+import 'utilities.eol';
+
+rule AllInstances
+transform op:OCL!OperationCallExp
+to ps:SQL!PlainSelect {
+  guard : op.referredOperation == OCL!Operator#allInstances
+
+  op.referredOperation.println('AllInstances: ');
+
+  var typeName = op.source.referredType.name;
+  ps.selItems.add(selectItem('res', column(typeName, typeName + '_id')));
+  ps.selItems.add(longSelectItem('val', 1l));
+  ps.fromItem = table(typeName);
+}

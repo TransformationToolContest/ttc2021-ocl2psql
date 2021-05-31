@@ -1,0 +1,13 @@
+import 'utilities.eol';
+
+rule SizeNoFree
+transform op:OCL!OperationCallExp
+to ps:SQL!PlainSelect {
+  guard : op.referredOperation == OCL!Operator#size
+  
+  op.referredOperation.println('SizeNoFree: ');
+  
+  ps.selItems.add(selectItem('res', new SQL!CountAllFunction));
+  ps.selItems.add(longSelectItem('val', 1l));
+  ps.fromItem = subselect('TEMP_src', op.source.equivalent());
+}
