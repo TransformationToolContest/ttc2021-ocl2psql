@@ -1,0 +1,29 @@
+import 'utilities.eol';
+
+rule Attribute
+transform op:OCL!PropertyCallExp
+to ps:SQL!PlainSelect {
+  ps.selItems.add(selectItem('res', column(op.entityName(), op.attributeName())));
+  ps.selItems.add(selectItem('val', column('TEMP_obj', 'val')));
+
+  for (sourceVar in op.source.sourceVars()) {
+    var refName = 'ref_' + sourceVar.name;
+    ps.selItems.add(selectItem(refName, column('TEMP_obj', refName)));
+  }
+
+  ps.fromItem = subselect('TEMP_obj', op.source.equivalent());
+
+  ps.joins.add(leftJoinOn(
+    table(op.entityName()),
+    andExpression(
+      equalsExpression(
+        column('TEMP_obj', 'ref_' + op.variableName()),
+        column(op.entityName(), op.entityName() + '_id')
+      ),
+      equalsExpression(
+        column('TEMP_obj', 'val'),
+        longValue(1l)
+      )
+    )
+  ));
+}

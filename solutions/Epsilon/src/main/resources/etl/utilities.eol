@@ -1,19 +1,31 @@
 operation longSelectItem(name: String, val: Integer) : SQL!SelectItem {
+  return selectItem(name, longValue(val));
+}
+
+operation longValue(val: Integer): SQL!LongValue {
   var v = new SQL!LongValue;
   v.value = val;
-  return selectItem(name, v);
+  return v;
 }
 
 operation stringSelectItem(name: String, val: String) : SQL!SelectItem {
+  return selectItem(name, stringValue(val));
+}
+
+operation stringValue(val: String): SQL!StringValue {
   var v = new SQL!StringValue;
   v.value = val;
-  return selectItem(name, v);
+  return v;  
 } 
 
 operation booleanSelectItem(name: String, val: Boolean) : SQL!SelectItem {
+  return selectItem(name, booleanValue(val));
+}
+
+operation booleanValue(val: Boolean): SQL!LongValue {
   var v = new SQL!LongValue;
   v.value = val ? 1l : 0l;
-  return selectItem(name, v);
+  return v;  
 }
 
 operation selectItem(name: String, exp: SQL!Expression): SQL!SelectItem {
@@ -21,6 +33,20 @@ operation selectItem(name: String, exp: SQL!Expression): SQL!SelectItem {
    item.`alias` = sqlAlias(name);
    item.exp = exp;
    return item;
+}
+
+operation andExpression(left: SQL!Expression, right: SQL!Expression): SQL!AndExpression {
+   var e = new SQL!AndExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e; 
+}
+
+operation equalsExpression(left: SQL!Expression, right: SQL!Expression): SQL!EqualsToExpression {
+   var e = new SQL!EqualsToExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e; 
 }
 
 operation sqlAlias(name: String) {
@@ -55,6 +81,13 @@ operation join(rightItem: SQL!FromItem): SQL!Join {
   return j;
 }
 
+operation leftJoinOn(rightItem: SQL!FromItem, onExp: SQL!Expression): SQL!Join {
+  var j = join(rightItem);
+  j.left = true;
+  j.onExp = onExp;
+  return j;
+}
+
 @cached
 operation OCL!VariableExp source() {
   return self.referredVariable.loopExp.source;
@@ -63,11 +96,14 @@ operation OCL!VariableExp source() {
 @cached
 operation OCL!OclExpression freeVars(): Set {
   var allBoundVars =
-    self.eAllContents.select(v:OCL!Variable | true).asSet();
+    self.eAllContents().select(v:OCL!Variable | true).asSet();
+  var allVarExps =
+    self.eAllContents().select(ve|ve.isKindOf(OCL!VariableExp));
 
-  return self.eAllContents.select(ve:OCL!VariableExp |
-    not allBoundVars.contains(self.referredVariable)
-  ).collect(ve|ve.referredVariable).asSet();
+  return allVarExps
+    .select(ve | not allBoundVars.contains(ve.referredVariable))
+    .collect(ve | ve.referredVariable)
+    .asSet();
 }
 
 operation OCL!VariableExp freeVars() : Set {
@@ -84,4 +120,24 @@ operation OCL!OclExpression sourceVars(): Set {
   }
 
   return res;
+}
+
+@cached
+operation OCL!PropertyCallExp attributeName() : String {
+  return self.referredProperty.name;
+}
+
+@cached
+operation OCL!PropertyCallExp entityName() : String {
+  return self.referredProperty.eContainer.name;
+}
+
+@cached
+operation OCL!PropertyCallExp variableName(): String {
+  return self.source.referredVariable.name;
+}
+
+operation Any eAllContents(): Sequence {
+  // https://www.eclipse.org/forums/index.php/t/501975/
+  return self.closure(e | e.eContents());
 }
