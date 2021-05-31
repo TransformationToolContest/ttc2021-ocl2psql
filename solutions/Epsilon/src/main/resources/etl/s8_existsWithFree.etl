@@ -1,0 +1,120 @@
+import 'utilities.eol';
+
+/*
+
+SELECT
+  CASE TEMP_src.ref_v IS NULL
+    WHEN 1 THEN 0
+    ELSE TEMP.res END as res,
+  1 as val,
+  TEMP_src.ref_v as ref_v, for each v ∈ SVars(s),
+  TEMP_body.ref_v as ref_v, for each v ∈ SVars(b) \ SVars(s) \ {v}
+FROM (mape(s)) as TEMP_src
+LEFT JOIN (
+  SELECT COUNT(*) > 0 as res,
+  TEMP_body.ref_v as ref_v, for each v ∈ SVars(b) \ {v}
+  FROM (mape(b)) as TEMP_body
+  WHERE TEMP_body.res = 1
+  GROUP BY TEMP_body.ref_v, for each v ∈ SVars(b) \ {v}
+) as TEMP_body
+ON TEMP_src.ref_v = TEMP_body.ref_v, for each v ∈ SVars(s)
+
+*/
+
+rule Exists_WithFree
+transform op:OCL!IteratorExp
+to ps:SQL!PlainSelect {
+  guard : (
+    op.kind == OCL!IteratorKind#exists
+    and not op.freeVars().isEmpty()
+  )
+
+  /*
+    CASE TEMP_src.ref_v IS NULL
+      WHEN 1 THEN 0
+      ELSE TEMP.res END as res,
+   */
+  ps.selItems.add(selectItem('res', caseExpression(
+    isNull(column('TEMP_src', 'ref_' + op.iterator.name)),
+    whenClause(longValue(1l), longValue(0l)),
+    column('TEMP', 'res')
+  )));
+
+  // 1 as val,
+  ps.selItems.add(selectItem('val', longValue(1l)));
+
+  // TEMP_src.ref_v as ref_v, for each v ∈ SVars(s),
+  for (sourceVar in op.source.sourceVars()) {
+    var refName = 'ref_' + sourceVar.name;
+    ps.selItems.add(selectItem(refName, column('TEMP_src', refName)));
+  }
+
+  // TEMP_body.ref_v as ref_v, for each v ∈ SVars(b) \ SVars(s) \ {v}
+  for (sourceVar  in op.body.sourceVars()
+                       .excludingAll(op.source.sourceVars())
+                       .excluding(op.iterator)) {
+    var refName = 'ref_' + sourceVar.name;
+    ps.selItems.add(selectItem(refName, column('TEMP_body', refName)));
+  }
+
+  // FROM (mape(s)) as TEMP_src
+  ps.fromItem = subselect('TEMP_src', op.source.equivalent());
+
+  //////////////// LONG SUBQUERY AHEAD ///////////////////////
+
+  /*
+  LEFT JOIN (
+    SELECT COUNT(*) > 0 as res,
+    TEMP_body.ref_v as ref_v, for each v ∈ SVars(b) \ {v}
+    FROM (mape(b)) as TEMP_body
+    WHERE TEMP_body.res = 1
+    GROUP BY TEMP_body.ref_v, for each v ∈ SVars(b) \ {v}
+  ) as TEMP_body
+  ON TEMP_src.ref_v = TEMP_body.ref_v, for each v ∈ SVars(s)
+ */ 
+
+  var psLeftJoin = new SQL!PlainSelect;
+
+  // SELECT COUNT(*) > 0 as res,
+  psLeftJoin.selItems.add(selectItem('res',
+    greaterThanExpression(new SQL!CountAllFunction, longValue(0l))));
+
+  // TEMP_body.ref_v as ref_v, for each v ∈ SVars(b) \ {v}
+  for (sourceVar in op.body.sourceVars().excluding(op.iterator)) {
+    var refName = 'ref_' + sourceVar.name;
+    psLeftJoin.selItems.add(selectItem(refName, column('TEMP_body', refName)));
+  }
+
+  // FROM (mape(b)) as TEMP_body
+  psLeftJoin.fromItem = subselect('TEMP_body', op.body.equivalent());
+
+  // WHERE TEMP_body.res = 1
+  psLeftJoin.whereExp = equalsExpression(column('TEMP_body', 'res'), longValue(1l));
+
+  // GROUP BY TEMP_body.ref_v, for each v ∈ SVars(b) \ {v}
+  psLeftJoin.groupBy = new SQL!GroupByElement;
+  for (sourceVar in op.body.sourceVars().excluding(op.iterator)) {
+    psLeftJoin.groupBy.groupByExps.add(column('TEMP_body', 'ref_' + sourceVar.name));
+  }
+
+  // ON TEMP_src.ref_v = TEMP_body.ref_v, for each v ∈ SVars(s)
+  //
+  // (Assuming implicit AND)
+  var joinCondition = null;
+  for (sourceVar in op.source.sourceVars()) {
+    var refName = 'ref_' + sourceVar.name;
+    var cond = equalsExpression(
+      column('TEMP_src', refName),
+      column('TEMP_body', refName)
+    );
+    if (joinCondition.isUndefined()) {
+      joinCondition = cond;
+    } else {
+      joinCondition = andExpression(joinCondition, cond);
+    }
+  }
+
+  ps.joins.add(leftJoinOn(
+    subselect('TEMP_body', psLeftJoin),
+    joinCondition));
+}

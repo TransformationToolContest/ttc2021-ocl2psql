@@ -6,3 +6,4 @@ import 's4_collect_variable.etl';
 import 's5_attributes.etl';
 import 's6_associationEnds.etl';
 import 's7_exists.etl';
+import 's8_existsWithFree.etl';

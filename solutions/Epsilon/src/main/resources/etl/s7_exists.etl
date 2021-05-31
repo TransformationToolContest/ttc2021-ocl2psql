@@ -1,12 +1,14 @@
 import 'utilities.eol';
 
-rule Exists_NoFree
+rule Exists_WithoutFree
 transform op:OCL!IteratorExp
 to ps:SQL!PlainSelect {
   guard : (
     op.kind == OCL!IteratorKind#exists
     and op.freeVars().isEmpty()
   )
+
+  op.println('Exists_WithoutFree: ');
 
   ps.selItems.add(selectItem('res',
     greaterThanExpression(new SQL!CountAllFunction, longValue(0l))));
