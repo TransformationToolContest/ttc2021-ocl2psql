@@ -1,5 +1,9 @@
 import 'utilities.eol';
 
+/*
+  mape(c.allInstances()) =
+    SELECT c_id as res, 1 as val FROM c
+*/
 rule AllInstances
 transform op:OCL!OperationCallExp
 to ps:SQL!PlainSelect {

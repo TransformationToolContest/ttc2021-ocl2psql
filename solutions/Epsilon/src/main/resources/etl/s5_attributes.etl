@@ -1,5 +1,15 @@
 import 'utilities.eol';
 
+/*
+mape(v.att) =
+  SELECT
+    c.att as res,
+    TEMP_obj.val as val,
+    TEMP_obj.ref_v as ref_v, for each v in SVars(v)
+  FROM (mape(v)) as TEMP_obj
+  LEFT JOIN c
+  ON TEMP_obj.ref_v = c.c_id AND TEMP_obj.val = 1
+*/
 rule Attribute
 transform op:OCL!PropertyCallExp
 to ps:SQL!PlainSelect {

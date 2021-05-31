@@ -42,6 +42,13 @@ operation andExpression(left: SQL!Expression, right: SQL!Expression): SQL!AndExp
    return e; 
 }
 
+operation orExpression(left: SQL!Expression, right: SQL!Expression): SQL!OrExpression {
+   var e = new SQL!OrExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e;
+}
+
 operation equalsExpression(left: SQL!Expression, right: SQL!Expression): SQL!EqualsToExpression {
    var e = new SQL!EqualsToExpression;
    e.leftExp = left;

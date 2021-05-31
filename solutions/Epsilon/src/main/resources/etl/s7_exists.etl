@@ -1,5 +1,13 @@
 import 'utilities.eol';
 
+/*
+  mape(s->exists(v | b)) =
+    SELECT
+      COUNT(*) > 0 as res,
+      1 as val
+    FROM (mape(b)) as TEMP_body
+    WHERE TEMP_body.res = 1
+*/
 rule Exists_WithoutFree
 transform op:OCL!IteratorExp
 to ps:SQL!PlainSelect {

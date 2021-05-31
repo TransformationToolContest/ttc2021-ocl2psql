@@ -1,5 +1,17 @@
 import 'utilities.eol';
 
+/*
+mape(v.ase) =
+  SELECT
+    Assoc(ase).ase as res,
+    CASE Assoc(ase).Oppos(ase) IS NULL
+      WHEN 1 THEN 0
+      ELSE 1 END as val,
+    TEMP_src.ref_v as ref_v, for each v in SVars(v)
+  FROM (mape(v)) as TEMP_src
+  LEFT JOIN Assoc(ase)
+  ON TEMP_src.ref_v = Assoc(ase).Oppos(ase)
+*/
 rule AssociationEnds
 transform op:OCL!AssociationClassCallExp
 to ps:SQL!PlainSelect {

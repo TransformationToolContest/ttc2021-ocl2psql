@@ -1,5 +1,12 @@
 import 'utilities.eol';
 
+/*
+ * All these boil down to:
+ *
+ * mape(l) =
+ *   SELECT l as res, 1 as val
+ */
+
 rule IntLiteral
 transform e:OCL!IntegerLiteralExp
 to ps:SQL!PlainSelect {
