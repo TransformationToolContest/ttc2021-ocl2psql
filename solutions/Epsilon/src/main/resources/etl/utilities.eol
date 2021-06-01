@@ -201,7 +201,7 @@ operation Any warnIfContained(value) {
       of, you shouldn't be running into cycles. We still print a warning so we know which
       OCL queries run into this issue.
     */
-    self.println('WARNING: MOVING CONTAINED EQUIVALENT FROM HERE - CLONING! ');
+    self.println('WARNING - cloning shared subtree needed by ');
     return emfTool.ecoreUtil.copy(value);
   }
   return value;
