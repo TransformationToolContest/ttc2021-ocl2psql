@@ -34,7 +34,7 @@ to ps:SQL!PlainSelect {
     ps.selItems.add(selectItem(refName, column('TEMP_src', refName)));
   }
 
-  ps.fromItem = subselect('TEMP_src', op.source.equivalent());
+  ps.fromItem = subselect('TEMP_src', op.warnIfContained(op.source.equivalent()));
   ps.joins.add(leftJoinOn(
     table(association),
     equalsExpression(

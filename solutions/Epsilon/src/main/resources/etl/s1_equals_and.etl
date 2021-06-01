@@ -21,12 +21,11 @@ to ps:SQL!PlainSelect {
     and op.argument.first.freeVars().isEmpty()
   )
 
-  //op.referredOperation.println('EqualsOrAnd_WithoutFree: ');
   addAndOrEqualsExpr(op, ps);
   ps.selItems.add(longSelectItem('val', 1l));
 
-  ps.fromItem = subselect('TEMP_left', op.source.equivalent());
-  ps.joins.add(join(subselect('TEMP_right', op.argument.first.equivalent())));
+  ps.fromItem = subselect('TEMP_left', op.warnIfContained(op.source.equivalent()));
+  ps.joins.add(join(subselect('TEMP_right', op.warnIfContained(op.argument.first.equivalent()))));
 }
 
 /*
@@ -55,9 +54,7 @@ to ps:SQL!PlainSelect {
     and op.source.sourceVars().containsAll(op.argument.first.sourceVars())
   )
 
-  //op.referredOperation.println('EqualsOrAnd_WithFree: ');
   addAndOrEqualsExpr(op, ps);
-
   ps.selItems.add(selectItem('val', caseExpression(
     orExpression(
       equalsExpression(column('TEMP_left', 'val'), longValue(0l)),
@@ -75,13 +72,13 @@ to ps:SQL!PlainSelect {
   }
 
   // FROM (mape(l)) AS TEMP_left
-  ps.fromItem = subselect('TEMP_left', op.source.equivalent());
+  ps.fromItem = subselect('TEMP_left', op.warnIfContained(op.source.equivalent()));
 
   /*
     [LEFT] JOIN (mape(r)) AS TEMP_right
     [ON TEMP_left.ref_v = TEMP_right.ref_v, for each v in SVars(l) \hat SVars(r)]
    */
-  var rightSubselect = subselect('TEMP_right', op.argument.first.equivalent());
+  var rightSubselect = subselect('TEMP_right', op.warnIfContained(op.argument.first.equivalent()));
   var intersectSVars : Set;
   intersectSVars.addAll(leftSVars);
   intersectSVars.retainAll(op.argument.first.sourceVars());

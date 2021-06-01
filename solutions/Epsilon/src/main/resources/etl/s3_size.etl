@@ -15,11 +15,9 @@ to ps:SQL!PlainSelect {
     and op.freeVars().isEmpty()
   )
 
-  //op.referredOperation.println('SizeWithoutFree: ');
-
   ps.selItems.add(selectItem('res', new SQL!CountAllFunction));
   ps.selItems.add(longSelectItem('val', 1l));
-  ps.fromItem = subselect('TEMP_src', op.source.equivalent());
+  ps.fromItem = subselect('TEMP_src', op.warnIfContained(op.source.equivalent()));
 }
 
 /*
@@ -40,8 +38,6 @@ to ps:SQL!PlainSelect {
     and not op.freeVars().isEmpty()
   )
 
-  //op.referredOperation.println('SizeWithFree: ');
-
   ps.selItems.add(selectItem('res', caseExpression(
     equalsExpression(column('TEMP_src', 'val'), longValue(0l)),
     whenClause(longValue(1l), longValue(0l)),
@@ -52,5 +48,5 @@ to ps:SQL!PlainSelect {
     ps.selItems.add(selectItem(refName, column('TEMP_src', refName)));
   }
   ps.selItems.add(longSelectItem('val', 1l));
-  ps.fromItem = subselect('TEMP_src', op.source.equivalent());
+  ps.fromItem = subselect('TEMP_src', op.warnIfContained(op.source.equivalent()));
 }

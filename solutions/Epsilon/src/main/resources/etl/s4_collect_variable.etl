@@ -14,20 +14,17 @@ to ps:SQL!PlainSelect {
     and op.freeVars().isEmpty()
   )
 
-  //op.kind.println('Collect_FreeVarsEmpty: ');
-
   ps.selItems.add(selectItem('res', column('TEMP_body', 'res')));
   ps.selItems.add(selectItem('val', column('TEMP_body', 'val')));
-  ps.fromItem = subselect('TEMP_body', op.body.equivalent());
+  ps.fromItem = subselect('TEMP_body', op.warnIfContained(op.body.equivalent()));
 
   /*
    * Iterator not in the body: need to do a JOIN with source ourselves
    * (this wasn't in the case description, but it was in the original
    * FDSE'19 paper: needed for s4c0).
    */
-  //op.body.println('free variables: ' + op.body.freeVars() + ' in ');
   if (not op.body.freeVars().contains(op.iterator.first)) {
-    ps.joins.add(join(subselect('TEMP_src', op.source.equivalent())));
+    ps.joins.add(join(subselect('TEMP_src', op.warnIfContained(op.source.equivalent()))));
   }
 }
 
@@ -44,7 +41,6 @@ rule VariableExp
 transform v:OCL!VariableExp
 to ps:SQL!PlainSelect {
   var vName = v.referredVariable.name;
-  //vName.println('Variable: ');
 
   ps.selItems.add(selectItem('res', column('TEMP_dmn', 'res')));
   ps.selItems.add(selectItem('ref_' + vName, column('TEMP_dmn', 'res')));
@@ -55,5 +51,5 @@ to ps:SQL!PlainSelect {
     ps.selItems.add(selectItem(refName, column('TEMP_dmn', refName)));
   }
 
-  ps.fromItem = subselect('TEMP_dmn', v.source().equivalent());
+  ps.fromItem = subselect('TEMP_dmn', v.warnIfContained(v.source().equivalent()));
 }

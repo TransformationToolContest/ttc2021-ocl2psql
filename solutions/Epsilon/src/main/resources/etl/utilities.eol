@@ -172,6 +172,41 @@ operation OCL!PropertyCallExp variableName(): String {
   return self.source.referredVariable.name;
 }
 
+operation Any warnIfContained(value) {
+  var emfTool = new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+  if (value.eContainer.isDefined()) {
+    /*
+      Note: this cloning is needed because what OCL2PSQL really produces is not
+      an abstract syntax tree (as the containment EReference SubSelect.selectBody would
+      suggest), but rather an abstract syntax *graph*. There are entire subtrees in
+      the SQL version of the OCL query that could be reused.
+
+      Consider stage 8 challenge 0:
+
+        Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))
+
+      If we look at the mappings, we can see that the translation of both the inner
+      'exists' and 'p.name' require using mape(c.owners): the 'exists' needs it as it
+      is its source (mape(s), as in s->exists(v|b)), and 'p' in 'p.name' needs it
+      because it is the source of the variable as well.
+
+      Ideally, this could be fixed by simply making selectBody in SubSelect *not*
+      a containment reference, and then only turning into SQL the PlainSelect that
+      does not have anyone else pointing at it (this would require setting appropriate
+      opposite references).
+
+      For now, we patch this leak by simply cloning the subtree when we detect we would
+      be about to move it, but it is a bit of a hack: the real fix is changing the SQL
+      metamodel itself. The M2T transformation wouldn't have any issues: as far I am aware
+      of, you shouldn't be running into cycles. We still print a warning so we know which
+      OCL queries run into this issue.
+    */
+    self.println('WARNING: MOVING CONTAINED EQUIVALENT FROM HERE - CLONING! ');
+    return emfTool.ecoreUtil.copy(value);
+  }
+  return value;
+}
+
 operation Any eAllContents(): Sequence {
   // https://www.eclipse.org/forums/index.php/t/501975/
   return self.closure(e | e.eContents());

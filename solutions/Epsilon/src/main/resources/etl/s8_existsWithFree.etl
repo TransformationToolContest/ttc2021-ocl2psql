@@ -58,7 +58,7 @@ to ps:SQL!PlainSelect {
   }
 
   // FROM (mape(s)) as TEMP_src
-  ps.fromItem = subselect('TEMP_src', op.source.equivalent());
+  ps.fromItem = subselect('TEMP_src', op.warnIfContained(op.source.equivalent()));
 
   //////////////// LONG SUBQUERY AHEAD ///////////////////////
 
@@ -86,7 +86,7 @@ to ps:SQL!PlainSelect {
   }
 
   // FROM (mape(b)) as TEMP_body
-  psLeftJoin.fromItem = subselect('TEMP_body', op.body.equivalent());
+  psLeftJoin.fromItem = subselect('TEMP_body', op.warnIfContained(op.body.equivalent()));
 
   // WHERE TEMP_body.res = 1
   psLeftJoin.whereExp = equalsExpression(column('TEMP_body', 'res'), longValue(1l));
