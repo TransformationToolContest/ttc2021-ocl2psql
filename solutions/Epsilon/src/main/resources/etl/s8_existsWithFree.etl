@@ -35,7 +35,7 @@ to ps:SQL!PlainSelect {
       ELSE TEMP.res END as res,
    */
   ps.selItems.add(selectItem('res', caseExpression(
-    isNull(column('TEMP_src', 'ref_' + op.iterator.name)),
+    isNull(column('TEMP_src', 'ref_' + op.iterator.first.name)),
     whenClause(longValue(1l), longValue(0l)),
     column('TEMP', 'res')
   )));

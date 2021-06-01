@@ -21,7 +21,7 @@ to ps:SQL!PlainSelect {
     and op.argument.first.freeVars().isEmpty()
   )
 
-  op.referredOperation.println('EqualsOrAnd_WithoutFree: ');
+  //op.referredOperation.println('EqualsOrAnd_WithoutFree: ');
   addAndOrEqualsExpr(op, ps);
   ps.selItems.add(longSelectItem('val', 1l));
 
@@ -55,7 +55,7 @@ to ps:SQL!PlainSelect {
     and op.source.sourceVars().containsAll(op.argument.first.sourceVars())
   )
 
-  op.referredOperation.println('EqualsOrAnd_WithFree: ');
+  //op.referredOperation.println('EqualsOrAnd_WithFree: ');
   addAndOrEqualsExpr(op, ps);
 
   ps.selItems.add(selectItem('val', caseExpression(

@@ -16,7 +16,7 @@ to ps:SQL!PlainSelect {
     and op.freeVars().isEmpty()
   )
 
-  op.println('Exists_WithoutFree: ');
+  //op.println('Exists_WithoutFree: ');
 
   ps.selItems.add(selectItem('res',
     greaterThanExpression(new SQL!CountAllFunction, longValue(0l))));
@@ -30,7 +30,7 @@ to ps:SQL!PlainSelect {
    * (this wasn't in the case description, but it was in the original
    * FDSE'19 paper: needed for s7c0/s7c1).
    */
-  op.body.println('free variables: ' + op.body.freeVars() + ' in ');
+  //op.body.println('free variables: ' + op.body.freeVars() + ' in ');
   if (not op.body.freeVars().contains(op.iterator.first)) {
     ps.joins.add(join(subselect('TEMP_src', op.source.equivalent())));
   }
