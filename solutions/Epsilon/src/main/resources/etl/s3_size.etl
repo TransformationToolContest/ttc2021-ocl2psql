@@ -49,4 +49,11 @@ to ps:SQL!PlainSelect {
   }
   ps.selItems.add(longSelectItem('val', 1l));
   ps.fromItem = subselect('TEMP_src', op.warnIfContained(op.source.equivalent()));
+
+  var groupBy = new SQL!GroupByElement;
+  for (sourceVar in op.source.sourceVars()) {
+    groupBy.groupByExps.add(column('TEMP_src', 'ref_' + sourceVar.name));
+  }
+  groupBy.groupByExps.add(column('TEMP_src', 'val'));
+  ps.groupBy = groupBy;
 }

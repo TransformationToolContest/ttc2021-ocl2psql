@@ -30,14 +30,14 @@ to ps:SQL!PlainSelect {
   )
 
   /*
-    CASE TEMP_src.ref_v IS NULL
+    CASE TEMP_body.ref_v IS NULL
       WHEN 1 THEN 0
       ELSE TEMP.res END as res,
    */
   ps.selItems.add(selectItem('res', caseExpression(
-    isNull(column('TEMP_src', 'ref_' + op.iterator.first.name)),
+    isNull(column('TEMP_body', 'ref_' + op.iterator.first.name)),
     whenClause(longValue(1l), longValue(0l)),
-    column('TEMP', 'res')
+    column('TEMP_body', 'res')
   )));
 
   // 1 as val,

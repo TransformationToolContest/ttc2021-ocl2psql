@@ -12,9 +12,9 @@
         <mapEntry key="MySQLPort" value="8083"/>
         <mapEntry key="MySQLUsername" value="root"/>
         <mapEntry key="OCLQuery" value="2"/>
-        <mapEntry key="PathToOCLXMI" value="${resource_loc:/epsilon/models/Stage5Challenge1.xmi}"/>
+        <mapEntry key="PathToOCLXMI" value="${resource_loc:/epsilon/models/Stage8Challenge0.xmi}"/>
         <mapEntry key="RunIndex" value="0"/>
-        <mapEntry key="StageIndex" value="0"/>
+        <mapEntry key="StageIndex" value="8"/>
         <mapEntry key="Tool" value="Epsilon"/>
     </mapAttribute>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
