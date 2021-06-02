@@ -2,7 +2,7 @@
 
 @template
 operation SelectStatement generate() { %]
-[%=self.selectBody.generate()%]
+[%=self.selectBody.generate()%];
 [% }
 
 @template
@@ -84,7 +84,7 @@ CASE [%= self.caseExp.generate() %]
 [% for (wc in self.whenClauses) { %]
 [%= wc.generate() %]
 [% } %]
-ELSE [%= self.elseExp.generate() %]
+ELSE [%= self.elseExp.generate() %] END
 )[%
 }
 

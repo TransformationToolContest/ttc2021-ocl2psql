@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sql:Select xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sql="http://www.example.org/sql">
+  <selectBody xsi:type="sql:PlainSelect">
+    <selectItems xsi:type="sql:SelectExpressionItem">
+      <alias name="res"/>
+      <expression xsi:type="sql:EqualsTo">
+        <leftExpression xsi:type="sql:Column" columnName="res">
+          <table name="TEMP_left"/>
+        </leftExpression>
+        <rightExpression xsi:type="sql:Column" columnName="res">
+          <table name="TEMP_right"/>
+        </rightExpression>
+      </expression>
+    </selectItems>
+    <selectItems xsi:type="sql:SelectExpressionItem">
+      <alias name="val"/>
+      <expression xsi:type="sql:LongValue" value="1"/>
+    </selectItems>
+    <fromItem xsi:type="sql:SubSelect">
+      <alias name="TEMP_left"/>
+      <selectBody xsi:type="sql:PlainSelect">
+        <selectItems xsi:type="sql:SelectExpressionItem">
+          <alias name="val"/>
+          <expression xsi:type="sql:LongValue" value="1"/>
+        </selectItems>
+        <selectItems xsi:type="sql:SelectExpressionItem">
+          <alias name="res"/>
+          <expression xsi:type="sql:Function" name="COUNT" allColumns="true"/>
+        </selectItems>
+        <fromItem xsi:type="sql:SubSelect">
+          <alias name="TEMP_src"/>
+          <selectBody xsi:type="sql:PlainSelect">
+            <selectItems xsi:type="sql:SelectExpressionItem">
+              <alias name="val"/>
+              <expression xsi:type="sql:LongValue" value="1"/>
+            </selectItems>
+            <selectItems xsi:type="sql:SelectExpressionItem">
+              <alias name="res"/>
+              <expression xsi:type="sql:Column" columnName="Car_id"/>
+            </selectItems>
+            <fromItem xsi:type="sql:Table" name="Car"/>
+          </selectBody>
+        </fromItem>
+      </selectBody>
+    </fromItem>
+    <joins>
+      <rightItem xsi:type="sql:SubSelect">
+        <alias name="TEMP_right"/>
+        <selectBody xsi:type="sql:PlainSelect">
+          <selectItems xsi:type="sql:SelectExpressionItem">
+            <alias name="val"/>
+            <expression xsi:type="sql:LongValue" value="1"/>
+          </selectItems>
+          <selectItems xsi:type="sql:SelectExpressionItem">
+            <alias name="res"/>
+            <expression xsi:type="sql:LongValue" value="1"/>
+          </selectItems>
+        </selectBody>
+      </rightItem>
+    </joins>
+  </selectBody>
+</sql:Select>

@@ -6,13 +6,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-import org.vgu.se.sql.parser.SQLParser;
+import org.eclipse.epsilon.emc.emf.EmfModel;
 
+import eu.ttc2020.ocl.epsilon.tx.OCL2SQL;
+import eu.ttc2020.ocl.epsilon.tx.SQL2Text;
 import ocl.dm.DmPackage;
 import ocl.exp.ExpPackage;
 import sql.SqlPackage;
 
-public class Launcher {
+public class SampleLauncher {
 
 	public static void main(String[] args) throws Exception {
 		if (args.length != 1) {
@@ -46,16 +48,11 @@ public class Launcher {
 		for (File oclXMIFile : challengeFiles) {
 			final File sqlXMIFile = new File(outputFolder, oclXMIFile.getName().replaceAll("[.]xmi$", "-sql.xmi"));
 			System.out.println(String.format("Transforming %s into %s", oclXMIFile.getPath(), sqlXMIFile.getPath()));
-			new OCL2SQL(oclXMIFile, sqlXMIFile).run();
-
-			final String sqlStatement = SQLParser.outputEStatementAsString(sqlXMIFile);
-			final File sqlTextFile = new File(outputFolder, oclXMIFile.getName().replaceAll("[.]xmi$", "-default.sql")); 
-			System.out.println(String.format("Transforming %s into %s", sqlXMIFile.getPath(), sqlTextFile.getPath()));
-			saveStringToFile(sqlStatement, sqlTextFile);
+			EmfModel emfModel = new OCL2SQL(oclXMIFile).run();
 
 			final File sqlEGLTextFile = new File(outputFolder, oclXMIFile.getName().replaceAll("[.]xmi$", "-egl.sql")); 
 			System.out.println(String.format("Transforming %s into %s", sqlXMIFile.getPath(), sqlEGLTextFile.getPath()));
-			String eglSQL = new SQL2Text(sqlXMIFile, sqlEGLTextFile).run();
+			String eglSQL = new SQL2Text(emfModel.getResource()).run();
 			saveStringToFile(eglSQL, sqlEGLTextFile);
 		}
 	}

@@ -1,4 +1,4 @@
-package eu.ttc2020.ocl.epsilon;
+package eu.ttc2020.ocl.epsilon.tx;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,14 +22,12 @@ public class OCL2SQL {
 	private static final String ETL_RESOURCE_PATH = "/etl/ocl2psql.etl";
 
 	private final File sourceModelFile;
-	private final File targetModelFile;
 
-	public OCL2SQL(File source, File target) {
+	public OCL2SQL(File source) {
 		this.sourceModelFile = source;
-		this.targetModelFile = target;
 	}
 
-	public void run() throws Exception {
+	public EmfModel run() throws Exception {
 		StringProperties sourceProperties = new StringProperties();
 		sourceProperties.setProperty(EmfModel.PROPERTY_NAME, "OCL");
 		sourceProperties.setProperty(EmfModel.PROPERTY_METAMODEL_URI, DmPackage.eNS_URI + "," + ExpPackage.eNS_URI);
@@ -40,18 +38,19 @@ public class OCL2SQL {
 		StringProperties targetProperties = new StringProperties();
 		targetProperties.setProperty(EmfModel.PROPERTY_NAME, "SQL");
 		targetProperties.setProperty(EmfModel.PROPERTY_METAMODEL_URI, SqlPackage.eNS_URI);
-		targetProperties.setProperty(EmfModel.PROPERTY_MODEL_URI, getAbsoluteURIString(targetModelFile));
+		targetProperties.setProperty(EmfModel.PROPERTY_MODEL_URI, new File("dummy.xmi").toURI().toString());
 		targetProperties.setProperty(EmfModel.PROPERTY_READONLOAD, false + "");
-		targetProperties.setProperty(EmfModel.PROPERTY_STOREONDISPOSAL, true + "");
+		targetProperties.setProperty(EmfModel.PROPERTY_STOREONDISPOSAL, false + "");
 
+		EmfModel targetModel = new EmfModel();
 		EtlRunConfiguration runConfig = EtlRunConfiguration.Builder()
 			.withScript(Paths.get(getClass().getResource(ETL_RESOURCE_PATH).toURI()))
 			.withModel(new EmfModel(), sourceProperties)
-			.withModel(new EmfModel(), targetProperties)
+			.withModel(targetModel, targetProperties)
 			.build();
 
 		runConfig.run();
-		runConfig.dispose();
+		return targetModel;
 	}
 
 	private String getAbsoluteURIString(File f) throws IOException {

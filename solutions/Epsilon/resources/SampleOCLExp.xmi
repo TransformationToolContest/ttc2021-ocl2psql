@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EXP:OperationCallExp
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:DM="http://www.example.org/ocl/dm"
+    xmlns:EXP="http://www.example.org/ocl/exp"
+    xsi:schemaLocation="http://www.example.org/ocl/dm ../metamodels/ocl.ecore#//dm http://www.example.org/ocl/exp ../metamodels/ocl.ecore#//exp">
+  <source xsi:type="EXP:OperationCallExp"
+      referredOperation="size">
+    <source
+        xsi:type="EXP:OperationCallExp"
+        referredOperation="allInstances">
+      <source
+          xsi:type="EXP:TypeExp">
+        <referredType
+            xsi:type="DM:Entity"
+            href="CarPerson.xmi#//@classes.1"/>
+      </source>
+    </source>
+  </source>
+  <argument
+      xsi:type="EXP:IntegerLiteralExp"
+      integerValue="1"/>
+</EXP:OperationCallExp>
