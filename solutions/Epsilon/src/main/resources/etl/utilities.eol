@@ -187,8 +187,8 @@ operation Any warnIfContained(value) {
 
       If we look at the mappings, we can see that the translation of both the inner
       'exists' and 'p.name' require using mape(c.owners): the 'exists' needs it as it
-      is its source (mape(s), as in s->exists(v|b)), and 'p' in 'p.name' needs it
-      because it is the source of the variable as well.
+      is its source (mape(s), as in s->exists(v|b)), and 'p.name' needs it
+      because it is the source of the variable 'p' as well.
 
       Ideally, this could be fixed by simply making selectBody in SubSelect *not*
       a containment reference, and then only turning into SQL the PlainSelect that
