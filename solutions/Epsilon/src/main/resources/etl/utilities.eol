@@ -172,7 +172,7 @@ operation OCL!PropertyCallExp variableName(): String {
   return self.source.referredVariable.name;
 }
 
-operation Any warnIfContained(value) {
+operation copyIfContained(value) {
   var emfTool = new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
   if (value.eContainer.isDefined()) {
     /*

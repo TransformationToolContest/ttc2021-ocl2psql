@@ -16,7 +16,7 @@ to ps:SQL!PlainSelect {
 
   ps.selItems.add(selectItem('res', column('TEMP_body', 'res')));
   ps.selItems.add(selectItem('val', column('TEMP_body', 'val')));
-  ps.fromItem = subselect('TEMP_body', op.warnIfContained(op.body.equivalent()));
+  ps.fromItem = subselect('TEMP_body', copyIfContained(op.body.equivalent()));
 
   /*
    * Iterator not in the body: need to do a JOIN with source ourselves
@@ -24,7 +24,7 @@ to ps:SQL!PlainSelect {
    * FDSE'19 paper: needed for s4c0).
    */
   if (not op.body.freeVars().contains(op.iterator.first)) {
-    ps.joins.add(join(subselect('TEMP_src', op.warnIfContained(op.source.equivalent()))));
+    ps.joins.add(join(subselect('TEMP_src', copyIfContained(op.source.equivalent()))));
   }
 }
 
@@ -51,5 +51,5 @@ to ps:SQL!PlainSelect {
     ps.selItems.add(selectItem(refName, column('TEMP_dmn', refName)));
   }
 
-  ps.fromItem = subselect('TEMP_dmn', v.warnIfContained(v.source().equivalent()));
+  ps.fromItem = subselect('TEMP_dmn', copyIfContained(v.source().equivalent()));
 }

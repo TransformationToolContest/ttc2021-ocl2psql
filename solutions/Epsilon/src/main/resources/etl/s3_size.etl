@@ -17,7 +17,7 @@ to ps:SQL!PlainSelect {
 
   ps.selItems.add(selectItem('res', new SQL!CountAllFunction));
   ps.selItems.add(longSelectItem('val', 1l));
-  ps.fromItem = subselect('TEMP_src', op.warnIfContained(op.source.equivalent()));
+  ps.fromItem = subselect('TEMP_src', copyIfContained(op.source.equivalent()));
 }
 
 /*
@@ -48,7 +48,7 @@ to ps:SQL!PlainSelect {
     ps.selItems.add(selectItem(refName, column('TEMP_src', refName)));
   }
   ps.selItems.add(longSelectItem('val', 1l));
-  ps.fromItem = subselect('TEMP_src', op.warnIfContained(op.source.equivalent()));
+  ps.fromItem = subselect('TEMP_src', copyIfContained(op.source.equivalent()));
 
   var groupBy = new SQL!GroupByElement;
   for (sourceVar in op.source.sourceVars()) {
