@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://www.example.org/sql" Prefix="sql" Name="sql" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" Name="SelectStatement">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//PlainSelect" IsOrdered="True" IsUnique="True" LowerBound="1" Name="selectBody" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="PlainSelect">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//SelectItem" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="selItems" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//FromItem" IsOrdered="True" IsUnique="True" Name="fromItem" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Join" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="joins" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" Name="whereExp" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//GroupByElement" IsOrdered="True" IsUnique="True" Name="groupBy" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="GroupByElement">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="groupByExps" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="Join">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//FromItem" IsOrdered="True" IsUnique="True" LowerBound="1" Name="rightItem" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" Name="onExp" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="left" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//Alias/name" Name="Alias">
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" Name="Expression" />
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//Expression" Name="BinaryExpression">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" LowerBound="1" Name="leftExp" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" LowerBound="1" Name="rightExp" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//BinaryExpression" Name="AndExpression" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//BinaryExpression" Name="OrExpression" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//BinaryExpression" Name="EqualsToExpression" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//BinaryExpression" Name="GreaterThanExpression" />
+  <Types xsi:type="nmeta:Class" Name="SelectItem">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Alias" IsOrdered="True" IsUnique="True" Name="alias" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" LowerBound="1" Name="exp" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" Name="FromItem" />
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" BaseTypes="#//FromItem" Identifier="#//Table/name" Name="Table">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Alias" IsOrdered="True" IsUnique="True" Name="alias" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//FromItem #//Expression" Name="SubSelect">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Alias" IsOrdered="True" IsUnique="True" Name="alias" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//PlainSelect" IsOrdered="True" IsUnique="True" LowerBound="1" Name="selectBody" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Expression" Name="LongValue">
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Long" Name="value" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Expression" Name="IsNullExpression">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" LowerBound="1" Name="exp" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Expression" Name="CountAllFunction" />
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" BaseTypes="#//Expression" Identifier="#//Column/name" Name="Column">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Table" IsOrdered="True" IsUnique="True" Name="table" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Expression" Name="CaseExpression">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" Name="caseExp" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" Name="elseExp" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//WhenClause" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="whenClauses" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Expression" Name="StringValue">
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="value" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="WhenClause">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" LowerBound="1" Name="whenExp" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Expression" IsOrdered="True" IsUnique="True" LowerBound="1" Name="thenExp" />
+  </Types>
+</nmeta:Namespace>
