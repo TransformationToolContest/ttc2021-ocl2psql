@@ -1,0 +1,29 @@
+import 'utilities.eol';
+
+/*
+ * All these boil down to:
+ *
+ * mape(l) =
+ *   SELECT l as res, 1 as val
+ */
+
+rule IntLiteral
+transform e:OCL!IntegerLiteralExp
+to ps:SQL!PlainSelect {
+  ps.selItems.add(longSelectItem('res', e.integerValue.asLong()));
+  ps.selItems.add(longSelectItem('val', 1l));
+}
+
+rule StringLiteral
+transform e:OCL!StringLiteralExp
+to ps:SQL!PlainSelect {
+  ps.selItems.add(stringSelectItem('res', e.stringValue));
+  ps.selItems.add(longSelectItem('val', 1l));
+}
+
+rule BooleanLiteralExp
+transform e:OCL!BooleanLiteralExp
+to ps:SQL!PlainSelect {
+  ps.selItems.add(booleanSelectItem('res', e.booleanValue));
+  ps.selItems.add(longSelectItem('val', 1l));
+}

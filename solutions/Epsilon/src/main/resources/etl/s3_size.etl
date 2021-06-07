@@ -1,0 +1,59 @@
+import 'utilities.eol';
+
+/*
+  mape(s->size()) =
+    SELECT
+      COUNT(*) as res,
+      1 as val
+    FROM (mape(s)) AS TEMP_src
+*/
+rule SizeWithoutFree
+transform op:OCL!OperationCallExp
+to ps:SQL!PlainSelect {
+  guard : (
+    op.referredOperation == OCL!Operator#size
+    and op.freeVars().isEmpty()
+  )
+
+  ps.selItems.add(selectItem('res', new SQL!CountAllFunction));
+  ps.selItems.add(longSelectItem('val', 1l));
+  ps.fromItem = subselect('TEMP_src', copyIfContained(op.source.equivalent()));
+}
+
+/*
+  mape(s->size()) =
+    SELECT
+      CASE TEMP_src.val = 0
+        WHEN 1 THEN 0
+        ELSE COUNT(*) END as res,
+      TEMP_src.ref_v as ref_v, for each v in SVars(s)
+      1 as val
+    FROM (mape(s)) AS TEMP_src
+*/
+rule SizeWithFree
+transform op:OCL!OperationCallExp
+to ps:SQL!PlainSelect {
+  guard : (
+    op.referredOperation == OCL!Operator#size
+    and not op.freeVars().isEmpty()
+  )
+
+  ps.selItems.add(selectItem('res', caseExpression(
+    equalsExpression(column('TEMP_src', 'val'), longValue(0l)),
+    whenClause(longValue(1l), longValue(0l)),
+    new SQL!CountAllFunction
+  )));
+  for (sourceVar in op.source.sourceVars()) {
+    var refName = 'ref_' + sourceVar.name;
+    ps.selItems.add(selectItem(refName, column('TEMP_src', refName)));
+  }
+  ps.selItems.add(longSelectItem('val', 1l));
+  ps.fromItem = subselect('TEMP_src', copyIfContained(op.source.equivalent()));
+
+  var groupBy = new SQL!GroupByElement;
+  for (sourceVar in op.source.sourceVars()) {
+    groupBy.groupByExps.add(column('TEMP_src', 'ref_' + sourceVar.name));
+  }
+  groupBy.groupByExps.add(column('TEMP_src', 'val'));
+  ps.groupBy = groupBy;
+}

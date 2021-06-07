@@ -1,0 +1,213 @@
+operation longSelectItem(name: String, val: Integer) : SQL!SelectItem {
+  return selectItem(name, longValue(val));
+}
+
+operation longValue(val: Integer): SQL!LongValue {
+  var v = new SQL!LongValue;
+  v.value = val;
+  return v;
+}
+
+operation stringSelectItem(name: String, val: String) : SQL!SelectItem {
+  return selectItem(name, stringValue(val));
+}
+
+operation stringValue(val: String): SQL!StringValue {
+  var v = new SQL!StringValue;
+  v.value = val;
+  return v;  
+} 
+
+operation booleanSelectItem(name: String, val: Boolean) : SQL!SelectItem {
+  return selectItem(name, booleanValue(val));
+}
+
+operation booleanValue(val: Boolean): SQL!LongValue {
+  var v = new SQL!LongValue;
+  v.value = val ? 1l : 0l;
+  return v;  
+}
+
+operation selectItem(name: String, exp: SQL!Expression): SQL!SelectItem {
+   var item = new SQL!SelectItem;
+   item.`alias` = sqlAlias(name);
+   item.exp = exp;
+   return item;
+}
+
+operation andExpression(left: SQL!Expression, right: SQL!Expression): SQL!AndExpression {
+   var e = new SQL!AndExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e; 
+}
+
+operation orExpression(left: SQL!Expression, right: SQL!Expression): SQL!OrExpression {
+   var e = new SQL!OrExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e;
+}
+
+operation equalsExpression(left: SQL!Expression, right: SQL!Expression): SQL!EqualsToExpression {
+   var e = new SQL!EqualsToExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e; 
+}
+
+operation greaterThanExpression(left: SQL!Expression, right: SQL!Expression): SQL!GreaterThanExpression {
+   var e = new SQL!GreaterThanExpression;
+   e.leftExp = left;
+   e.rightExp = right;
+   return e; 
+}
+
+operation sqlAlias(name: String) {
+  var al = new SQL!Alias;
+  al.name = name;
+  return al;
+}
+
+operation column(tableName: String, columnName: String) : SQL!Column {
+  var col = new SQL!Column;
+  col.name = columnName;
+  col.table = table(tableName);
+  return col;
+}
+
+operation subselect(aliasName: String, sel: SQL!PlainSelect) : SQL!SubSelect {
+  var sub = new SQL!SubSelect;
+  sub.`alias` = sqlAlias(aliasName);
+  sub.selectBody = sel;
+  return sub;
+}
+
+operation table(name: String): SQL!Table {
+  var t = new SQL!Table;
+  t.name = name;
+  return t;
+}
+
+operation join(rightItem: SQL!FromItem): SQL!Join {
+  var j = new SQL!Join;
+  j.rightItem = rightItem;
+  return j;
+}
+
+operation leftJoinOn(rightItem: SQL!FromItem, onExp: SQL!Expression): SQL!Join {
+  var j = join(rightItem);
+  j.left = true;
+  j.onExp = onExp;
+  return j;
+}
+
+operation isNull(exp: SQL!Expression): SQL!IsNullExpression {
+  var e = new SQL!IsNullExpression;
+  e.exp = exp;
+  return e;
+}
+
+operation whenClause(when: SQL!Expression, then: SQL!Expression) {
+  var e = new SQL!WhenClause;
+  e.whenExp = when;
+  e.thenExp = then;
+  return e;
+}
+
+operation caseExpression(caseExp: SQL!Expression, whenClause: SQL!WhenClause, elseExp: SQL!Expression): SQL!CaseExpression {
+  var e = new SQL!CaseExpression;
+  e.caseExp = caseExp;
+  e.whenClauses.add(whenClause);
+  e.elseExp = elseExp;
+  return e;
+}
+
+@cached
+operation OCL!VariableExp source() {
+  return self.referredVariable.loopExp.source;
+}
+
+@cached
+operation OCL!OclExpression freeVars(): Set {
+  var allBoundVars =
+    self.eAllContents().select(v:OCL!Variable | true).asSet();
+  var allVarExps =
+    self.eAllContents().select(ve|ve.isKindOf(OCL!VariableExp));
+
+  return allVarExps
+    .select(ve | not allBoundVars.contains(ve.referredVariable))
+    .collect(ve | ve.referredVariable)
+    .asSet();
+}
+
+operation OCL!VariableExp freeVars() : Set {
+  return Set { self.referredVariable };
+}
+
+@cached
+operation OCL!OclExpression sourceVars(): Set {
+  var res : Set;
+
+  for (v in self.freeVars()) {
+    res.add(v);
+    res.addAll(v.loopExp.source.sourceVars());
+  }
+
+  return res;
+}
+
+@cached
+operation OCL!PropertyCallExp attributeName() : String {
+  return self.referredProperty.name;
+}
+
+@cached
+operation OCL!PropertyCallExp entityName() : String {
+  return self.referredProperty.eContainer.name;
+}
+
+@cached
+operation OCL!PropertyCallExp variableName(): String {
+  return self.source.referredVariable.name;
+}
+
+operation copyIfContained(value) {
+  var emfTool = new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+  if (value.eContainer.isDefined()) {
+    /*
+      Note: this cloning is needed because what OCL2PSQL really produces is not
+      an abstract syntax tree (as the containment EReference SubSelect.selectBody would
+      suggest), but rather an abstract syntax *graph*. There are entire subtrees in
+      the SQL version of the OCL query that could be reused.
+
+      Consider stage 8 challenge 0:
+
+        Car.allInstances()->exists(c|c.owners->exists(p|p.name = 'Peter'))
+
+      If we look at the mappings, we can see that the translation of both the inner
+      'exists' and 'p.name' require using mape(c.owners): the 'exists' needs it as it
+      is its source (mape(s), as in s->exists(v|b)), and 'p.name' needs it
+      because it is the source of the variable 'p' as well.
+
+      Ideally, this could be fixed by simply making selectBody in SubSelect *not*
+      a containment reference, and then only turning into SQL the PlainSelect that
+      does not have anyone else pointing at it (this would require setting appropriate
+      opposite references).
+
+      For now, we patch this leak by simply cloning the subtree when we detect we would
+      be about to move it, but it is a bit of a hack: the real fix is changing the SQL
+      metamodel itself. The M2T transformation wouldn't have any issues: as far I am aware
+      of, you shouldn't be running into cycles. We still print a warning so we know which
+      OCL queries run into this issue.
+    */
+    //console self.println('WARNING - cloning shared subtree needed by ');
+    return emfTool.ecoreUtil.copy(value);
+  }
+  return value;
+}
+
+operation Any eAllContents(): Sequence {
+  // https://www.eclipse.org/forums/index.php/t/501975/
+  return self.closure(e | e.eContents());
+}

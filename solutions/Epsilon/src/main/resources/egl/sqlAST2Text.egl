@@ -1,0 +1,97 @@
+[%= SelectStatement.all.first.generate() %][%
+
+@template
+operation SelectStatement generate() { %]
+[%=self.selectBody.generate()%];
+[% }
+
+@template
+operation PlainSelect generate() { %]
+SELECT
+[% for (si in self.selItems) { %]
+[%=si.generate() + (hasMore ? "," : "")%]
+[% }
+   if (self.fromItem.isDefined()) { %]
+FROM [%=self.fromItem.generate() %] 
+[% }
+   for (join in self.joins) {%]
+[%=join.generate()%]
+[% }
+   if (self.whereExp.isDefined()) { %]
+WHERE [%=self.whereExp.generate() %]
+[% }
+  if (self.groupBy.isDefined()) { %]
+[%= self.groupBy.generate() %]
+[%
+  }
+}
+
+@template
+operation Join generate() { %]
+[%= self.left ? 'LEFT JOIN ' : 'JOIN ' %][%= self.rightItem.generate()%]
+[% if (self.onExp.isDefined()) { %]
+ON [%= self.onExp.generate() %][%
+   }
+}
+
+@template
+operation GroupByElement generate() { %]
+GROUP BY [% for (exp in self.groupByExps) { %][%= exp.generate() + (hasMore ? ', ' : '')%][% }
+}
+
+@template
+operation SelectItem generate() { %]
+[%=self.exp.generate()%] AS [%= self.`alias`.name %][% }
+
+@template
+operation LongValue generate() { %][%= self.value %][% }
+
+@template
+operation StringValue generate() { %][%= self.value %][% }
+
+@template
+operation EqualsToExpression generate() { %][%=self.leftExp.generate()%] = [%=self.rightExp.generate()%][% }
+
+@template
+operation AndExpression generate() { %][%=self.leftExp.generate()%] AND [%=self.rightExp.generate()%][% }
+
+@template
+operation OrExpression generate() { %]([%=self.leftExp.generate()%] OR [%=self.rightExp.generate()%])[% }
+
+@template
+operation GreaterThanExpression generate() { %][%=self.leftExp.generate()%] > [%=self.rightExp.generate()%][% }
+
+@template
+operation Column generate() { %][%= self.table.name %].[%= self.name %][%}
+
+@template
+operation SubSelect generate() { %]
+(
+[%=self.selectBody.isDefined() ? self.selectBody.generate() : '!!!NO_BODY!!!' %]
+) AS [%= self.`alias`.name %]
+[% }
+
+@template
+operation Table generate() { %][%= self.name %][% if (self.`alias`.isDefined()) { %] AS [%= self.`alias`.name %][% } }
+
+@template
+operation CountAllFunction generate() { %]COUNT(*)[% }
+
+@template
+operation CaseExpression generate() {%]
+(
+CASE [%= self.caseExp.generate() %]
+[% for (wc in self.whenClauses) { %]
+[%= wc.generate() %]
+[% } %]
+ELSE [%= self.elseExp.generate() %] END
+)[%
+}
+
+@template
+operation WhenClause generate() { %]WHEN [%=self.whenExp.generate()%] THEN [%=self.thenExp.generate() %][% }
+
+@template
+operation IsNullExpression generate() { %][%= self.exp.generate() %] IS NULL[% }
+
+%]

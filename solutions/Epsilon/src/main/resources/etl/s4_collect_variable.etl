@@ -1,0 +1,55 @@
+import 'utilities.eol';
+
+/*
+  mape(s->collect(v | b)) =
+    SELECT TEMP_body.res as res,
+    TEMP_body.val as val,
+    FROM (mape(b)) as TEMP_body
+*/
+rule Collect_FreeVarsEmpty
+transform op:OCL!IteratorExp
+to ps:SQL!PlainSelect {
+  guard : (
+    op.kind == OCL!IteratorKind#collect
+    and op.freeVars().isEmpty()
+  )
+
+  ps.selItems.add(selectItem('res', column('TEMP_body', 'res')));
+  ps.selItems.add(selectItem('val', column('TEMP_body', 'val')));
+  ps.fromItem = subselect('TEMP_body', copyIfContained(op.body.equivalent()));
+
+  /*
+   * Iterator not in the body: need to do a JOIN with source ourselves
+   * (this wasn't in the case description, but it was in the original
+   * FDSE'19 paper: needed for s4c0).
+   */
+  if (not op.body.freeVars().contains(op.iterator.first)) {
+    ps.joins.add(join(subselect('TEMP_src', copyIfContained(op.source.equivalent()))));
+  }
+}
+
+/*
+mape(v) =
+  SELECT
+    TEMP_dmn.res as res,
+    TEMP_dmn.res as ref_v,
+    TEMP_dmn.val as val,
+    TEMP_dmn.ref_v as ref_v, for each v in SVars(src(v))
+  FROM (mape(src(v))) as TEMP_dmn
+*/
+rule VariableExp
+transform v:OCL!VariableExp
+to ps:SQL!PlainSelect {
+  var vName = v.referredVariable.name;
+
+  ps.selItems.add(selectItem('res', column('TEMP_dmn', 'res')));
+  ps.selItems.add(selectItem('ref_' + vName, column('TEMP_dmn', 'res')));
+  ps.selItems.add(selectItem('val', column('TEMP_dmn', 'val')));
+
+  for (sourceV in v.source().sourceVars()) {
+    var refName = 'ref_' + sourceV.name;
+    ps.selItems.add(selectItem(refName, column('TEMP_dmn', refName)));
+  }
+
+  ps.fromItem = subselect('TEMP_dmn', copyIfContained(v.source().equivalent()));
+}

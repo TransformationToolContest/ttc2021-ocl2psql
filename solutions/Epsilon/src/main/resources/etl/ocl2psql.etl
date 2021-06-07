@@ -1,0 +1,16 @@
+import 's0_literals.etl';
+import 's1_equals_and.etl';
+import 's2_allInstances.etl';
+import 's3_size.etl';
+import 's4_collect_variable.etl';
+import 's5_attributes.etl';
+import 's6_associationEnds.etl';
+import 's7_exists.etl';
+import 's8_existsWithFree.etl';
+
+post {
+  var firstRootSelect = SQL!PlainSelect.all.selectOne(ps|ps.eContainer.isUndefined());
+  
+  var stmt = new SQL!SelectStatement;
+  stmt.selectBody = firstRootSelect;
+}

@@ -1,0 +1,116 @@
+import 'utilities.eol';
+
+/*
+  mape(l=r) =
+    SELECT
+      TEMP_left.res = TEMP_right.res as res,
+      1 as val
+    FROM
+     (mape(l)) AS TEMP_left,
+     (mape(r)) AS TEMP_right
+
+  AND version is same as above, replacing = with AND.
+*/
+rule EqualsOrAnd_WithoutFree
+transform op:OCL!OperationCallExp
+to ps:SQL!PlainSelect {
+  guard : (
+    (op.referredOperation == OCL!Operator#equal
+     or op.referredOperation == OCL!Operator#AND)
+    and op.source.freeVars().isEmpty()
+    and op.argument.first.freeVars().isEmpty()
+  )
+
+  addAndOrEqualsExpr(op, ps);
+  ps.selItems.add(longSelectItem('val', 1l));
+
+  ps.fromItem = subselect('TEMP_left', copyIfContained(op.source.equivalent()));
+  ps.joins.add(join(subselect('TEMP_right', copyIfContained(op.argument.first.equivalent()))));
+}
+
+/*
+  FVars(𝑙) ≠ ∅, SVars(𝑟) ⊆ SVars(𝑙). Then,
+
+  mape(l=r) =
+    SELECT
+      TEMP_left.res = TEMP_right.res as res,
+      CASE
+        TEMP_left.val = 0 OR TEMP_right.val = 0
+        WHEN 1 THEN 0
+        ELSE 1 END as val,
+      TEMP_left.ref_v as ref_v, for each v in SVars(l)
+    FROM (mape(l)) AS TEMP_left
+    [LEFT] JOIN (mape(r)) AS TEMP_right
+    [ON TEMP_left.ref_v = TEMP_right.ref_v, for each v in SVars(l) \hat SVars(r)]
+*/
+
+rule EqualsOrAnd_WithFree
+transform op:OCL!OperationCallExp
+to ps:SQL!PlainSelect {
+  guard : (
+    (op.referredOperation == OCL!Operator#equal
+     or op.referredOperation == OCL!Operator#AND)
+    and not op.source.freeVars().isEmpty()
+    and op.source.sourceVars().containsAll(op.argument.first.sourceVars())
+  )
+
+  addAndOrEqualsExpr(op, ps);
+  ps.selItems.add(selectItem('val', caseExpression(
+    orExpression(
+      equalsExpression(column('TEMP_left', 'val'), longValue(0l)),
+      equalsExpression(column('TEMP_right', 'val'), longValue(0l))
+    ),
+    whenClause(longValue(1l), longValue(0l)),
+    longValue(1l)
+  )));
+
+  // TEMP_left.ref_v as ref_v, for each v in SVars(l)
+  var leftSVars = op.source.sourceVars();
+  for (sourceVar in leftSVars) {
+    var refName = 'ref_' + sourceVar.name;
+    ps.selItems.add(selectItem(refName, column('TEMP_left', refName)));
+  }
+
+  // FROM (mape(l)) AS TEMP_left
+  ps.fromItem = subselect('TEMP_left', copyIfContained(op.source.equivalent()));
+
+  /*
+    [LEFT] JOIN (mape(r)) AS TEMP_right
+    [ON TEMP_left.ref_v = TEMP_right.ref_v, for each v in SVars(l) \hat SVars(r)]
+   */
+  var rightSubselect = subselect('TEMP_right', copyIfContained(op.argument.first.equivalent()));
+  var intersectSVars : Set;
+  intersectSVars.addAll(leftSVars);
+  intersectSVars.retainAll(op.argument.first.sourceVars());
+
+  if (intersectSVars.isEmpty()) {
+    ps.joins.add(join(rightSubselect));
+  } else {
+    var onExpr = null;
+    for (sourceVar in intersectSVars) {
+      var refName = 'ref_' + sourceVar.name;
+      var cond = equalsExpression(
+        column('TEMP_left', refName),
+        column('TEMP_right', refName)
+      );
+      if (onExpr.isUndefined()) {
+        onExpr = cond;
+      } else {
+        onExpr = andExpression(onExpr, cond);
+      }
+    }
+    ps.joins.add(leftJoinOn(rightSubselect, onExpr));
+  }
+}
+
+operation addAndOrEqualsExpr(op: OCL!OperationCallExp, ps: SQL!PlainSelect) {
+  var exp = null;
+  if (op.referredOperation == OCL!Operator#AND) {
+    exp = new SQL!AndExpression;
+  } else {
+    exp = new SQL!EqualsToExpression;
+  }
+  exp.leftExp = column('TEMP_left', 'res');
+  exp.rightExp = column('TEMP_right', 'res');
+  ps.selItems.add(selectItem('res', exp));
+}

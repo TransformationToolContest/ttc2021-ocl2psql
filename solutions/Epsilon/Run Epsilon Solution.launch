@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/epsilon/src/main/java/eu/ttc2020/ocl/epsilon/CaseLauncher.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <mapAttribute key="org.eclipse.debug.core.environmentVariables">
+        <mapEntry key="ChallengeIndex" value="0"/>
+        <mapEntry key="MySQLPassword" value="password"/>
+        <mapEntry key="MySQLPort" value="8083"/>
+        <mapEntry key="MySQLUsername" value="root"/>
+        <mapEntry key="OCLQuery" value="2"/>
+        <mapEntry key="PathToOCLXMI" value="${resource_loc:/epsilon/models/Stage8Challenge0.xmi}"/>
+        <mapEntry key="RunIndex" value="0"/>
+        <mapEntry key="StageIndex" value="8"/>
+        <mapEntry key="Tool" value="Epsilon"/>
+    </mapAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="eu.ttc2020.ocl.epsilon.CaseLauncher"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="epsilon"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="epsilon"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+</launchConfiguration>

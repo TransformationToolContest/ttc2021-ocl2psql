@@ -1,0 +1,34 @@
+import 'utilities.eol';
+
+/*
+  mape(s->exists(v | b)) =
+    SELECT
+      COUNT(*) > 0 as res,
+      1 as val
+    FROM (mape(b)) as TEMP_body
+    WHERE TEMP_body.res = 1
+*/
+rule Exists_WithoutFree
+transform op:OCL!IteratorExp
+to ps:SQL!PlainSelect {
+  guard : (
+    op.kind == OCL!IteratorKind#exists
+    and op.freeVars().isEmpty()
+  )
+
+  ps.selItems.add(selectItem('res',
+    greaterThanExpression(new SQL!CountAllFunction, longValue(0l))));
+  ps.selItems.add(selectItem('val', longValue(1l)));
+
+  ps.fromItem = subselect('TEMP_body', copyIfContained(op.body.equivalent()));
+  ps.whereExp = equalsExpression(column('TEMP_body', 'res'), longValue(1l));
+
+  /*
+   * Iterator not in the body: need to do a JOIN with source ourselves
+   * (this wasn't in the case description, but it was in the original
+   * FDSE'19 paper: needed for s7c0/s7c1).
+   */
+  if (not op.body.freeVars().contains(op.iterator.first)) {
+    ps.joins.add(join(subselect('TEMP_src', copyIfContained(op.source.equivalent()))));
+  }
+}
