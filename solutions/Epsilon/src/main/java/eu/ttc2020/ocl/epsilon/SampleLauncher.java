@@ -46,11 +46,13 @@ public class SampleLauncher {
 		File[] challengeFiles = modelsFolder.listFiles(f -> f.getName().startsWith("Stage") && f.getName().endsWith(".xmi"));
 		Arrays.sort(challengeFiles, (a, b) -> a.getName().compareTo(b.getName()));
 		for (File oclXMIFile : challengeFiles) {
+			final long nanoStart = System.nanoTime();
 			EmfModel emfModel = new OCL2SQL(oclXMIFile).run();
-
 			final File sqlEGLTextFile = new File(outputFolder, oclXMIFile.getName().replaceAll("[.]xmi$", "-egl.sql")); 
 			System.out.println(String.format("Transforming %s into %s", oclXMIFile.getPath(), sqlEGLTextFile.getPath()));
 			String eglSQL = new SQL2Text(emfModel.getResource()).run();
+			System.out.println(String.format("Transformed in %.2f seconds", (System.nanoTime() - nanoStart)/1.e9));
+
 			saveStringToFile(eglSQL, sqlEGLTextFile);
 		}
 	}
