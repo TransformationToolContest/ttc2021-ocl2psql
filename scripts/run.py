@@ -3,12 +3,15 @@
 @author: Zsolt Kovari, Georg Hinkel
 
 """
+import pandas as pd 
+import matplotlib.pyplot as plt 
 import argparse
 import os
 import shutil
 import subprocess
 import sys
 import signal
+
 try:
     import ConfigParser
 except ImportError:
@@ -103,14 +106,42 @@ def set_working_directory(*path):
     os.chdir(dir)
 
 
-def visualize():
+def visualize(conf):
     """
     Visualizes the benchmark results
     """
     clean_dir("diagrams")
-    set_working_directory("reporting2")
-    subprocess.call(["Rscript", "-e", "rmarkdown::render('report.Rmd', output_format=rmarkdown::pdf_document())"])
+    set_working_directory("output")
+    df = pd.read_csv("output.csv", delimiter=";")  
 
+    df['Stage'] = "S" + df['Stage'].astype(str) + "C" + df['Challenge'].astype(str)
+    df = df.drop(['Challenge','RunIndex'],1)
+
+    dfs = dict(tuple(df.groupby('MetricName')))
+
+    scehemes = ['TransformTimeNanos','TestTimeNanos']
+    tools = conf.Tools
+
+    for scheme in scehemes :
+        tgtdf = dfs[scheme].drop('MetricName',1)
+        tgtdf["MetricValue"] = pd.to_numeric(tgtdf["MetricValue"])
+        tgtdfs = dict(tuple(tgtdf.groupby('Tool')))
+
+        finaldf = None
+
+        for tool in tools:
+            tooldf = tgtdfs[tool].drop('Tool',1).rename(columns={'MetricValue':tool})
+            tooldf[tool] = tooldf[tool].div(1000000000).round(2)
+            tooldf = tooldf.groupby(['Stage']).mean().reset_index()
+            print(tooldf)
+            if finaldf is None :
+                finaldf = tooldf
+            else :
+                finaldf = pd.merge(finaldf,tooldf, on='Stage')
+
+        ax = finaldf.plot(kind='bar',x='Stage',y=tools, title=scheme)
+        ax.set_ylabel("seconds")
+        plt.savefig(scheme+".pdf")
 
 def check_results():
     """
@@ -162,6 +193,6 @@ if __name__ == "__main__":
     if args.measure or no_args:
         benchmark(config)
     if args.visualize or no_args:
-        visualize()
+        visualize(config)
     if args.check or no_args:
         check_results()
