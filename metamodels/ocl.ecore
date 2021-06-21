@@ -38,7 +38,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Operator" instanceClassName="java.lang.Object">
       <eLiterals name="equal" literal="="/>
-      <eLiterals name="AND" value="1" literal="and"/>
+      <eLiterals name="AND" value="1" literal="AND"/>
       <eLiterals name="allInstances" value="2"/>
       <eLiterals name="size" value="3"/>
     </eClassifiers>
