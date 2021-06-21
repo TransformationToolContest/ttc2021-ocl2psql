@@ -23,6 +23,7 @@ public class Solution {
 	private static final String METRIC_TEST_TIME = "TestTimeNanos";
 	// Database scenarios, from 1 to 7. More detail in docs/scenarios.
 	private static final String METRIC_SCENARIO_PREFIX = "Scenario%d";
+	private static final String METRIC_SCENARIO_ALL_PREFIX = "ScenarioID";
 	private static final int scenarios = 7;
 
 	public void run(Configuration c) {
@@ -58,9 +59,11 @@ public class Solution {
 					final long nanosTestSQLEnd = System.nanoTime();
 					totalTestTime += nanosTestSQLEnd - nanosTestSQLStart;
 					totalCorrect = totalCorrect && localCorrect;
-					final String result = localCorrect?"passed":"failed";
-					printMetric(c, String.format(METRIC_SCENARIO_PREFIX, iScenario), result);
+//					final String result = localCorrect?"passed":"failed";
+//					printMetric(c, String.format(METRIC_SCENARIO_PREFIX, iScenario), result);
 				}
+				final String result = totalCorrect?"passed":"failed";
+				printMetric(c, METRIC_SCENARIO_ALL_PREFIX, result);
 				if (totalCorrect) {
 					printMetric(c, METRIC_TEST_TIME, totalTestTime);
 				}
